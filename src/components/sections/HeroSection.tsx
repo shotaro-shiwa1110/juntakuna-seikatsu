@@ -41,7 +41,7 @@ export default function HeroSection() {
           <ScrollReveal delay={300}>
             <div className="flex flex-wrap gap-4">
               <Link href="/projects" className="btn-primary">
-                プロジェクトを見る →
+                プロジェクトを見る ▶
               </Link>
               <Link href="/log" className="btn-secondary">
                 実践録を読む

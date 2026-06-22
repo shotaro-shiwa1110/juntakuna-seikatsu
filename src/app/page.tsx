@@ -9,7 +9,7 @@ export default function TopPage() {
   return (
     <>
       <HeroSection />
-      <DashboardSection stats={dashboardStats} />
+      <DashboardSection stats={dashboardStats} logs={logs} />
       <ManifestoSection />
       <ProjectsSection projects={projects} />
       <LatestLogSection entries={logs.slice(0, 4)} />

@@ -87,7 +87,7 @@ export default function ContactPage() {
               </div>
 
               <button type="submit" className="btn-primary w-full justify-center">
-                送信する →
+                送信する ▶
               </button>
             </form>
           </div>

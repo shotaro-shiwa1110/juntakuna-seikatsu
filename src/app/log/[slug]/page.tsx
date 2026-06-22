@@ -97,7 +97,7 @@ export default function LogDetailPage({ params }: Props) {
           >
             <span className="font-mono text-[9px] tracking-[0.15em] text-ink-30">{relatedProject.number}</span>
             <span className="font-mincho text-[22px] leading-[1.5] group-hover:text-ink-60 transition-colors">
-              {relatedProject.title} →
+              {relatedProject.title} ▶
             </span>
           </Link>
         </div>
@@ -138,7 +138,7 @@ export default function LogDetailPage({ params }: Props) {
             .map((l) => <LogCard key={l.slug} entry={l} />)}
         </div>
         <div className="mt-8">
-          <Link href="/log" className="btn-secondary">実践録をすべて見る →</Link>
+          <Link href="/log" className="btn-secondary">実践録をすべて見る ▶</Link>
         </div>
       </div>
     </article>

@@ -97,7 +97,7 @@ export default function ProfilePage() {
             実践への参加・コラボレーション・メディア掲載などのご相談を歓迎します。
           </p>
           <Link href="/contact" className="btn-primary">
-            お問い合わせはこちら →
+            お問い合わせはこちら ▶
           </Link>
         </ScrollReveal>
       </div>

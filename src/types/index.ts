@@ -60,6 +60,18 @@ export interface ArchiveItem {
   placeholder: string
 }
 
+export type NoteType = '読書メモ' | '学習メモ' | 'アイデア' | '調査メモ' | '思考の断片'
+
+export interface LibraryNote {
+  slug: string
+  title: string
+  date: string
+  type: NoteType
+  tags: string[]
+  excerpt: string
+  body: string
+}
+
 export interface DashboardStats {
   places: number
   people: number

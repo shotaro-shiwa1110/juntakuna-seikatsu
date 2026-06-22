@@ -17,7 +17,7 @@ export default function ProjectsSection({ projects }: Props) {
             <h2 className="font-mincho text-[28px] md:text-[32px]">進行中のプロジェクト</h2>
           </div>
           <Link href="/projects" className="btn-secondary self-start md:self-auto">
-            すべてのプロジェクトを見る →
+            すべてのプロジェクトを見る ▶
           </Link>
         </div>
         <p className="font-serif text-[16px] text-ink-60 leading-[1.8] mb-10">

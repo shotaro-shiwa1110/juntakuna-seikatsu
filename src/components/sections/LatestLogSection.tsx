@@ -20,7 +20,7 @@ export default function LatestLogSection({ entries }: Props) {
             </p>
             <div className="mt-8">
               <Link href="/log" className="btn-primary">
-                すべての記事を読む →
+                すべての記事を読む ▶
               </Link>
             </div>
           </div>

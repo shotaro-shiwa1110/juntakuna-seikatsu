@@ -6,15 +6,14 @@ const footerGroups = [
     links: [
       { href: '/log', label: '実践録' },
       { href: '/projects', label: 'プロジェクト' },
-      { href: '/theme', label: 'テーマ' },
+      { href: '/library', label: '資料室' },
       { href: '/archive', label: 'アーカイブ' },
     ],
   },
   {
     label: 'フィールド',
     links: [
-      { href: '/people', label: '人物' },
-      { href: '/place', label: '場所' },
+      { href: '/people', label: '人と場所' },
     ],
   },
   {

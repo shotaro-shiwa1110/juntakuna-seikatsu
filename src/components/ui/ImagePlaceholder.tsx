@@ -5,7 +5,7 @@ interface Props {
 
 export default function ImagePlaceholder({ label, className = '' }: Props) {
   return (
-    <div className={`relative bg-[#E8E2D9] overflow-hidden ${className}`} style={{
+    <div className={`relative bg-[#E8E2D9] overflow-hidden grain-overlay image-scanlines ${className}`} style={{
       backgroundImage: `
         linear-gradient(rgba(213,207,200,0.6) 1px, transparent 1px),
         linear-gradient(90deg, rgba(213,207,200,0.6) 1px, transparent 1px)
