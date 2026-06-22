@@ -4,7 +4,7 @@ interface Props {
 
 export default function Tag({ label }: Props) {
   return (
-    <span className="inline-block font-mono text-[8px] tracking-[0.08em] px-2 py-0.5 border border-border text-ink-30">
+    <span className="inline-block font-mono text-[10px] tracking-[0.06em] px-2.5 py-1 border border-border text-ink-30 hover:border-accent hover:text-ink transition-colors">
       {label}
     </span>
   )

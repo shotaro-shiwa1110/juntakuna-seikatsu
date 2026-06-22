@@ -1,12 +1,12 @@
 import type { Category } from '@/types'
 
-const categoryColors: Record<Category, { bg: string; text: string }> = {
-  '食':           { bg: 'bg-[#F0F7D4]', text: 'text-[#5A7A00]' },
-  '住':           { bg: 'bg-[#D4ECF7]', text: 'text-[#005A7A]' },
-  '文化':         { bg: 'bg-[#F7F0D4]', text: 'text-[#7A5A00]' },
-  '経済':         { bg: 'bg-[#F7D4D4]', text: 'text-[#7A0000]' },
-  'コミュニティ': { bg: 'bg-[#F7D4F0]', text: 'text-[#7A0060]' },
-  '自然':         { bg: 'bg-[#D4F7D4]', text: 'text-[#006A00]' },
+const categoryConfig: Record<Category, { bg: string; text: string; dot: string }> = {
+  '食':           { bg: 'bg-[#EEF7D0]', text: 'text-[#4A6A00]', dot: '#7AAA00' },
+  '住':           { bg: 'bg-[#D0EAF7]', text: 'text-[#004A6A]', dot: '#0080AA' },
+  '文化':         { bg: 'bg-[#F7EED0]', text: 'text-[#6A4A00]', dot: '#AA8000' },
+  '経済':         { bg: 'bg-[#F7D8D0]', text: 'text-[#6A1500]', dot: '#C03000' },
+  'コミュニティ': { bg: 'bg-[#EDD0F7]', text: 'text-[#5A0070]', dot: '#9000B0' },
+  '自然':         { bg: 'bg-[#D0F7E0]', text: 'text-[#005A30]', dot: '#008040' },
 }
 
 interface Props {
@@ -14,9 +14,10 @@ interface Props {
 }
 
 export default function CategoryBadge({ category }: Props) {
-  const { bg, text } = categoryColors[category]
+  const { bg, text, dot } = categoryConfig[category]
   return (
-    <span className={`inline-block font-mono text-[7px] tracking-[0.1em] px-2 py-0.5 ${bg} ${text}`}>
+    <span className={`inline-flex items-center gap-1.5 font-mono text-[11px] tracking-[0.08em] px-2.5 py-1 rounded-sm ${bg} ${text}`}>
+      <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: dot }} />
       {category}
     </span>
   )
