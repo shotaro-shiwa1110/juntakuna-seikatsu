@@ -1,47 +1,75 @@
 import Link from 'next/link'
 
-const footerLinks = [
-  { href: '/', label: 'TOP' },
-  { href: '/log', label: '実践録' },
-  { href: '/projects', label: 'プロジェクト' },
-  { href: '/theme', label: 'テーマ' },
-  { href: '/profile', label: 'プロフィール' },
-  { href: '/archive', label: 'アーカイブ' },
+const footerGroups = [
+  {
+    label: 'コンテンツ',
+    links: [
+      { href: '/log', label: '実践録' },
+      { href: '/projects', label: 'プロジェクト' },
+      { href: '/theme', label: 'テーマ' },
+      { href: '/archive', label: 'アーカイブ' },
+    ],
+  },
+  {
+    label: 'フィールド',
+    links: [
+      { href: '/people', label: '人物' },
+      { href: '/place', label: '場所' },
+    ],
+  },
+  {
+    label: 'について',
+    links: [
+      { href: '/profile', label: 'プロフィール' },
+      { href: '/contact', label: 'お問い合わせ' },
+    ],
+  },
 ]
 
 export default function Footer() {
   return (
     <footer className="bg-ink text-surface mt-24">
-      <div className="px-6 md:px-10 py-16">
-        <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-10">
+      <div className="px-6 md:px-10 pt-14 pb-10">
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-12 mb-12">
+          {/* Brand */}
           <div>
             <div className="font-mincho text-[22px] tracking-wider mb-3">巡拓な生活</div>
-            <div className="font-mono text-[9px] tracking-[0.2em] text-ink-30 mb-2">JUNTAKUNA SEIKATSU — ARCHIVE_001</div>
-            <div className="font-serif text-[14px] text-ink-30 leading-relaxed">日本の暮らしを、もう一度自分の手に取り戻す。</div>
+            <div className="font-mono text-[9px] tracking-[0.2em] text-ink-30 mb-4">JUNTAKUNA SEIKATSU — ARCHIVE_001</div>
+            <div className="font-serif text-[15px] leading-[1.9] max-w-sm" style={{ color: 'rgba(250,248,245,0.55)' }}>
+              農・食・住まい・文化・地域との関わりを通じて、<br />
+              これからの豊かな暮らしを実践し記録するプロジェクト。
+            </div>
+            <div className="mt-6 flex items-center gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-accent inline-block animate-pulse" />
+              <span className="font-mono text-[9px] text-accent tracking-[0.15em]">STATUS_ACTIVE / 2026–</span>
+            </div>
           </div>
 
-          <nav aria-label="フッターナビゲーション" className="flex flex-wrap gap-x-8 gap-y-3">
-            {footerLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="font-serif text-[14px] text-ink-30 hover:text-accent transition-colors min-h-[44px] flex items-center"
-              >
-                {link.label}
-              </Link>
+          {/* Nav groups */}
+          <nav aria-label="フッターナビゲーション" className="grid grid-cols-3 gap-x-10 gap-y-8">
+            {footerGroups.map((group) => (
+              <div key={group.label}>
+                <div className="font-mono text-[8px] tracking-[0.2em] text-ink-30 mb-4">{group.label}</div>
+                <div className="flex flex-col gap-2">
+                  {group.links.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className="font-serif text-[14px] min-h-[36px] flex items-center transition-colors hover:text-accent"
+                      style={{ color: 'rgba(250,248,245,0.7)' }}
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
             ))}
           </nav>
-
-          <div className="text-right">
-            <div className="font-mono text-[9px] text-accent tracking-[0.15em]">STATUS_ACTIVE</div>
-            <div className="font-mono text-[9px] text-ink-30 tracking-[0.1em] mt-1">FIELD_NOTE / 001</div>
-            <div className="font-mono text-[9px] text-ink-30 tracking-[0.1em]">PROJECT 2026–</div>
-          </div>
         </div>
 
-        <div className="border-t border-ink-60 mt-10 pt-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
-          <div className="font-mono text-[10px] text-ink-30 tracking-[0.1em]">© 2026 JUNTAKUNA SEIKATSU</div>
-          <div className="font-mono text-[10px] text-ink-30 tracking-[0.1em]">39.5010°N, 141.0010°E</div>
+        <div className="border-t pt-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-2" style={{ borderColor: 'rgba(213,207,200,0.2)' }}>
+          <div className="font-mono text-[10px] text-ink-30 tracking-[0.1em]">© 2026 JUNTAKUNA SEIKATSU. ALL RIGHTS RESERVED.</div>
+          <div className="font-mono text-[10px] text-ink-30 tracking-[0.1em]">39.5010°N, 141.0010°E — FIELD_NOTE / 001</div>
         </div>
       </div>
     </footer>

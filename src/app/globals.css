@@ -136,6 +136,28 @@ body {
 .article-body em {
   font-style: italic;
 }
+.article-body h2 {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--color-ink);
+  margin-top: 2.5em;
+  margin-bottom: 0.8em;
+  padding-left: 14px;
+  border-left: 3px solid var(--color-accent);
+}
+.article-body blockquote {
+  margin: 2em 0;
+  padding: 1.25em 1.5em;
+  border-left: 2px solid var(--color-accent);
+  background: var(--color-surface);
+  font-family: 'Noto Serif JP', serif;
+  font-size: 16px;
+  line-height: 2;
+  color: var(--color-ink-60);
+  font-style: normal;
+}
 
 /* ── Scroll reveal animation ── */
 .reveal {

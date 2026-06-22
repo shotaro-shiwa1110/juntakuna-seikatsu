@@ -6,6 +6,7 @@ import ImagePlaceholder from '@/components/ui/ImagePlaceholder'
 import CategoryBadge from '@/components/ui/CategoryBadge'
 import Tag from '@/components/ui/Tag'
 import LogCard from '@/components/ui/LogCard'
+import ReadingProgress from '@/components/ui/ReadingProgress'
 import { parseBodyParagraph, readingTime } from '@/lib/utils'
 
 interface Props { params: { slug: string } }
@@ -35,6 +36,7 @@ export default function LogDetailPage({ params }: Props) {
 
   return (
     <article>
+      <ReadingProgress />
       {/* Header */}
       <header className="border-b border-border px-6 md:px-14 py-14">
         <div className="max-w-2xl">
@@ -60,7 +62,7 @@ export default function LogDetailPage({ params }: Props) {
             const isHeading = para.startsWith('**') && para.endsWith('**')
             if (isHeading) {
               return (
-                <h2 key={i} className="font-mincho text-[24px] leading-[1.6] mt-10 mb-4 text-ink">
+                <h2 key={i}>
                   {para.replace(/\*\*/g, '')}
                 </h2>
               )

@@ -335,6 +335,22 @@ export const people: Person[] = [
     description: '移住して10年、地域と空き家をつなぐ仕事をしている。「物件より先に、地域との関係を」が口癖。年間20件以上の空き家マッチングを手がける。移住者の定着率は全国平均の2倍。',
     relatedLogs: ['akiya-8-houses'],
   },
+  {
+    slug: 'matsuda-daiku',
+    name: '松田 輝明',
+    role: '大工 / 古民家再生職人',
+    location: '島根県雲南市',
+    description: '40年のキャリアを持つ大工。近年は古民家の再生に特化し、若い移住者と共に伝統工法を継承する取り組みを続けている。「直す文化を絶やしたくない」。築100年超の物件も手がける。',
+    relatedLogs: ['old-house-repair'],
+  },
+  {
+    slug: 'nishikawa-market',
+    name: '西川 あさ子',
+    role: '朝市主催者 / 農産物直売所 運営',
+    location: '岩手県遠野市',
+    description: '15年前に地元農家と共に朝市を立ち上げ、今では50軒が出店する地域の拠点に育てた。「お金より先に信頼が動く場所にしたい」。農家と買い手の顔が見える関係づくりを大切にしている。',
+    relatedLogs: ['countryside-market'],
+  },
 ]
 
 export const places: Place[] = [
@@ -361,6 +377,22 @@ export const places: Place[] = [
     coordinates: '35.8617°N, 139.6455°E',
     description: '都心から1時間半。田んぼオーナー制度で、毎年20名ほどが田植えと稲刈りに参加している。有機栽培で育てたコシヒカリ。田んぼの周囲には里山が広がる。',
     relatedLogs: ['tanue-community'],
+  },
+  {
+    slug: 'iwate-market',
+    name: '遠野朝市（岩手）',
+    prefecture: '岩手県遠野市',
+    coordinates: '39.3285°N, 141.5265°E',
+    description: '毎週土曜朝6時から始まる直売市。50軒の農家が並ぶ地域最大の朝市。遠野の食文化が凝縮した場所で、値段より会話が先に立つ独特の空気がある。冬は凍れる朝でも変わらず開く。',
+    relatedLogs: ['countryside-market'],
+  },
+  {
+    slug: 'nagano-kura',
+    name: '松本 老舗味噌蔵',
+    prefecture: '長野県松本市 旧市街',
+    coordinates: '36.2382°N, 137.9720°E',
+    description: '明治創業の味噌蔵。昔ながらの木桶仕込みを継承し、年間5000kgの味噌を仕込む。見学体験を受け入れ、発酵の仕組みと文化を次世代に伝える活動も続けている。',
+    relatedLogs: ['miso-making', 'fermentation-lab'],
   },
 ]
 
