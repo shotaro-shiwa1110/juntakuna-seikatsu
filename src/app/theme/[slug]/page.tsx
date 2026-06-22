@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const theme = themes.find((t) => t.slug === params.slug)
   if (!theme) return { title: 'NOT FOUND' }
   return {
-    title: `${theme.name} | 巡拓な生活`,
+    title: theme.name,
     description: theme.description,
   }
 }

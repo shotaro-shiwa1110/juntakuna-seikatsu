@@ -5,7 +5,7 @@ import PageHeader from '@/components/ui/PageHeader'
 import ScrollReveal from '@/components/ui/ScrollReveal'
 
 export const metadata: Metadata = {
-  title: 'プロフィール | 巡拓な生活',
+  title: 'プロフィール',
   description: '日本の暮らしを、もう一度自分の手に取り戻す。実践アーカイブメディア「巡拓な生活」について。',
 }
 

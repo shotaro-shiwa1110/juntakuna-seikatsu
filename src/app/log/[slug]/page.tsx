@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const entry = logs.find((l) => l.slug === params.slug)
   if (!entry) return { title: 'NOT FOUND' }
   return {
-    title: `${entry.title} | 巡拓な生活`,
+    title: entry.title,
     description: entry.excerpt,
   }
 }

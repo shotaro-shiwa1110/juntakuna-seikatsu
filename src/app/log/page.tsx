@@ -4,7 +4,7 @@ import PageHeader from '@/components/ui/PageHeader'
 import LogPageClient from './LogPageClient'
 
 export const metadata: Metadata = {
-  title: '実践録 | 巡拓な生活',
+  title: '実践録',
   description: '日々の実践と思考の記録。農・食・住まい・文化・地域との関わりを綴るフィールドノート。',
 }
 

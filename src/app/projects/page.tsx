@@ -8,7 +8,7 @@ import PageHeader from '@/components/ui/PageHeader'
 import ScrollReveal from '@/components/ui/ScrollReveal'
 
 export const metadata: Metadata = {
-  title: 'プロジェクト | 巡拓な生活',
+  title: 'プロジェクト',
   description: '暮らしの5つの領域それぞれで、実践と実験を続けています。',
 }
 

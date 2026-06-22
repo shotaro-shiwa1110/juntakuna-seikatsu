@@ -14,7 +14,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const item = archiveItems.find((a) => a.slug === params.slug)
   if (!item) return { title: 'NOT FOUND' }
-  return { title: `${item.title} | 巡拓な生活`, description: item.description }
+  return { title: item.title, description: item.description }
 }
 
 const typeLabel: Record<string, string> = {

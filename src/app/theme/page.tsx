@@ -5,7 +5,7 @@ import PageHeader from '@/components/ui/PageHeader'
 import ScrollReveal from '@/components/ui/ScrollReveal'
 
 export const metadata: Metadata = {
-  title: 'テーマ | 巡拓な生活',
+  title: 'テーマ',
   description: '巡拓な生活が探求する、暮らしの6つの領域。',
 }
 

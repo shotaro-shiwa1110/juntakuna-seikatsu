@@ -6,7 +6,7 @@ import PageHeader from '@/components/ui/PageHeader'
 import ScrollReveal from '@/components/ui/ScrollReveal'
 
 export const metadata: Metadata = {
-  title: 'アーカイブ | 巡拓な生活',
+  title: 'アーカイブ',
   description: '写真・ドキュメント・スケッチ・地図。実践の痕跡を収める場所。',
 }
 

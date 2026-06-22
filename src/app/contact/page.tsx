@@ -3,7 +3,7 @@ import PageHeader from '@/components/ui/PageHeader'
 import ScrollReveal from '@/components/ui/ScrollReveal'
 
 export const metadata: Metadata = {
-  title: 'お問い合わせ | 巡拓な生活',
+  title: 'お問い合わせ',
   description: '実践への参加・コラボレーション・メディア掲載などのお問い合わせはこちらから。',
 }
 

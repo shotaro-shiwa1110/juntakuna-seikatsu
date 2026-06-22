@@ -15,7 +15,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const place = places.find((p) => p.slug === params.slug)
   if (!place) return { title: 'NOT FOUND' }
-  return { title: `${place.name} | 巡拓な生活`, description: place.description }
+  return { title: place.name, description: place.description }
 }
 
 export default function PlaceDetailPage({ params }: Props) {
