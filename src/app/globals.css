@@ -25,11 +25,65 @@ html {
 body {
   font-family: 'Noto Serif JP', serif;
   font-size: 16px;
-  line-height: 2.2;
+  line-height: 1.8;
   font-weight: 300;
   background-color: var(--color-base);
 }
 
+/* ── Buttons ── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--color-accent);
+  color: var(--color-ink);
+  font-family: 'Noto Serif JP', serif;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 14px 32px;
+  border-radius: 2px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  min-height: 52px;
+  transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+.btn-primary:hover {
+  background-color: var(--color-accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(184,240,0,0.3);
+}
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: transparent;
+  color: var(--color-ink);
+  font-family: 'Noto Serif JP', serif;
+  font-size: 15px;
+  font-weight: 400;
+  padding: 13px 31px;
+  border-radius: 2px;
+  border: 1.5px solid var(--color-ink);
+  cursor: pointer;
+  text-decoration: none;
+  min-height: 52px;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+.btn-secondary:hover {
+  background-color: var(--color-ink);
+  color: var(--color-surface);
+  transform: translateY(-1px);
+}
+.btn-secondary:active {
+  transform: translateY(0);
+}
+
+/* ── Decorative labels (intentionally small — annotation style) ── */
 .label {
   font-family: 'Space Mono', monospace;
   font-size: 9px;
@@ -49,3 +103,14 @@ body {
 }
 
 .rule { border-color: var(--color-border); }
+
+/* ── Scroll reveal animation ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

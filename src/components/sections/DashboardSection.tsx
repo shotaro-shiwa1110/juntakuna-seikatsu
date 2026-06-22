@@ -1,4 +1,5 @@
 import type { DashboardStats } from '@/types'
+import ScrollReveal from '@/components/ui/ScrollReveal'
 
 const statDefs = [
   { key: 'places' as const, icon: '◎', label: 'PLACES', sub: '訪れた場所' },
@@ -15,30 +16,37 @@ interface Props {
 
 export default function DashboardSection({ stats }: Props) {
   return (
-    <section className="border-b border-border bg-surface px-8 md:px-14 py-10">
-      <div className="flex items-baseline justify-between mb-8">
-        <div>
-          <div className="font-mono text-[7px] tracking-[0.25em] text-accent mb-1">DASHBOARD</div>
-          <h2 className="font-mincho text-[18px]">実践ダッシュボード</h2>
-          <div className="font-mono text-[8px] tracking-[0.1em] text-ink-30 mt-1">2026.05.24 現在</div>
-        </div>
-        <div className="font-mono text-[20px] text-border">+</div>
-      </div>
-
-      <div className="grid grid-cols-3 md:grid-cols-6 gap-6">
-        {statDefs.map(({ key, icon, label, sub }) => (
-          <div key={key} className="text-center">
-            <div className="font-mono text-[16px] text-border mb-2">{icon}</div>
-            <div className="font-mincho text-[36px] leading-none">{stats[key]}</div>
-            <div className="font-mono text-[7px] tracking-[0.15em] text-ink-30 mt-2 uppercase">{label}</div>
-            <div className="font-mono text-[7px] text-ink-30 mt-0.5">{sub}</div>
+    <section className="border-b border-border bg-surface px-6 md:px-14 py-16">
+      <ScrollReveal>
+        <div className="flex items-baseline justify-between mb-10">
+          <div>
+            <div className="font-mono text-[8px] tracking-[0.25em] text-accent mb-2">DASHBOARD</div>
+            <h2 className="font-mincho text-[28px] md:text-[32px]">実践ダッシュボード</h2>
+            <div className="font-mono text-[9px] tracking-[0.1em] text-ink-30 mt-2">2026.05.24 現在</div>
           </div>
+        </div>
+      </ScrollReveal>
+
+      <div className="grid grid-cols-3 md:grid-cols-6 gap-6 md:gap-8">
+        {statDefs.map(({ key, icon, label, sub }, i) => (
+          <ScrollReveal key={key} delay={i * 60}>
+            <div className="text-center">
+              <div className="font-mono text-[18px] text-border mb-3">{icon}</div>
+              <div className="font-mincho text-[40px] leading-none">{stats[key]}</div>
+              <div className="font-mono text-[8px] tracking-[0.15em] text-ink-30 mt-3 uppercase">{label}</div>
+              <div className="font-serif text-[12px] text-ink-30 mt-1">{sub}</div>
+            </div>
+          </ScrollReveal>
         ))}
       </div>
 
-      <div className="text-right mt-8">
-        <span className="font-mono text-[8px] tracking-[0.15em] text-ink-30">VIEW ALL DATA →</span>
-      </div>
+      <ScrollReveal delay={400}>
+        <div className="flex justify-end mt-12">
+          <a href="/archive" className="btn-secondary text-sm">
+            すべてのデータを見る →
+          </a>
+        </div>
+      </ScrollReveal>
     </section>
   )
 }

@@ -9,11 +9,11 @@ interface Props {
 
 export default function ProjectCard({ project }: Props) {
   return (
-    <Link href={`/projects/${project.slug}`} className="group block bg-base p-5 hover:bg-surface transition-colors">
-      <div className="font-mono text-[7px] tracking-[0.15em] text-accent mb-3">{project.number}</div>
-      <ImagePlaceholder label={project.imagePlaceholder} className="h-[80px] mb-3" />
-      <h3 className="font-mincho text-[13px] leading-[1.7] mb-2">{project.title}</h3>
-      <p className="font-serif text-[12px] text-ink-60 leading-[1.9] mb-3 line-clamp-2">{project.description}</p>
+    <Link href={`/projects/${project.slug}`} className="group block bg-base p-6 hover:bg-surface transition-colors h-full">
+      <div className="font-mono text-[8px] tracking-[0.15em] text-accent mb-4">{project.number}</div>
+      <ImagePlaceholder label={project.imagePlaceholder} className="h-[90px] mb-4" />
+      <h3 className="font-mincho text-[16px] leading-[1.6] mb-3">{project.title}</h3>
+      <p className="font-serif text-[14px] text-ink-60 leading-[1.85] mb-4 line-clamp-3">{project.description}</p>
       <div className="flex flex-wrap gap-1">
         {project.tags.slice(0, 2).map((tag) => (
           <Tag key={tag} label={tag} />
