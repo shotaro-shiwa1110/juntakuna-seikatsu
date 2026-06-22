@@ -1,9 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600&family=Noto+Serif+JP:wght@300;400;500&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-:root {
+@theme {
   --color-base: #F5F2ED;
   --color-surface: #FAF8F5;
   --color-ink: #1A1A1A;
@@ -11,6 +9,12 @@
   --color-ink-30: #9A9390;
   --color-border: #D5CFC8;
   --color-accent: #B8F000;
+  --color-accent-hover: #A0D900;
+  --color-on-accent: #1A1A1A;
+
+  --font-mincho: "Shippori Mincho", serif;
+  --font-serif: "Noto Serif JP", serif;
+  --font-mono: "Space Mono", monospace;
 }
 
 html {
