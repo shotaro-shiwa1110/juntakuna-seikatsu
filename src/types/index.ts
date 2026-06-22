@@ -19,7 +19,7 @@ export interface Project {
   description: string
   themes: string[]
   tags: string[]
-  status: 'ACTIVE' | 'PAUSED' | 'COMPLETE'
+  status: 'ACTIVE' | 'PAUSED' | 'COMPLETED'
   imagePlaceholder: string
   logs: string[]
 }

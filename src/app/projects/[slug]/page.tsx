@@ -40,7 +40,7 @@ export default function ProjectDetailPage({ params }: Props) {
         <div className="grid grid-cols-1 md:grid-cols-[1fr_300px] gap-12">
           <div>
             <div className="mb-4">
-              <StatusBadge status={project.status as 'ACTIVE' | 'PAUSED' | 'COMPLETED'} />
+              <StatusBadge status={project.status} />
             </div>
             <h1 className="font-mincho text-[44px] md:text-[52px] leading-[1.3] mb-4">{project.title}</h1>
             <p className="font-mono text-[10px] tracking-[0.1em] text-ink-30 mb-8">{project.subtitle}</p>
