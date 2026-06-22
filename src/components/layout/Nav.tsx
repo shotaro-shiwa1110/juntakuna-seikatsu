@@ -29,6 +29,7 @@ export default function Nav() {
               <Link
                 key={link.href}
                 href={link.href}
+                aria-current={active ? 'page' : undefined}
                 className={`font-mono text-[8px] tracking-[0.12em] transition-colors ${
                   active
                     ? 'text-ink border-b border-accent pb-0.5'
@@ -39,7 +40,11 @@ export default function Nav() {
               </Link>
             )
           })}
-          <button className="font-mono text-[14px] text-ink-30 hover:text-accent transition-colors ml-2">≡</button>
+          <button
+            aria-hidden="true"
+            tabIndex={-1}
+            className="font-mono text-[14px] text-ink-30 hover:text-accent transition-colors ml-2"
+          >≡</button>
         </nav>
       </div>
     </header>

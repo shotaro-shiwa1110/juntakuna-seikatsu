@@ -20,7 +20,7 @@ export default function Footer() {
             <div className="font-mono text-[7px] tracking-[0.15em] text-ink-60">日本の暮らしを、もう一度自分の手に取り戻す。</div>
           </div>
 
-          <nav className="flex flex-wrap gap-x-6 gap-y-2">
+          <nav aria-label="フッターナビゲーション" className="flex flex-wrap gap-x-6 gap-y-2">
             {footerLinks.map((link) => (
               <Link
                 key={link.href}
