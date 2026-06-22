@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import type { DashboardStats } from '@/types'
 import ScrollReveal from '@/components/ui/ScrollReveal'
 
@@ -42,9 +43,9 @@ export default function DashboardSection({ stats }: Props) {
 
       <ScrollReveal delay={400}>
         <div className="flex justify-end mt-12">
-          <a href="/archive" className="btn-secondary text-sm">
+          <Link href="/archive" className="btn-secondary">
             すべてのデータを見る →
-          </a>
+          </Link>
         </div>
       </ScrollReveal>
     </section>
