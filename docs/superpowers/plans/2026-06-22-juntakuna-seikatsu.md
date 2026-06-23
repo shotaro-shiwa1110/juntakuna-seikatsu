@@ -1365,7 +1365,9 @@ export default function HeroSection() {
           <h1 className="font-mincho text-[36px] md:text-[44px] leading-[1.55] tracking-[0.02em] mb-8">
             未来の豊かさを
             <br />
-            今の暮らしからつくり変える
+            今の暮らしから
+            <br />
+            つくり変える
           </h1>
           <p className="font-serif text-body text-ink-60 max-w-md mb-10">
             農・食・住まい・文化・地域との関わりを通じて、

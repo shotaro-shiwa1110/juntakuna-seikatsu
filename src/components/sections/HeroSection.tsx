@@ -27,7 +27,7 @@ export default function HeroSection() {
 
           <ScrollReveal delay={100}>
             <h1 className="font-mincho text-[2.4rem] leading-[1.4] tracking-[0.02em] mb-8">
-             未来の豊かさを<br/>今の暮らしからつくり変える
+             未来の豊かさを<br/>今の暮らしから<br/>つくり変える
             </h1>
           </ScrollReveal>
 
