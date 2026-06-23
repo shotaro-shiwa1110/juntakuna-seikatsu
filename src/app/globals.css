@@ -10,6 +10,7 @@
   --color-border: #d5cfc8;
   --color-accent: #daf000;
   --color-accent-hover: #c0d800;
+  --color-accent-text: #839008;
   --color-on-accent: #1a1a1a;
 
   --font-mincho: "Shippori Mincho", serif;
@@ -123,7 +124,7 @@ body {
   font-family: "Space Mono", monospace;
   font-size: 0.6rem;
   letter-spacing: 0.12em;
-  color: var(--color-accent);
+  color: var(--color-accent-text);
   border-left: 2px solid var(--color-accent);
   padding-left: 10px;
   line-height: 2;
@@ -142,7 +143,7 @@ body {
   left: 0;
   top: -8px;
   font-size: 0.525rem;
-  color: var(--color-accent);
+  color: var(--color-accent-text);
   background: var(--color-base);
   padding-right: 6px;
   font-family: "Space Mono", monospace;
@@ -599,4 +600,12 @@ textarea:focus-visible {
   );
   pointer-events: none;
   z-index: 2;
+}
+
+/* ── Accent as readable text on light backgrounds ── */
+.text-accent {
+  color: var(--color-accent-text) !important;
+}
+.border-accent {
+  border-color: var(--color-accent) !important;
 }
