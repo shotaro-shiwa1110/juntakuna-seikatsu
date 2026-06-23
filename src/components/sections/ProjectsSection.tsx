@@ -26,7 +26,7 @@ export default function ProjectsSection({ projects }: Props) {
         </p>
       </ScrollReveal>
 
-      <div className="flex flex-col border border-border divide-y divide-border">
+      <div className="flex flex-col gap-3">
         {projects.map((project, i) => (
           <ScrollReveal key={project.slug} delay={i * 80}>
             <ProjectCard project={project} />

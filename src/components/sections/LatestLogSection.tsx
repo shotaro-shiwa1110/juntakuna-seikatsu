@@ -27,7 +27,7 @@ export default function LatestLogSection({ entries }: Props) {
           </div>
         </ScrollReveal>
 
-        <div className="flex flex-col border border-border divide-y divide-border">
+        <div className="flex flex-col gap-3">
           {entries.map((entry, i) => (
             <ScrollReveal key={entry.slug} delay={i * 80}>
               <LogCard entry={entry} />

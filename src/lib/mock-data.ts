@@ -19,7 +19,7 @@ export const projects: Project[] = [
     themes: ['食', '農', '発酵'],
     tags: ['#自然栽培', '#発酵', '#生産者訪問', '#保存食'],
     status: 'ACTIVE',
-    imagePlaceholder: '/images/abs-warm.jpg',
+    imagePlaceholder: '/images/p1.jpg',
     logs: ['hatake-2months', 'miso-making', 'fermentation-lab', 'seasonal-food-ritual'],
   },
   {
@@ -31,7 +31,7 @@ export const projects: Project[] = [
     themes: ['住', '空き家', '古民家'],
     tags: ['#空き家', '#古民家', '#DIY', '#場づくり'],
     status: 'ACTIVE',
-    imagePlaceholder: '/images/abs-light.jpg',
+    imagePlaceholder: '/images/p3.jpg',
     logs: ['akiya-8-houses', 'old-house-repair'],
   },
   {
@@ -43,7 +43,7 @@ export const projects: Project[] = [
     themes: ['文化', '祭り', '工芸'],
     tags: ['#祭り', '#工芸', '#伝統食', '#和の知恵'],
     status: 'ACTIVE',
-    imagePlaceholder: '/images/abs-dark.jpg',
+    imagePlaceholder: '/images/p2.jpg',
     logs: ['tanue-community', 'seasonal-food-ritual'],
   },
   {
@@ -55,7 +55,7 @@ export const projects: Project[] = [
     themes: ['経済', '交換', '小商い'],
     tags: ['#交換', '#小商い', '#地域通貨', '#自給'],
     status: 'ACTIVE',
-    imagePlaceholder: '/images/abs-space.jpg',
+    imagePlaceholder: '/images/p5.jpg',
     logs: ['countryside-market'],
   },
   {
@@ -67,7 +67,7 @@ export const projects: Project[] = [
     themes: ['コミュニティ', '関係人口'],
     tags: ['#関係人口', '#地域活動', '#コミュニティ', '#対話'],
     status: 'ACTIVE',
-    imagePlaceholder: '/images/abs-bokeh.jpg',
+    imagePlaceholder: '/images/p4.jpg',
     logs: ['tanue-community'],
   },
 ]
@@ -75,129 +75,129 @@ export const projects: Project[] = [
 export const logs: LogEntry[] = [
   {
     slug: 'hatake-2months',
-    title: '畑を始めて2ヶ月。見えてきた3つの課題',
+    title: '実践記録のタイトルが入ります 01',
     date: '2026.05.21',
     category: '食',
-    excerpt: '自然農の畑で種を蒔き始めて2ヶ月が過ぎた。嬉しいこと、想定外のこと、そして直面した3つの課題について。',
+    excerpt: '記事の概要テキストが入ります。',
     body: `テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
 
 テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
 
 テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。`,
     tags: ['#自然栽培', '#農', '#実験記録'],
-    imagePlaceholder: '/images/abs-warm.jpg',
+    imagePlaceholder: '/images/p1.jpg',
   },
   {
     slug: 'miso-making',
-    title: '味噌づくり体験から学んだ、時間を味方にするということ',
+    title: '実践記録のタイトルが入ります 02',
     date: '2026.05.18',
     category: '文化',
-    excerpt: '地域の味噌蔵で味噌づくりを体験。麹と向き合うことで、暮らしの時間の使い方を見つめ直した。',
+    excerpt: '記事の概要テキストが入ります。',
     body: `テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
 
 テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
 
 テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。`,
     tags: ['#発酵', '#味噌', '#文化体験'],
-    imagePlaceholder: '/images/abs-dark.jpg',
+    imagePlaceholder: '/images/p2.jpg',
   },
   {
     slug: 'akiya-8-houses',
-    title: '空き家を8件見学して気づいたこと',
+    title: '実践記録のタイトルが入ります 03',
     date: '2026.05.15',
     category: '住',
-    excerpt: '空き家バンクを通じて8件の物件を見学した。物件ごとに違う「時間の堆積」と、活用の可能性について。',
+    excerpt: '記事の概要テキストが入ります。',
     body: `テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
 
 テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
 
 テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。`,
     tags: ['#空き家', '#古民家', '#住まい探し'],
-    imagePlaceholder: '/images/abs-light.jpg',
+    imagePlaceholder: '/images/p3.jpg',
   },
   {
     slug: 'tanue-community',
-    title: '地域の田植えに参加して感じたこと',
+    title: '実践記録のタイトルが入ります 04',
     date: '2026.05.10',
     category: 'コミュニティ',
-    excerpt: '地域の田植えに参加した一日。世代を超えたつながりの中で、見えること、学んだことを記録する。',
+    excerpt: '記事の概要テキストが入ります。',
     body: `テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
 
 テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
 
 テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。`,
     tags: ['#田植え', '#コミュニティ', '#関係人口'],
-    imagePlaceholder: '/images/abs-bokeh.jpg',
+    imagePlaceholder: '/images/p4.jpg',
   },
   {
     slug: 'fermentation-lab',
-    title: '台所を「発酵室」に変える実験：糠床3ヶ月の記録',
+    title: '実践記録のタイトルが入ります 05',
     date: '2026.06.01',
     category: '食',
-    excerpt: '冷蔵庫の隅に眠っていたスペースを発酵実験室に。糠床・甘酒・ぬか漬けとの3ヶ月を振り返る。',
+    excerpt: '記事の概要テキストが入ります。',
     body: `テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
 
 テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
 
 テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。`,
     tags: ['#発酵', '#糠床', '#台所実験', '#甘酒'],
-    imagePlaceholder: '/images/abs-warm.jpg',
+    imagePlaceholder: '/images/p1.jpg',
   },
   {
     slug: 'countryside-market',
-    title: '朝市という経済圏。農家と消費者が直接つながる現場で見たこと',
+    title: '実践記録のタイトルが入ります 06',
     date: '2026.05.28',
     category: '経済',
-    excerpt: '地方の朝市に通い続けて3ヶ月。「売る」と「買う」の間にある豊かな対話から、経済の本質を考えた。',
+    excerpt: '記事の概要テキストが入ります。',
     body: `テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
 
 テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
 
 テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。`,
     tags: ['#朝市', '#経済', '#農家', '#直売'],
-    imagePlaceholder: '/images/abs-space.jpg',
+    imagePlaceholder: '/images/p5.jpg',
   },
   {
     slug: 'old-house-repair',
-    title: '築70年の古民家を自分で修繕した話',
+    title: '実践記録のタイトルが入ります 07',
     date: '2026.05.25',
     category: '住',
-    excerpt: '空き家バンクで出会った物件の雨漏りを、地元の大工さんに習いながら自分で直した記録。',
+    excerpt: '記事の概要テキストが入ります。',
     body: `テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
 
 テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
 
 テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。`,
     tags: ['#古民家', '#DIY', '#修繕', '#大工'],
-    imagePlaceholder: '/images/abs-light.jpg',
+    imagePlaceholder: '/images/p3.jpg',
   },
   {
     slug: 'forest-walk-observation',
-    title: '雑木林を歩いて学んだこと。自然観察という「読書」',
+    title: '実践記録のタイトルが入ります 08',
     date: '2026.04.20',
     category: '自然',
-    excerpt: '近所の雑木林を毎週歩くようになって3ヶ月。植物の名前を覚えることより大切な「見方」のこと。',
+    excerpt: '記事の概要テキストが入ります。',
     body: `テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
 
 テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
 
 テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。`,
     tags: ['#自然観察', '#雑木林', '#植物', '#フィールドワーク'],
-    imagePlaceholder: '/images/abs-color.jpg',
+    imagePlaceholder: '/images/p6.jpg',
   },
   {
     slug: 'seasonal-food-ritual',
-    title: '梅雨前の梅仕事。食の「歳時記」を暮らしに取り込む',
+    title: '実践記録のタイトルが入ります 09',
     date: '2026.05.05',
     category: '文化',
-    excerpt: '毎年この季節になると梅が届く。梅酒・梅干し・梅シロップ。食の歳時記が暮らしのリズムをつくる。',
+    excerpt: '記事の概要テキストが入ります。',
     body: `テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
 
 テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
 
 テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。`,
     tags: ['#梅仕事', '#歳時記', '#保存食', '#発酵'],
-    imagePlaceholder: '/images/abs-dark.jpg',
+    imagePlaceholder: '/images/p2.jpg',
   },
 ]
 
@@ -341,34 +341,34 @@ export const places: Place[] = [
 export const archiveItems: ArchiveItem[] = [
   {
     slug: 'sketch-001',
-    title: '畑のフィールドスケッチ #001',
+    title: '資料タイトルが入ります 01',
     date: '2026.05.21',
     type: 'sketch',
-    description: '種まきから2ヶ月後の畑の様子。草の配置と作物の位置を記録。雑草の種類と密度、作物の葉の状態をスケッチで記録した現地調査ノート。',
+    description: '資料の説明テキストが入ります。',
     placeholder: '[FIELD SKETCH PLACEHOLDER]',
   },
   {
     slug: 'map-001',
-    title: '空き家見学マップ Vol.1',
+    title: '資料タイトルが入ります 02',
     date: '2026.05.15',
     type: 'map',
-    description: '8件の空き家見学ルートと、各物件の状態メモ。築年数・間取り・修繕箇所・近隣環境を記録した現地調査地図。物件ごとの「時間の堆積」を読み解く試み。',
+    description: '資料の説明テキストが入ります。',
     placeholder: '[CULTURAL MAP PLACEHOLDER]',
   },
   {
     slug: 'doc-001',
-    title: '自然農 観察ノート 2026年春',
+    title: '資料タイトルが入ります 03',
     date: '2026.04.01',
     type: 'document',
-    description: '3月〜5月の畑の観察記録。温度・降水量・作物の状態を毎週記録。植物と環境の関係を数値で追った3ヶ月のデータ。自然農の実践における仮説と検証の記録。',
+    description: '資料の説明テキストが入ります。',
     placeholder: '[ARCHIVE PHOTO PLACEHOLDER]',
   },
   {
     slug: 'photo-001',
-    title: '田植え記録写真集',
+    title: '資料タイトルが入ります 04',
     date: '2026.05.10',
     type: 'photo',
-    description: '地域の田植えに参加した際の記録写真。朝6時の集合から昼食まで、コミュニティの共同作業の記録。世代を超えた参加者たちの表情と、変化していく田んぼの景色。',
+    description: '資料の説明テキストが入ります。',
     placeholder: '[ARCHIVE PHOTO PLACEHOLDER]',
   },
 ]
@@ -376,11 +376,11 @@ export const archiveItems: ArchiveItem[] = [
 export const libraryNotes: LibraryNote[] = [
   {
     slug: 'note-satoyama-economy',
-    title: '「里山資本主義」読書メモ',
+    title: '読書メモのタイトルが入ります',
     date: '2026.05.30',
     type: '読書メモ',
     tags: ['#里山', '#経済', '#藻谷浩介'],
-    excerpt: '貨幣に頼りすぎない「里山経済圏」の可能性。サブシステムとしての自給の意味。',
+    excerpt: 'ノートの概要が入ります。',
     body: `テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
 
 テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
@@ -389,11 +389,11 @@ export const libraryNotes: LibraryNote[] = [
   },
   {
     slug: 'note-fermentation-mechanism',
-    title: '発酵のしくみ — 微生物と時間の関係',
+    title: 'ノートのタイトルが入ります',
     date: '2026.06.05',
     type: '学習メモ',
     tags: ['#発酵', '#微生物', '#科学'],
-    excerpt: '乳酸菌・酵母・麹菌の違い。糖化と発酵の順序。糠床で起きていること。',
+    excerpt: 'ノートの概要が入ります。',
     body: `テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
 
 テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
@@ -402,11 +402,11 @@ export const libraryNotes: LibraryNote[] = [
   },
   {
     slug: 'note-field-note-format',
-    title: 'フィールドノートの書き方を考える',
+    title: 'メモのタイトルが入ります',
     date: '2026.06.10',
     type: 'アイデア',
     tags: ['#記録', '#方法論', '#観察'],
-    excerpt: '良いフィールドノートとは何か。観察・感情・解釈を分けて書く重要性。',
+    excerpt: 'ノートの概要が入ります。',
     body: `テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
 
 テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。

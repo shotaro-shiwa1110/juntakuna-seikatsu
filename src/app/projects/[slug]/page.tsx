@@ -87,7 +87,7 @@ export default async function ProjectDetailPage({ params }: Props) {
             </div>
             <h2 className="font-mincho text-[1.45rem] mb-8">関連する実践記録</h2>
           </ScrollReveal>
-          <div className="flex flex-col border border-border divide-y divide-border">
+          <div className="flex flex-col gap-3">
             {relatedLogs.map((entry, i) => (
               <ScrollReveal key={entry.slug} delay={i * 80}>
                 <LogCard entry={entry} />

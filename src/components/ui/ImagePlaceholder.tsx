@@ -9,11 +9,6 @@ export default function ImagePlaceholder({ label, className = '' }: Props) {
   if (isImage) {
     return (
       <div className={`relative overflow-hidden ${className}`} style={{ aspectRatio: '4/3' }}>
-        {/* Corner crosshairs */}
-        <span className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-accent z-10" />
-        <span className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-accent z-10" />
-        <span className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-accent z-10" />
-        <span className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-accent z-10" />
         <img
           src={label}
           alt=""

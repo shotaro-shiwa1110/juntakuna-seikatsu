@@ -53,7 +53,7 @@ export default function LogPageClient({ logs }: Props) {
 
       {/* Log grid */}
       {filtered.length > 0 ? (
-        <div className="flex flex-col border border-border divide-y divide-border">
+        <div className="flex flex-col gap-3">
           {filtered.map((entry) => (
             <LogCard key={entry.slug} entry={entry} />
           ))}

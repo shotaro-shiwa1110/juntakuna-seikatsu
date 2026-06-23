@@ -11,7 +11,7 @@ interface Props {
 export default function LogCard({ entry }: Props) {
   const minutes = readingTime(entry.body)
   return (
-    <Link href={`/log/${entry.slug}`} className="group block bg-surface hover:bg-base transition-colors h-full">
+    <Link href={`/log/${entry.slug}`} className="group block bg-surface hover:bg-base transition-colors h-full border border-border">
       <ImagePlaceholder label={entry.imagePlaceholder} />
       <div className="p-5">
         <div className="flex items-center gap-3 mb-3">
