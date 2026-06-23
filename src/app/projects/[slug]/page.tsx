@@ -52,7 +52,7 @@ export default async function ProjectDetailPage({ params }: Props) {
             </div>
           </div>
           <div>
-            <ImagePlaceholder label={project.imagePlaceholder} className="h-[260px]" />
+            <ImagePlaceholder label={project.imagePlaceholder} />
             <div className="mt-4">
               <div className="code-tag">
                 <div>ID: PROJECT_{project.number}</div>

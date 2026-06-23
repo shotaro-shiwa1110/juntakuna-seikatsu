@@ -57,7 +57,7 @@ export default async function LogDetailPage({ params }: Props) {
       </header>
 
       {/* Main image */}
-      <ImagePlaceholder label={entry.imagePlaceholder} className="h-[300px]" />
+      <ImagePlaceholder label={entry.imagePlaceholder} />
 
       {/* Body */}
       <div className="px-6 py-14">

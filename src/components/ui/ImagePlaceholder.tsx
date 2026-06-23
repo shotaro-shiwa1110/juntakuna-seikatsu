@@ -1,5 +1,5 @@
 interface Props {
-  label: string   // image path (e.g. /images/field-mist.jpg) or fallback label text
+  label: string   // image path (e.g. /images/abs-dark.jpg) or fallback label text
   className?: string
 }
 
@@ -8,8 +8,8 @@ export default function ImagePlaceholder({ label, className = '' }: Props) {
 
   if (isImage) {
     return (
-      <div className={`relative overflow-hidden ${className}`}>
-        {/* Corner crosshairs — SF aesthetic */}
+      <div className={`relative overflow-hidden ${className}`} style={{ aspectRatio: '4/3' }}>
+        {/* Corner crosshairs */}
         <span className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-accent z-10" />
         <span className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-accent z-10" />
         <span className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-accent z-10" />
@@ -18,13 +18,13 @@ export default function ImagePlaceholder({ label, className = '' }: Props) {
           src={label}
           alt=""
           className="w-full h-full object-cover"
-          style={{ filter: 'brightness(0.88) saturate(0.75) sepia(0.15)' }}
+          style={{ filter: 'brightness(0.65) saturate(0.3) sepia(0.5) hue-rotate(-10deg)' }}
         />
       </div>
     )
   }
 
-  // Fallback: original grid placeholder
+  // Fallback: grid placeholder
   return (
     <div className={`relative bg-[#E8E2D9] overflow-hidden grain-overlay image-scanlines ${className}`} style={{
       backgroundImage: `
