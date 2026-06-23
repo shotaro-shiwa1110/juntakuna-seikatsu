@@ -27,9 +27,7 @@ export default function HeroSection() {
 
           <ScrollReveal delay={100}>
             <h1 className="font-mincho text-[2.4rem] leading-[1.4] tracking-[0.02em] mb-8">
-              未来の暮らしは、<br />
-              遠い場所じゃない。<br />
-              日々の選択の先にある。
+             未来の豊かさを<br/>今の暮らしからつくり変える
             </h1>
           </ScrollReveal>
 
@@ -37,8 +35,7 @@ export default function HeroSection() {
             <p className="font-serif text-[1.13rem] leading-[1.95] text-ink-60 max-w-md mb-10">
               <HighlightText>農・食・住まい・文化・地域</HighlightText>との関わりを通じて、
               これからの豊かな暮らし方を考え、実践・発信するメディアサイト。
-              個人の暮らしから、社会のあり方を問い直す。
-              <HighlightText delay={300}>小さな暮らしの積み重ねが、日本の未来をつくる</HighlightText>と信じて。
+              <HighlightText delay={300}>小さな暮らしのアクションが、日本の未来をつくる</HighlightText>。
             </p>
           </ScrollReveal>
 

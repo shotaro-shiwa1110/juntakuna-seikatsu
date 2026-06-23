@@ -1363,17 +1363,14 @@ export default function HeroSection() {
             FIELD NOTE / 001 — PROJECT: JUNTAKUNA SEIKATSU 2026–
           </div>
           <h1 className="font-mincho text-[36px] md:text-[44px] leading-[1.55] tracking-[0.02em] mb-8">
-            未来の暮らしは、
+            未来の豊かさを
             <br />
-            遠い場所じゃない。
-            <br />
-            日々の選択の先にある。
+            今の暮らしからつくり変える
           </h1>
           <p className="font-serif text-body text-ink-60 max-w-md mb-10">
             農・食・住まい・文化・地域との関わりを通じて、
             これからの豊かな暮らしを実践し記録するプロジェクト。
-            個人の暮らしから、社会のあり方を問い直す。
-            小さな実験の積み重ねが、未来をつくると信じて。
+            小さな暮らしの積み重ねが、日本の未来をつくる。
           </p>
         </div>
         <div className="flex gap-8">
