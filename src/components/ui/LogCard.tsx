@@ -19,10 +19,10 @@ export default function LogCard({ entry }: Props) {
           <span className="font-mono text-[8px] tracking-[0.06em] text-ink-30">{minutes}分</span>
         </div>
         <div className="mb-3"><CategoryBadge category={entry.category} /></div>
-        <h3 className="font-mincho text-[16px] leading-[1.65] text-ink group-hover:text-ink-60 transition-colors line-clamp-3">
+        <h3 className="font-mincho text-[1.07rem] leading-[1.65] text-ink group-hover:text-ink-60 transition-colors line-clamp-3">
           {entry.title}
         </h3>
-        <p className="font-serif text-[13px] text-ink-30 leading-[1.8] mt-2 line-clamp-2">
+        <p className="font-serif text-[0.87rem] text-ink-30 leading-[1.8] mt-2 line-clamp-2">
           {entry.excerpt}
         </p>
       </div>

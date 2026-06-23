@@ -19,7 +19,7 @@ export default function PlacePage() {
         annotation={`PLACE_${String(places.length).padStart(3, '0')}`}
       />
 
-      <div className="grid grid-cols-1 md:grid-cols-3 border-t border-l border-border">
+      <div className="grid grid-cols-1 border-t border-l border-border">
         {places.map((place, i) => (
           <ScrollReveal key={place.slug} delay={i * 80}>
             <Link
@@ -27,11 +27,11 @@ export default function PlacePage() {
               className="group block p-10 border-b border-r border-border hover:bg-surface transition-colors h-full"
             >
               <div className="font-mono text-[9px] tracking-[0.15em] text-accent mb-3">{place.coordinates}</div>
-              <h2 className="font-mincho text-[22px] leading-[1.45] mb-2 group-hover:text-ink-60 transition-colors">
+              <h2 className="font-mincho text-[1.2rem] leading-[1.45] mb-2 group-hover:text-ink-60 transition-colors">
                 {place.name}
               </h2>
               <div className="font-mono text-[9px] tracking-[0.08em] text-ink-30 mb-5">{place.prefecture}</div>
-              <p className="font-serif text-[15px] text-ink-60 leading-[1.9]">{place.description}</p>
+              <p className="font-serif text-[1rem] text-ink-60 leading-[1.9]">{place.description}</p>
             </Link>
           </ScrollReveal>
         ))}

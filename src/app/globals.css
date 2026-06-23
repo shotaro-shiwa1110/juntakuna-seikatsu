@@ -1,16 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600&family=Noto+Serif+JP:wght@300;400;500&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600&family=Noto+Serif+JP:wght@300;400;500&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap");
 @import "tailwindcss";
 
 @theme {
-  --color-base: #F5F2ED;
-  --color-surface: #FAF8F5;
-  --color-ink: #1A1A1A;
-  --color-ink-60: #4A4540;
-  --color-ink-30: #9A9390;
-  --color-border: #D5CFC8;
-  --color-accent: #B8F000;
-  --color-accent-hover: #A0D900;
-  --color-on-accent: #1A1A1A;
+  --color-base: #f5f2ed;
+  --color-surface: #faf8f5;
+  --color-ink: #1a1a1a;
+  --color-ink-60: #4a4540;
+  --color-ink-30: #9a9390;
+  --color-border: #d5cfc8;
+  --color-accent: #daf000;
+  --color-accent-hover: #c0d800;
+  --color-on-accent: #1a1a1a;
 
   --font-mincho: "Shippori Mincho", serif;
   --font-serif: "Noto Serif JP", serif;
@@ -19,17 +19,30 @@
 
 /* ── Base ── */
 html {
-  background-color: var(--color-base);
+  /*
+    Root font-size for rem scaling:
+    mobile  → 15px (1rem = 15px)
+    desktop → 17px (1rem = 17px, ~13% scale-up across the card)
+    Change these two values to re-scale the entire site.
+  */
+  font-size: 15px; /* explicit px on root — mobile base for all rem values */
+  background-color: transparent;
   color: var(--color-ink);
   scroll-behavior: smooth;
 }
 
+@media (min-width: 680px) {
+  html {
+    font-size: 17px; /* desktop: 1rem = 17px, ~13% scale-up */
+  }
+}
+
 body {
-  font-family: 'Noto Serif JP', serif;
-  font-size: 16px;
+  font-family: "Noto Serif JP", serif;
+  font-size: 0.875rem; /* 15px mobile / 17px desktop */
   line-height: 1.8;
   font-weight: 300;
-  background-color: var(--color-base);
+  background-color: transparent;
   /* Subtle grain texture for nostalgic feel */
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
 }
@@ -41,8 +54,8 @@ body {
   gap: 10px;
   background-color: var(--color-accent);
   color: var(--color-ink);
-  font-family: 'Noto Serif JP', serif;
-  font-size: 15px;
+  font-family: "Noto Serif JP", serif;
+  font-size: 1rem;
   font-weight: 500;
   padding: 14px 32px;
   border-radius: 2px;
@@ -50,14 +63,19 @@ body {
   cursor: pointer;
   text-decoration: none;
   min-height: 52px;
-  transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    transform 0.15s ease,
+    box-shadow 0.2s ease;
 }
 .btn-primary:hover {
   background-color: var(--color-accent-hover);
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(184, 240, 0, 0.25);
 }
-.btn-primary:active { transform: translateY(0); }
+.btn-primary:active {
+  transform: translateY(0);
+}
 
 .btn-secondary {
   display: inline-flex;
@@ -65,8 +83,8 @@ body {
   gap: 10px;
   background-color: transparent;
   color: var(--color-ink);
-  font-family: 'Noto Serif JP', serif;
-  font-size: 15px;
+  font-family: "Noto Serif JP", serif;
+  font-size: 1rem;
   font-weight: 400;
   padding: 13px 31px;
   border-radius: 2px;
@@ -74,27 +92,32 @@ body {
   cursor: pointer;
   text-decoration: none;
   min-height: 52px;
-  transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.15s ease;
 }
 .btn-secondary:hover {
   background-color: var(--color-ink);
   color: var(--color-surface);
   transform: translateY(-1px);
 }
-.btn-secondary:active { transform: translateY(0); }
+.btn-secondary:active {
+  transform: translateY(0);
+}
 
 /* ── Decorative labels — intentionally small (annotation / blueprint style) ── */
 .label {
-  font-family: 'Space Mono', monospace;
-  font-size: 9px;
+  font-family: "Space Mono", monospace;
+  font-size: 0.6rem;
   letter-spacing: 0.25em;
   text-transform: uppercase;
   color: var(--color-ink-30);
 }
 
 .code-tag {
-  font-family: 'Space Mono', monospace;
-  font-size: 9px;
+  font-family: "Space Mono", monospace;
+  font-size: 0.6rem;
   letter-spacing: 0.12em;
   color: var(--color-accent);
   border-left: 2px solid var(--color-accent);
@@ -110,21 +133,21 @@ body {
   margin: 0;
 }
 .field-rule::before {
-  content: '◉';
+  content: "◉";
   position: absolute;
   left: 0;
   top: -8px;
-  font-size: 8px;
+  font-size: 0.525rem;
   color: var(--color-accent);
   background: var(--color-base);
   padding-right: 6px;
-  font-family: 'Space Mono', monospace;
+  font-family: "Space Mono", monospace;
 }
 
 /* ── Article body typography ── */
 .article-body p {
-  font-family: 'Noto Serif JP', serif;
-  font-size: 16px;
+  font-family: "Noto Serif JP", serif;
+  font-size: 1rem;
   line-height: 2.1;
   color: var(--color-ink);
   margin-bottom: 1.75em;
@@ -137,8 +160,8 @@ body {
   font-style: italic;
 }
 .article-body h2 {
-  font-family: 'Shippori Mincho', serif;
-  font-size: 22px;
+  font-family: "Shippori Mincho", serif;
+  font-size: 1.45rem;
   font-weight: 500;
   line-height: 1.6;
   color: var(--color-ink);
@@ -152,18 +175,33 @@ body {
   padding: 1.25em 1.5em;
   border-left: 2px solid var(--color-accent);
   background: var(--color-surface);
-  font-family: 'Noto Serif JP', serif;
-  font-size: 16px;
+  font-family: "Noto Serif JP", serif;
+  font-size: 1.0625rem;
   line-height: 2;
   color: var(--color-ink-60);
   font-style: normal;
+}
+
+/* ── Scroll-triggered text highlight marker ── */
+.highlight-text {
+  background: linear-gradient(var(--color-accent), var(--color-accent))
+    no-repeat left center / 0% 38%;
+  padding: 0 2px;
+  transition: background-size 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+.highlight-text.active {
+  background-size: 100% 38%;
 }
 
 /* ── Scroll reveal animation ── */
 .reveal {
   opacity: 0;
   transform: translateY(28px);
-  transition: opacity 0.65s ease, transform 0.65s ease;
+  transition:
+    opacity 0.65s ease,
+    transform 0.65s ease;
 }
 .reveal.visible {
   opacity: 1;
@@ -175,7 +213,7 @@ body {
   position: relative;
 }
 .scanlines::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background-image: repeating-linear-gradient(
@@ -191,22 +229,38 @@ body {
 
 /* ── Pulse animation for ACTIVE status indicators ── */
 @keyframes pulse-dot {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.3; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
 }
-.animate-pulse { animation: pulse-dot 2s ease-in-out infinite; }
+.animate-pulse {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
 
 /* ── Focus ring ── */
-a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 2px;
 }
 
-.rule { border-color: var(--color-border); }
+.rule {
+  border-color: var(--color-border);
+}
 
 /* ── World-building: dot-grid background on sections ── */
 .bg-dot-grid {
-  background-image: radial-gradient(circle, var(--color-border) 0.8px, transparent 0.8px);
+  background-image: radial-gradient(
+    circle,
+    var(--color-border) 0.8px,
+    transparent 0.8px
+  );
   background-size: 20px 20px;
   background-position: 0 0;
 }
@@ -218,17 +272,19 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   align-items: flex-start;
   border: 1px solid var(--color-border);
   padding: 6px 10px;
-  font-family: 'Space Mono', monospace;
-  font-size: 8px;
+  font-family: "Space Mono", monospace;
+  font-size: 0.525rem;
   letter-spacing: 0.12em;
   color: var(--color-ink-30);
   line-height: 1.8;
   position: relative;
 }
 .obs-stamp::before {
-  content: '';
+  content: "";
   position: absolute;
-  top: 0; left: 0; right: 0;
+  top: 0;
+  left: 0;
+  right: 0;
   height: 2px;
   background-color: var(--color-accent);
 }
@@ -240,7 +296,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 .panel-sf::before,
 .panel-sf::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 10px;
   height: 10px;
@@ -248,12 +304,69 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   border-style: solid;
 }
 .panel-sf::before {
-  top: -1px; left: -1px;
+  top: -1px;
+  left: -1px;
   border-width: 2px 0 0 2px;
 }
 .panel-sf::after {
-  bottom: -1px; right: -1px;
+  bottom: -1px;
+  right: -1px;
   border-width: 0 2px 2px 0;
+}
+
+/* ── Fixed grain overlay (full-screen, museum style) ── */
+.grain-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: overlay;
+  opacity: 0.55;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.68' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23g)' opacity='0.22'/%3E%3C/svg%3E");
+  background-size: 400px 400px;
+}
+
+/* ── Floating animation for SF geometric elements ── */
+@keyframes sf-float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-4px) rotate(0.5deg);
+  }
+  66% {
+    transform: translateY(2px) rotate(-0.3deg);
+  }
+}
+@keyframes sf-spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes sf-pulse-ring {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.03);
+  }
+}
+.sf-float {
+  animation: sf-float 8s ease-in-out infinite;
+}
+.sf-spin-slow {
+  animation: sf-spin-slow 60s linear infinite;
+  transform-origin: center;
+}
+.sf-pulse-ring {
+  animation: sf-pulse-ring 4s ease-in-out infinite;
 }
 
 /* ── Film grain on image placeholders ── */
@@ -261,7 +374,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   position: relative;
 }
 .grain-overlay::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
@@ -269,17 +382,214 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   z-index: 1;
 }
 
+/* ── Satoyama fixed background ── */
+.bg-satoyama {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background: url("/images/bg-satoyama.jpg") center / cover no-repeat;
+  /* deep green forest feel — hue-rotate shifts toward green, high saturation */
+  filter: blur(10px) brightness(0.55) saturate(1.4) hue-rotate(-15deg);
+  transform: scale(1.05);
+}
+
+/* ── Page wrapper: phone-width card on desktop, full-width on mobile ── */
+.page-wrapper {
+  position: relative;
+  min-height: 100vh;
+  /* phone-width ceiling — background shows on sides when viewport is wider */
+  max-width: 540px;
+  margin: 12px auto 0; /* 12px top gap: scrolls away naturally (not interior padding) */
+  /* lift the card off the background on desktop */
+  box-shadow:
+    0 0 100px rgba(0, 0, 0, 0.45),
+    0 0 30px rgba(0, 0, 0, 0.3);
+}
+
+/* left gap only — top gap is handled by wrapper margin-top */
+.page-inner {
+  display: flex;
+  min-height: 100vh;
+  padding-left: 12px;
+  background: transparent;
+}
+
+/* ── Left Nav: notebook tab style ── */
+.nav-rail {
+  width: 52px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  /* no overflow:hidden — individual tabs handle their own corner radii */
+  z-index: 10;
+}
+
+.nav-tab {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-base);
+  border-right: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  text-decoration: none;
+  transition: background 0.2s;
+  z-index: 1;
+  color: inherit;
+}
+
+/* Overall card corners — first and last tab carry the rail's rounded edges */
+.nav-tab-first {
+  border-radius: 6px 0 0 0;
+}
+.nav-tab-last {
+  border-radius: 0 0 0 6px;
+}
+
+/* Active tab: pops LEFT into the background gap, right edge stays flush with content */
+.nav-tab-active {
+  background: var(--color-base);
+  border-right: none;
+  border-radius: 6px 0 0 6px;
+  /* extend 4px wider so right edge stays at the content boundary after translateX */
+  width: calc(100% + 4px);
+  transform: translateX(-4px);
+  z-index: 2;
+}
+
+/* When active is also first: both top corners already covered */
+/* When active is also last: both bottom corners already covered */
+/* border-radius shorthand on .nav-tab-active overrides the first/last classes fine */
+
+.nav-tab-below {
+  background: #e6dfd7;
+  box-shadow: inset 0 8px 14px -5px rgba(0, 0, 0, 0.16);
+}
+
+.nav-tab-label {
+  writing-mode: vertical-rl;
+  font-family: "Noto Serif JP", serif;
+  font-size: 0.875rem;
+  letter-spacing: 0.12em;
+  color: var(--color-ink-60);
+  font-weight: 300;
+  transition: color 0.2s;
+}
+
+.nav-tab-active .nav-tab-label {
+  color: var(--color-ink);
+  font-weight: 400;
+}
+
+.nav-tab-below .nav-tab-label {
+  color: var(--color-ink-30);
+}
+
+.nav-tab-accent {
+  position: absolute;
+  left: 0;
+  top: 0.75rem;
+  bottom: 0.75rem;
+  width: 3px;
+  border-radius: 0 2px 2px 0;
+  background: var(--color-accent);
+}
+
+/* ── Desktop sidebar decorations (only visible when viewport > page card) ── */
+.desktop-deco {
+  display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@media (min-width: 680px) {
+  .desktop-deco {
+    display: flex;
+  }
+}
+
+.desktop-deco-left {
+  right: calc(50% + 270px);
+  left: 0;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 32px 20px;
+}
+
+.desktop-deco-right {
+  left: calc(50% + 270px);
+  right: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end; /* text sits at the bottom */
+  padding: 32px 20px;
+  overflow: hidden;
+}
+
+/* Left sidebar: horizontal logo block (like loading screen) */
+.deco-logo-ja {
+  font-family: "Shippori Mincho", serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: rgba(245, 242, 237, 0.8);
+  letter-spacing: 0.1em;
+  line-height: 1.5;
+}
+
+.deco-logo-en {
+  font-family: "Space Mono", monospace;
+  font-size: 0.46rem;
+  letter-spacing: 0.28em;
+  color: rgba(245, 242, 237, 0.38);
+  margin-top: 6px;
+  display: block;
+}
+
+.deco-tagline {
+  font-family: "Noto Serif JP", serif;
+  font-size: 0.6rem;
+  color: rgba(245, 242, 237, 0.38);
+  letter-spacing: 0.1em;
+  line-height: 2;
+}
+
+.deco-coord {
+  font-family: "Space Mono", monospace;
+  font-size: 0.46rem;
+  letter-spacing: 0.12em;
+  color: rgba(245, 242, 237, 0.22);
+}
+
+/* Right sidebar: horizontal readable text at bottom */
+.deco-running-text {
+  font-family: "Space Mono", monospace;
+  font-size: 0.525rem;
+  letter-spacing: 0.1em;
+  color: rgba(245, 242, 237, 0.42);
+  line-height: 2.2;
+  text-align: left;
+}
+
 /* ── Scan-line on image placeholders ── */
 .image-scanlines::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background-image: repeating-linear-gradient(
     0deg,
     transparent,
     transparent 2px,
-    rgba(26,26,26,0.03) 2px,
-    rgba(26,26,26,0.03) 3px
+    rgba(26, 26, 26, 0.03) 2px,
+    rgba(26, 26, 26, 0.03) 3px
   );
   pointer-events: none;
   z-index: 2;

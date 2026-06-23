@@ -41,8 +41,8 @@ export default function ActivityRadar({ axes }: Props) {
   return (
     <svg
       viewBox={`0 0 ${SIZE} ${SIZE}`}
-      width={SIZE}
-      height={SIZE}
+      width="100%"
+      style={{ maxWidth: SIZE, display: 'block' }}
       aria-label="活動領域レーダーチャート"
     >
       <defs>
@@ -89,14 +89,6 @@ export default function ActivityRadar({ axes }: Props) {
         strokeWidth={1.5}
         filter="url(#glow-radar)"
       />
-
-      {/* Data points */}
-      {axes.map((axis, i) => {
-        const { x, y } = polarToXY((360 / n) * i, R * (axis.value / 100))
-        return (
-          <circle key={i} cx={x} cy={y} r={3} fill="var(--color-accent)" />
-        )
-      })}
 
       {/* Axis labels */}
       {axes.map((axis, i) => {

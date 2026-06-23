@@ -1,3 +1,4 @@
+import BtnArrow from '@/components/ui/BtnArrow'
 import Link from 'next/link'
 import type { DashboardStats, LogEntry } from '@/types'
 import ScrollReveal from '@/components/ui/ScrollReveal'
@@ -40,16 +41,16 @@ export default function DashboardSection({ stats, logs }: Props) {
 
   return (
     <section className="border-b border-border bg-surface">
-      <div className="px-6 md:px-14 py-14">
+      <div className="px-6 py-14">
         <ScrollReveal>
           <div className="mb-10">
             <div className="font-mono text-[8px] tracking-[0.25em] text-accent mb-2">DASHBOARD</div>
-            <h2 className="font-mincho text-[26px] md:text-[30px]">実践ダッシュボード</h2>
+            <h2 className="font-mincho text-[1.45rem]">実践ダッシュボード</h2>
             <div className="font-mono text-[9px] tracking-[0.1em] text-ink-30 mt-1">2026.05.24 現在</div>
           </div>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-10 md:gap-16 items-start">
+        <div className="grid grid-cols-1 gap-10 items-start">
           {/* Radar chart */}
           <ScrollReveal>
             <div>
@@ -68,8 +69,8 @@ export default function DashboardSection({ stats, logs }: Props) {
                 <ScrollReveal key={key} delay={i * 50}>
                   <div>
                     <div className="font-mono text-[8px] tracking-[0.15em] text-ink-30 mb-1.5 uppercase">{label}</div>
-                    <div className="font-mincho text-[42px] md:text-[48px] leading-none">{stats[key]}</div>
-                    <div className="font-serif text-[14px] text-ink-60 mt-2">{sub}</div>
+                    <div className="font-mincho text-[42px] leading-none">{stats[key]}</div>
+                    <div className="font-serif text-[0.93rem] text-ink-60 mt-2">{sub}</div>
                   </div>
                 </ScrollReveal>
               ))}
@@ -78,7 +79,7 @@ export default function DashboardSection({ stats, logs }: Props) {
             <ScrollReveal delay={330}>
               <div className="mt-10 pt-8 border-t border-border">
                 <Link href="/archive" className="btn-secondary">
-                  すべてのデータを見る ▶
+                  すべてのデータを見る <BtnArrow />
                 </Link>
               </div>
             </ScrollReveal>

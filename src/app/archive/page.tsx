@@ -27,18 +27,18 @@ export default function ArchivePage() {
         annotation={`ARCHIVE_${String(archiveItems.length).padStart(3, '0')}`}
       />
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 border-t border-border">
+      <div className="grid grid-cols-1 grid-cols-2 border-t border-border">
         {archiveItems.map((item, i) => (
           <ScrollReveal key={item.slug} delay={i * 80}>
             <Link
               href={`/archive/${item.slug}`}
-              className="group block border-b border-border md:border-b-0 md:border-r last:border-r-0 hover:bg-surface transition-colors"
+              className="group block border-b border-border last:border-r-0 hover:bg-surface transition-colors"
             >
               <ImagePlaceholder label={item.placeholder} className="h-[180px]" />
               <div className="p-6">
                 <div className="font-mono text-[9px] tracking-[0.15em] text-accent mb-2">{typeLabel[item.type]}</div>
                 <div className="font-mono text-[9px] text-ink-30 mb-3">{item.date}</div>
-                <h3 className="font-mincho text-[16px] leading-[1.6] group-hover:text-ink-60 transition-colors">{item.title}</h3>
+                <h3 className="font-mincho text-[1.07rem] leading-[1.6] group-hover:text-ink-60 transition-colors">{item.title}</h3>
               </div>
             </Link>
           </ScrollReveal>

@@ -18,7 +18,7 @@ export default function LogPage() {
         annotation={`LOG_${String(logs.length).padStart(3, '0')}`}
       />
 
-      <div className="px-6 md:px-14 py-12">
+      <div className="px-6 py-12">
         <LogPageClient logs={logs} />
       </div>
     </div>

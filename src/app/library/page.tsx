@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { libraryNotes } from '@/lib/mock-data'
 import PageHeader from '@/components/ui/PageHeader'
 import ScrollReveal from '@/components/ui/ScrollReveal'
+import BtnArrow from '@/components/ui/BtnArrow'
 
 export const metadata: Metadata = {
   title: '資料室',
@@ -32,10 +33,10 @@ export default function LibraryPage() {
           <ScrollReveal key={note.slug} delay={i * 60}>
             <Link
               href={`/library/${note.slug}`}
-              className="group flex flex-col md:flex-row gap-4 md:gap-10 px-6 md:px-14 py-8 hover:bg-surface transition-colors"
+              className="group flex flex-col gap-4 px-6 py-8 hover:bg-surface transition-colors"
             >
               {/* Meta */}
-              <div className="flex md:flex-col gap-4 md:gap-2 md:w-44 shrink-0">
+              <div className="flex gap-4 shrink-0">
                 <div className="font-mono text-[9px] tracking-[0.1em] text-ink-30">{note.date}</div>
                 <span className={`font-mono text-[9px] tracking-[0.08em] px-2 py-0.5 border self-start ${typeColor[note.type] ?? 'text-ink-30 border-border'}`}>
                   {note.type}
@@ -46,7 +47,7 @@ export default function LibraryPage() {
                 <h2 className="font-mincho text-[20px] leading-[1.5] mb-2 group-hover:text-ink-60 transition-colors">
                   {note.title}
                 </h2>
-                <p className="font-serif text-[15px] text-ink-60 leading-[1.85] mb-3 line-clamp-2">
+                <p className="font-serif text-[1rem] text-ink-60 leading-[1.85] mb-3 line-clamp-2">
                   {note.excerpt}
                 </p>
                 <div className="flex flex-wrap gap-1.5">
@@ -55,8 +56,8 @@ export default function LibraryPage() {
                   ))}
                 </div>
               </div>
-              <div className="hidden md:flex items-center shrink-0">
-                <span className="font-mono text-[10px] text-ink-30 group-hover:text-ink transition-colors">▶</span>
+              <div className=" hiddenitems-center shrink-0">
+                <span className="text-ink-30 group-hover:text-ink transition-colors"><BtnArrow /></span>
               </div>
             </Link>
           </ScrollReveal>

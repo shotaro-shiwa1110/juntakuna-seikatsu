@@ -47,10 +47,10 @@ export default function NotFound() {
         <text x="125" y="155" fontFamily="Space Mono, monospace" fontSize="5" fill="#D5CFC8">???°E</text>
       </svg>
 
-      <h1 className="font-mincho text-[36px] md:text-[44px] mb-5">
+      <h1 className="font-mincho text-[2.1rem] mb-5">
         このページは見つかりませんでした
       </h1>
-      <p className="font-serif text-[16px] text-ink-60 leading-[1.9] max-w-sm mb-10">
+      <p className="font-serif text-[1.07rem] text-ink-60 leading-[1.9] max-w-sm mb-10">
         記録が移動したか、まだ書かれていないかもしれません。
         フィールドへ戻って、別のルートを探してみてください。
       </p>

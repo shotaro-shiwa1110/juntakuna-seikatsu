@@ -1,3 +1,4 @@
+import BtnArrow from '@/components/ui/BtnArrow'
 import type { Metadata } from 'next'
 import PageHeader from '@/components/ui/PageHeader'
 import ScrollReveal from '@/components/ui/ScrollReveal'
@@ -16,7 +17,7 @@ export default function ContactPage() {
         description="実践への参加・コラボレーション・メディア掲載などのご相談はこちらから。通常3営業日以内にご返答します。"
       />
 
-      <div className="px-6 md:px-14 py-14">
+      <div className="px-6 py-14">
         <ScrollReveal>
           <div className="max-w-xl">
             <div className="code-tag mb-10">
@@ -43,7 +44,7 @@ export default function ContactPage() {
                     type={type}
                     placeholder={placeholder}
                     required={required}
-                    className="w-full bg-base border border-border px-5 py-4 font-serif text-[15px] text-ink placeholder:text-ink-30 focus:outline-none focus:border-accent transition-colors h-[52px]"
+                    className="w-full bg-base border border-border px-5 py-4 font-serif text-[1rem] text-ink placeholder:text-ink-30 focus:outline-none focus:border-accent transition-colors h-[52px]"
                   />
                 </div>
               ))}
@@ -59,7 +60,7 @@ export default function ContactPage() {
                   id="inquiry-type"
                   name="type"
                   required
-                  className="w-full bg-base border border-border px-5 py-4 font-serif text-[15px] text-ink focus:outline-none focus:border-accent transition-colors h-[52px] cursor-pointer"
+                  className="w-full bg-base border border-border px-5 py-4 font-serif text-[1rem] text-ink focus:outline-none focus:border-accent transition-colors h-[52px] cursor-pointer"
                 >
                   <option value="" disabled selected>選択してください</option>
                   <option value="media">取材・メディア掲載</option>
@@ -82,12 +83,12 @@ export default function ContactPage() {
                   rows={6}
                   required
                   placeholder="お問い合わせ内容をご記入ください"
-                  className="w-full bg-base border border-border px-5 py-4 font-serif text-[15px] text-ink placeholder:text-ink-30 focus:outline-none focus:border-accent transition-colors resize-none"
+                  className="w-full bg-base border border-border px-5 py-4 font-serif text-[1rem] text-ink placeholder:text-ink-30 focus:outline-none focus:border-accent transition-colors resize-none"
                 />
               </div>
 
               <button type="submit" className="btn-primary w-full justify-center">
-                送信する ▶
+                送信する <BtnArrow />
               </button>
             </form>
           </div>

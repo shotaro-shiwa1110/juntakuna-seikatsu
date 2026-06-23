@@ -1,4 +1,5 @@
 'use client'
+import BtnArrow from '@/components/ui/BtnArrow'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState, useEffect } from 'react'
@@ -27,12 +28,12 @@ export default function Nav() {
       <header className="sticky top-0 z-50 border-b border-border bg-base/95 backdrop-blur-sm">
         <div className="flex items-center justify-between px-6 md:px-10 h-14">
           <Link href="/" className="flex flex-col justify-center min-h-[44px]">
-            <div className="font-mincho text-[17px] tracking-wider text-ink">巡拓な生活</div>
+            <div className="font-mincho text-[1.13rem] tracking-wider text-ink">巡拓な生活</div>
             <div className="font-mono text-[7px] tracking-[0.2em] text-ink-30 mt-0.5">JUNTAKUNA SEIKATSU</div>
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-0">
+          <nav className=" hiddenitems-center gap-0">
             {navLinks.map((link) => {
               const active = pathname.startsWith(link.href)
               return (
@@ -40,7 +41,7 @@ export default function Nav() {
                   key={link.href}
                   href={link.href}
                   aria-current={active ? 'page' : undefined}
-                  className={`font-serif text-[13px] tracking-wide px-3 min-h-[44px] flex items-center transition-colors ${
+                  className={`font-serif text-[0.87rem] tracking-wide px-3 min-h-[44px] flex items-center transition-colors ${
                     active
                       ? 'text-ink border-b-2 border-accent'
                       : 'text-ink-60 hover:text-ink'
@@ -99,7 +100,7 @@ export default function Nav() {
                 key={link.href}
                 href={link.href}
                 aria-current={active ? 'page' : undefined}
-                className={`flex items-center px-6 h-13 font-serif text-[15px] border-b border-border transition-colors ${
+                className={`flex items-center px-6 h-13 font-serif text-[1rem] border-b border-border transition-colors ${
                   active ? 'text-ink bg-base' : 'text-ink-60 hover:text-ink hover:bg-base'
                 }`}
               >
@@ -111,7 +112,7 @@ export default function Nav() {
         </nav>
         <div className="px-6 pt-6">
           <Link href="/contact" className="btn-primary block text-center">
-            お問い合わせ ▶
+            お問い合わせ <BtnArrow />
           </Link>
         </div>
       </div>

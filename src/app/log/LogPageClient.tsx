@@ -50,7 +50,7 @@ export default function LogPageClient({ logs }: Props) {
 
       {/* Log grid */}
       {filtered.length > 0 ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 border border-border divide-y divide-border md:divide-y-0 md:divide-x">
+        <div className="grid grid-cols-1 grid-cols-2 border border-border divide-y divide-border">
           {filtered.map((entry) => (
             <LogCard key={entry.slug} entry={entry} />
           ))}

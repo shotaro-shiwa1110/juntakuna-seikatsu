@@ -8,14 +8,15 @@ import LogCard from '@/components/ui/LogCard'
 import StatusBadge from '@/components/ui/StatusBadge'
 import ScrollReveal from '@/components/ui/ScrollReveal'
 
-interface Props { params: { slug: string } }
+interface Props { params: Promise<{ slug: string }> }
 
 export async function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }))
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const project = projects.find((p) => p.slug === params.slug)
+  const { slug } = await params
+  const project = projects.find((p) => p.slug === slug)
   if (!project) return { title: 'NOT FOUND' }
   return {
     title: project.title,
@@ -23,8 +24,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-export default function ProjectDetailPage({ params }: Props) {
-  const project = projects.find((p) => p.slug === params.slug)
+export default async function ProjectDetailPage({ params }: Props) {
+  const { slug } = await params
+  const project = projects.find((p) => p.slug === slug)
   if (!project) notFound()
 
   const relatedLogs = logs.filter((l) => project.logs.includes(l.slug))
@@ -32,19 +34,19 @@ export default function ProjectDetailPage({ params }: Props) {
   return (
     <div>
       {/* Header */}
-      <header className="border-b border-border px-6 md:px-14 py-14">
+      <header className="border-b border-border px-6 py-14">
         <div className="font-mono text-[8px] tracking-[0.3em] text-accent mb-6 flex items-center gap-3">
           <span className="w-6 h-px bg-accent inline-block" />
           PROJECT_{project.number}
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-[1fr_300px] gap-12">
+        <div className="grid grid-cols-1 gap-12">
           <div>
             <div className="mb-4">
               <StatusBadge status={project.status} />
             </div>
-            <h1 className="font-mincho text-[44px] md:text-[52px] leading-[1.3] mb-4">{project.title}</h1>
+            <h1 className="font-mincho text-[2.65rem] leading-[1.3] mb-4">{project.title}</h1>
             <p className="font-mono text-[10px] tracking-[0.1em] text-ink-30 mb-8">{project.subtitle}</p>
-            <p className="font-serif text-[17px] text-ink-60 leading-[1.9] mb-8">{project.description}</p>
+            <p className="font-serif text-[1.13rem] text-ink-60 leading-[1.9] mb-8">{project.description}</p>
             <div className="flex flex-wrap gap-2">
               {project.tags.map((tag) => <Tag key={tag} label={tag} />)}
             </div>
@@ -63,7 +65,7 @@ export default function ProjectDetailPage({ params }: Props) {
       </header>
 
       {/* Themes */}
-      <div className="border-b border-border px-6 md:px-14 py-8">
+      <div className="border-b border-border px-6 py-8">
         <div className="font-mono text-[8px] tracking-[0.25em] text-accent mb-5 flex items-center gap-2">
           <span className="w-4 h-px bg-accent inline-block" />
           THEMES
@@ -77,15 +79,15 @@ export default function ProjectDetailPage({ params }: Props) {
 
       {/* Related Logs */}
       {relatedLogs.length > 0 && (
-        <div className="px-6 md:px-14 py-12">
+        <div className="px-6 py-12">
           <ScrollReveal>
             <div className="font-mono text-[8px] tracking-[0.25em] text-accent mb-2 flex items-center gap-2">
               <span className="w-4 h-px bg-accent inline-block" />
               RELATED LOG
             </div>
-            <h2 className="font-mincho text-[26px] mb-8">関連する実践記録</h2>
+            <h2 className="font-mincho text-[1.45rem] mb-8">関連する実践記録</h2>
           </ScrollReveal>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 border border-border divide-y divide-border md:divide-y-0 md:divide-x">
+          <div className="grid grid-cols-1 grid-cols-2 border border-border divide-y divide-border">
             {relatedLogs.map((entry, i) => (
               <ScrollReveal key={entry.slug} delay={i * 80}>
                 <LogCard entry={entry} />
@@ -96,7 +98,7 @@ export default function ProjectDetailPage({ params }: Props) {
       )}
 
       {/* Back */}
-      <div className="border-t border-border px-6 md:px-14 py-8 flex justify-between items-center">
+      <div className="border-t border-border px-6 py-8 flex justify-between items-center">
         <Link href="/projects" className="font-mono text-[10px] tracking-[0.15em] text-ink-30 hover:text-ink transition-colors">
           ← PROJECTS に戻る
         </Link>

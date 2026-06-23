@@ -10,7 +10,7 @@ interface Props {
 
 export default function PageHeader({ label, title, description, annotation, children }: Props) {
   return (
-    <header className="border-b border-border px-6 md:px-14 py-14 md:py-20">
+    <header className="border-b border-border px-6 py-14">
       <div className="flex items-start justify-between gap-8">
         <div className="flex-1 max-w-2xl">
           <ScrollReveal>
@@ -20,13 +20,13 @@ export default function PageHeader({ label, title, description, annotation, chil
             </div>
           </ScrollReveal>
           <ScrollReveal delay={60}>
-            <h1 className="font-mincho text-[44px] md:text-[56px] leading-[1.3] tracking-[0.02em] mb-0">
+            <h1 className="font-mincho text-[2.65rem] leading-[1.3] tracking-[0.02em] mb-0">
               {title}
             </h1>
           </ScrollReveal>
           {description && (
             <ScrollReveal delay={120}>
-              <p className="font-serif text-[17px] text-ink-60 leading-[1.9] mt-6 max-w-lg">
+              <p className="font-serif text-[1.13rem] text-ink-60 leading-[1.9] mt-6 max-w-lg">
                 {description}
               </p>
             </ScrollReveal>
@@ -37,15 +37,6 @@ export default function PageHeader({ label, title, description, annotation, chil
             </ScrollReveal>
           )}
         </div>
-
-        {annotation && (
-          <div className="hidden md:block text-right flex-shrink-0 pt-1">
-            <div className="code-tag text-right">
-              <div>{annotation}</div>
-              <div>STATUS: ACTIVE</div>
-            </div>
-          </div>
-        )}
       </div>
     </header>
   )

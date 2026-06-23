@@ -17,17 +17,17 @@ export default function PeoplePage() {
         annotation="ARCHIVE_PENDING"
       />
 
-      <div className="px-6 md:px-14 py-20 border-t border-border">
+      <div className="px-6 py-20 border-t border-border">
         <ScrollReveal>
           <div className="max-w-lg">
             <div className="code-tag mb-8">
               <div>STATUS: PREPARING</div>
               <div>RECORDS: 0 / ∞</div>
             </div>
-            <p className="font-mincho text-[22px] leading-[1.8] text-ink mb-6">
+            <p className="font-mincho text-[1.2rem] leading-[1.8] text-ink mb-6">
               現在準備中です。
             </p>
-            <div className="space-y-4 font-serif text-[16px] text-ink-60 leading-[1.9]">
+            <div className="space-y-4 font-serif text-[1.07rem] text-ink-60 leading-[1.9]">
               <p>
                 実践活動の中で出会った人々の記録を、少しずつ蓄積していく予定です。
                 農家、職人、移住者、地域のキーパーソン——
