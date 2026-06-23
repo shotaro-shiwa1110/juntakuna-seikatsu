@@ -4,9 +4,12 @@ import { useEffect, useState } from 'react'
 import SFMark from '@/components/ui/SFMark'
 
 export default function LoadingScreen() {
-  const [phase, setPhase] = useState<'in' | 'hold' | 'out' | 'done'>('in')
+  const [phase, setPhase] = useState<'in' | 'hold' | 'out' | 'done'>('done')
 
   useEffect(() => {
+    if (sessionStorage.getItem('loaded')) return
+    sessionStorage.setItem('loaded', '1')
+    setPhase('in')
     const t1 = setTimeout(() => setPhase('hold'), 50)
     const t2 = setTimeout(() => setPhase('out'), 1400)
     const t3 = setTimeout(() => setPhase('done'), 2100)
