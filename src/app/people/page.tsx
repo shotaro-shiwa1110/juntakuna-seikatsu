@@ -13,7 +13,7 @@ export default function PeoplePage() {
       <PageHeader
         label="PEOPLE & PLACE"
         title="人と場所"
-        description="実践の中で出会った人々と場所を記録していきます。"
+        description="実践の中で出会った素敵な人々や場所を記録していきます。"
         annotation="ARCHIVE_PENDING"
       />
 

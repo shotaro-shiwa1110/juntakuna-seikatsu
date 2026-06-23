@@ -192,7 +192,7 @@ body {
   box-decoration-break: clone;
 }
 .highlight-text.active {
-  background-size: 100% 38%;
+  background-size: 100% 100%;
 }
 
 /* ── Scroll reveal animation ── */
@@ -416,7 +416,7 @@ textarea:focus-visible {
 
 /* ── Left Nav: notebook tab style ── */
 .nav-rail {
-  width: 52px;
+  width: 42px; /* mobile */
   flex-shrink: 0;
   position: sticky;
   top: 0;
@@ -424,7 +424,6 @@ textarea:focus-visible {
   align-self: flex-start;
   display: flex;
   flex-direction: column;
-  /* no overflow:hidden — individual tabs handle their own corner radii */
   z-index: 10;
 }
 
@@ -513,6 +512,9 @@ textarea:focus-visible {
 @media (min-width: 680px) {
   .desktop-deco {
     display: flex;
+  }
+  .nav-rail {
+    width: 52px; /* desktop: slightly wider tab */
   }
 }
 

@@ -4,6 +4,7 @@ import Link from 'next/link'
 import ImagePlaceholder from '@/components/ui/ImagePlaceholder'
 import PageHeader from '@/components/ui/PageHeader'
 import ScrollReveal from '@/components/ui/ScrollReveal'
+import HighlightText from '@/components/ui/HighlightText'
 
 export const metadata: Metadata = {
   title: 'プロフィール',
@@ -52,8 +53,8 @@ export default function ProfilePage() {
           </ScrollReveal>
           <ScrollReveal delay={120}>
             <div className="space-y-4 font-serif text-[1.07rem] text-ink-60 leading-[1.9]">
-              <p>1990年代生まれ。東京を拠点に、地方と行き来しながら暮らしの実験を続けている。</p>
-              <p>ウェブ制作を生業としながら、農・発酵・空き家・地域コミュニティに関わる実践を記録。「テクノロジーと民藝」の交差点を探ることが、今の問いの中心にある。</p>
+              <p>1997年生まれ。神奈川を拠点に、WEB制作を本業にしながら、7坪の農園運営、自然食品小売店の商品撮影、地元スポーツチームのコーチなどをしている。今後はさらに活動を広げ、リアルな場づくりなどを計画中。</p>
+              <p><HighlightText>「資本主義経済からの半分脱却」</HighlightText>が、今の問いの中心にある。</p>
             </div>
             <div className="mt-6">
               <div className="code-tag">

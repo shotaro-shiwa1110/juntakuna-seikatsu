@@ -1,9 +1,30 @@
 interface Props {
-  label: string
+  label: string   // image path (e.g. /images/field-mist.jpg) or fallback label text
   className?: string
 }
 
 export default function ImagePlaceholder({ label, className = '' }: Props) {
+  const isImage = label.startsWith('/')
+
+  if (isImage) {
+    return (
+      <div className={`relative overflow-hidden ${className}`}>
+        {/* Corner crosshairs — SF aesthetic */}
+        <span className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-accent z-10" />
+        <span className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-accent z-10" />
+        <span className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-accent z-10" />
+        <span className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-accent z-10" />
+        <img
+          src={label}
+          alt=""
+          className="w-full h-full object-cover"
+          style={{ filter: 'brightness(0.88) saturate(0.75) sepia(0.15)' }}
+        />
+      </div>
+    )
+  }
+
+  // Fallback: original grid placeholder
   return (
     <div className={`relative bg-[#E8E2D9] overflow-hidden grain-overlay image-scanlines ${className}`} style={{
       backgroundImage: `
@@ -12,13 +33,10 @@ export default function ImagePlaceholder({ label, className = '' }: Props) {
       `,
       backgroundSize: '24px 24px',
     }}>
-      {/* Corner crosshairs — accent color, SF aesthetic */}
       <span className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-accent" />
       <span className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-accent" />
       <span className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-accent" />
       <span className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-accent" />
-
-      {/* Center label */}
       <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
           <circle cx="10" cy="10" r="9" stroke="#D5CFC8" strokeWidth="0.75" />

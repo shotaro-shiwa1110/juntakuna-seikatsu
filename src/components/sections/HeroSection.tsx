@@ -36,9 +36,9 @@ export default function HeroSection() {
           <ScrollReveal delay={200}>
             <p className="font-serif text-[1.13rem] leading-[1.95] text-ink-60 max-w-md mb-10">
               <HighlightText>農・食・住まい・文化・地域</HighlightText>との関わりを通じて、
-              これからの豊かな暮らしを実践し記録するプロジェクト。
+              これからの豊かな暮らし方を考え、実践・発信するメディアサイト。
               個人の暮らしから、社会のあり方を問い直す。
-              <HighlightText delay={300}>小さな実験の積み重ねが、未来をつくる</HighlightText>と信じて。
+              <HighlightText delay={300}>小さな暮らしの積み重ねが、日本の未来をつくる</HighlightText>と信じて。
             </p>
           </ScrollReveal>
 
@@ -48,7 +48,7 @@ export default function HeroSection() {
                 プロジェクトを見る <BtnArrow />
               </Link>
               <Link href="/log" className="btn-secondary">
-                実践録を読む
+                実践録を読む <BtnArrow />
               </Link>
             </div>
           </ScrollReveal>

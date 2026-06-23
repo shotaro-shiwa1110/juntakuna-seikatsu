@@ -12,7 +12,10 @@ interface Props {
 export default function LogPageClient({ logs }: Props) {
   const [active, setActive] = useState<Category | null>(null)
 
-  const filtered = active ? logs.filter((l) => l.category === active) : logs
+  // ALL view: one article per category (most recent); filtered view: all in category
+  const filtered = active
+    ? logs.filter((l) => l.category === active)
+    : logs.filter((l, i, arr) => arr.findIndex((x) => x.category === l.category) === i)
 
   return (
     <>
@@ -50,7 +53,7 @@ export default function LogPageClient({ logs }: Props) {
 
       {/* Log grid */}
       {filtered.length > 0 ? (
-        <div className="grid grid-cols-1 grid-cols-2 border border-border divide-y divide-border">
+        <div className="flex flex-col border border-border divide-y divide-border">
           {filtered.map((entry) => (
             <LogCard key={entry.slug} entry={entry} />
           ))}

@@ -17,7 +17,7 @@ const footerGroups = [
     ],
   },
   {
-    label: 'について',
+    label: 'このサイトについて',
     links: [
       { href: '/profile', label: 'プロフィール' },
       { href: '/contact', label: 'お問い合わせ' },

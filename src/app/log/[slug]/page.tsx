@@ -134,7 +134,7 @@ export default async function LogDetailPage({ params }: Props) {
           <span className="w-4 h-px bg-accent inline-block" />
           MORE LOGS
         </div>
-        <div className="grid grid-cols-1 grid-cols-2 border border-border divide-y divide-border">
+        <div className="flex flex-col border border-border divide-y divide-border">
           {logs
             .filter((l) => l.slug !== entry.slug)
             .slice(0, 4)
