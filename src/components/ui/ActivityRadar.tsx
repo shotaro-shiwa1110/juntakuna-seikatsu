@@ -9,10 +9,10 @@ interface Props {
   axes: Axis[]
 }
 
-const SIZE = 200
+const SIZE = 240
 const CX = SIZE / 2
 const CY = SIZE / 2
-const R = 76
+const R = 80
 
 function polarToXY(angleDeg: number, r: number) {
   const rad = ((angleDeg - 90) * Math.PI) / 180
@@ -21,7 +21,7 @@ function polarToXY(angleDeg: number, r: number) {
 
 export default function ActivityRadar({ axes }: Props) {
   const n = axes.length
-  const rings = [0.25, 0.5, 0.75, 1.0]
+  const rings = [0.25, 0.5, 0.75]
 
   // Polygon points for each ring
   const ringPath = (ratio: number) =>
@@ -52,16 +52,16 @@ export default function ActivityRadar({ axes }: Props) {
         </filter>
       </defs>
 
-      {/* Grid rings */}
-      {rings.map((ratio, ri) => (
+      {/* Grid rings — subtle, inner rings only */}
+      {rings.slice(0, 3).map((ratio, ri) => (
         <polygon
           key={ri}
           points={ringPath(ratio)}
           fill="none"
-          stroke={ratio === 1.0 ? 'var(--color-border)' : 'var(--color-border)'}
-          strokeWidth={ratio === 1.0 ? 1 : 0.5}
-          strokeDasharray={ratio < 1.0 ? '3 3' : undefined}
-          opacity={ratio === 1.0 ? 0.8 : 0.5}
+          stroke="var(--color-border)"
+          strokeWidth={0.4}
+          strokeDasharray="2 3"
+          opacity={0.35}
         />
       ))}
 

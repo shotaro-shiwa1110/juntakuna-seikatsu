@@ -53,28 +53,29 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background-color: var(--color-accent);
+  background: linear-gradient(135deg, rgba(200, 100, 50, 0.22) 0%, rgba(185, 145, 30, 0.18) 100%);
   color: var(--color-ink);
   font-family: "Noto Serif JP", serif;
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 400;
   padding: 13px 31px;
   border-radius: 4px;
-  border: 1.5px solid var(--color-accent);
+  border: 1px solid rgba(180, 120, 60, 0.4);
   cursor: pointer;
   text-decoration: none;
   min-height: 52px;
   transition:
-    background-color 0.2s ease,
-    border-color 0.2s ease,
+    background 0.25s ease,
+    border-color 0.25s ease,
     transform 0.15s ease,
     box-shadow 0.2s ease;
+  backdrop-filter: blur(4px);
 }
 .btn-primary:hover {
-  background-color: var(--color-accent-hover);
-  border-color: var(--color-accent-hover);
+  background: linear-gradient(135deg, rgba(200, 100, 50, 0.32) 0%, rgba(185, 145, 30, 0.28) 100%);
+  border-color: rgba(180, 120, 60, 0.6);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(184, 240, 0, 0.25);
+  box-shadow: 0 6px 20px rgba(180, 100, 40, 0.18);
 }
 .btn-primary:active {
   transform: translateY(0);
@@ -435,13 +436,35 @@ html {
   display: flex;
   min-height: 100%;
   background: transparent;
+  /* small gap left for mobile active-tab to extend into */
+  padding-left: 4px;
 }
 
 /* Desktop: stack vertically (TopNav on top, content below) */
 @media (min-width: 680px) {
   .page-inner {
     flex-direction: column;
+    padding-left: 0;
   }
+}
+
+/* ── Custom scrollbar ── */
+.page-wrapper::-webkit-scrollbar {
+  width: 4px;
+}
+.page-wrapper::-webkit-scrollbar-track {
+  background: transparent;
+}
+.page-wrapper::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 2px;
+}
+.page-wrapper::-webkit-scrollbar-thumb:hover {
+  background: var(--color-ink-30);
+}
+.page-wrapper {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border) transparent;
 }
 
 /* ── Left Nav: notebook tab style ── */
@@ -542,7 +565,7 @@ html {
   display: none;
 }
 
-/* ── Top Navigation (desktop only) ── */
+/* ── Top Navigation: horizontal tab rail (desktop only) ── */
 .top-nav {
   display: none;
 }
@@ -550,72 +573,86 @@ html {
 @media (min-width: 680px) {
   .top-nav {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: space-between;
-    padding: 0 24px;
+    padding: 0 24px 0 28px;
+    /* container height: inactive tabs sit at bottom, active tab is taller */
     height: 60px;
-    background: var(--color-base);
+    background: transparent;
     border-bottom: 1px solid var(--color-border);
     position: sticky;
     top: 0;
     z-index: 20;
     flex-shrink: 0;
+    gap: 12px;
   }
 }
 
 .top-nav-logo {
   font-family: "Shippori Mincho", serif;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 400;
   letter-spacing: 0.08em;
   color: var(--color-ink);
   text-decoration: none;
   white-space: nowrap;
+  /* align with tab bottom */
+  padding-bottom: 14px;
+  flex-shrink: 0;
 }
 
-.top-nav-links {
+.top-nav-tabs {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 100%;
+}
+
+/* Each tab */
+.top-nav-tab {
   display: flex;
   align-items: center;
-  gap: 20px;
-}
-
-.top-nav-link {
+  padding: 0 10px;
+  height: 42px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-bottom: none;
+  border-radius: 4px 4px 0 0;
   font-family: "Noto Serif JP", serif;
   font-size: 0.8rem;
   font-weight: 300;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.04em;
   color: var(--color-ink-60);
   text-decoration: none;
-  position: relative;
-  transition: color 0.2s;
   white-space: nowrap;
+  transition: background 0.18s, color 0.18s;
+  cursor: pointer;
 }
 
-.top-nav-link::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  right: 0;
-  height: 1.5px;
-  background: var(--color-accent);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.25s ease;
-}
-
-.top-nav-link:hover {
+.top-nav-tab:hover {
+  background: var(--color-base);
   color: var(--color-ink);
 }
 
-.top-nav-link:hover::after,
-.top-nav-link.active::after {
-  transform: scaleX(1);
-}
-
-.top-nav-link.active {
+/* Active tab: taller, extends upward, accent top border, connects to content */
+.top-nav-tab.active {
+  height: 52px;
+  background: var(--color-base);
   color: var(--color-ink);
   font-weight: 400;
+  border-color: var(--color-border);
+  /* accent stripe at top */
+  border-top: 2.5px solid var(--color-accent);
+  /* overlap the nav's bottom border to "connect" with content */
+  margin-bottom: -1px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Right-of-active tabs: subtle inset shadow (same as mobile "below active") */
+.top-nav-tab.right-of-active {
+  background: #b0afaa;
+  box-shadow: inset 6px 0 10px -4px rgba(0, 0, 0, 0.1);
 }
 
 /* Left sidebar: horizontal logo block (like loading screen) */

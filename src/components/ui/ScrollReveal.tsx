@@ -1,10 +1,11 @@
 'use client'
-import { useEffect, useRef, ReactNode } from 'react'
+import { CSSProperties, useEffect, useRef, ReactNode } from 'react'
 
 interface Props {
   children: ReactNode
   className?: string
   delay?: number
+  style?: CSSProperties
 }
 
 function isInView(el: HTMLElement): boolean {
@@ -19,7 +20,7 @@ function isInView(el: HTMLElement): boolean {
   return eRect.top < cRect.bottom - 40 && eRect.bottom > cRect.top
 }
 
-export default function ScrollReveal({ children, className = '', delay = 0 }: Props) {
+export default function ScrollReveal({ children, className = '', delay = 0, style }: Props) {
   const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -48,7 +49,7 @@ export default function ScrollReveal({ children, className = '', delay = 0 }: Pr
   }, [])
 
   return (
-    <div ref={ref} className={`reveal ${className}`} style={{ transitionDelay: `${delay}ms` }}>
+    <div ref={ref} className={`reveal ${className}`} style={{ transitionDelay: `${delay}ms`, ...style }}>
       {children}
     </div>
   )

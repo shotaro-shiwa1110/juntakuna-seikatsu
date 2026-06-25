@@ -7,7 +7,7 @@ import GradientBlob from '@/components/ui/GradientBlob'
 
 export default function HeroSection() {
   return (
-    <section className="relative border-b border-border min-h-screen flex flex-col justify-center">
+    <section className="relative min-h-screen flex flex-col justify-center">
       <GradientBlob
         blobs={[
           { color: '#e8643a', size: 380, top: -120, right: -80, opacity: 0.32, blur: 90 },
@@ -32,15 +32,28 @@ export default function HeroSection() {
         </ScrollReveal>
 
         <ScrollReveal delay={100}>
-          <h1 className="font-mincho mb-8" style={{ lineHeight: 1.15 }}>
+          <h1 className="font-mincho mb-8" style={{ lineHeight: 1.2 }}>
             <span style={{ display: 'block', lineHeight: 1.05 }}>
               <span style={{ fontSize: '3.6rem', fontWeight: 400 }}>未来</span>
               <span style={{ fontSize: '1.5rem', color: 'var(--color-ink-60)', verticalAlign: 'middle' }}>
                 の豊かさを
               </span>
             </span>
-            <span style={{ fontSize: '2rem', display: 'block', fontWeight: 400, marginTop: '0.15em' }}>
-              今の暮らしからつくる
+            <span style={{ display: 'block', marginTop: '0.15em', lineHeight: 1.15 }}>
+              <span style={{ fontSize: '1.5rem', color: 'var(--color-ink-60)', verticalAlign: 'baseline' }}>
+                今の
+              </span>
+              <span style={{
+                fontSize: 'calc(2rem + 6px)',
+                fontWeight: 400,
+                verticalAlign: 'baseline',
+                border: '1px solid var(--color-ink)',
+                padding: '0.05em 0.25em',
+                display: 'inline-block',
+                lineHeight: 1.25,
+              }}>
+                暮らしからつくる
+              </span>
             </span>
           </h1>
         </ScrollReveal>
