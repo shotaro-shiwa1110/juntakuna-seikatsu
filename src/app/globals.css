@@ -2,15 +2,15 @@
 @import "tailwindcss";
 
 @theme {
-  --color-base: #f5f2ed;
-  --color-surface: #faf8f5;
-  --color-ink: #1a1a1a;
+  --color-base: #c2c1bc;
+  --color-surface: #cac9c4;
+  --color-ink: #1e1e1e;
   --color-ink-60: #4a4540;
-  --color-ink-30: #9a9390;
-  --color-border: #d5cfc8;
+  --color-ink-30: #7a7570;
+  --color-border: #a8a7a2;
   --color-accent: #daf000;
   --color-accent-hover: #c0d800;
-  --color-accent-text: #839008;
+  --color-accent-text: #6a7800;
   --color-on-accent: #1a1a1a;
 
   --font-mincho: "Shippori Mincho", serif;
@@ -189,7 +189,7 @@ body {
 
 /* ── Scroll-triggered text highlight marker ── */
 .highlight-text {
-  background: linear-gradient(var(--color-accent), var(--color-accent))
+  background: linear-gradient(rgba(218, 240, 0, 0.5), rgba(218, 240, 0, 0.5))
     no-repeat left center / 0% 38%;
   padding: 0 2px;
   transition: background-size 0.85s cubic-bezier(0.22, 1, 0.36, 1);
@@ -387,35 +387,28 @@ textarea:focus-visible {
   z-index: 1;
 }
 
-/* ── Satoyama fixed background ── */
+/* ── Background: solid warm gray (replaces satoyama image) ── */
 .bg-satoyama {
   position: fixed;
   inset: 0;
   z-index: -2;
-  background: url("/images/bg-satoyama.jpg") center / cover no-repeat;
-  /* deep green forest feel — hue-rotate shifts toward green, high saturation */
-  filter: blur(10px) brightness(0.55) saturate(1.4) hue-rotate(-15deg);
-  transform: scale(1.05);
+  background: #aeada8;
 }
 
 /* ── Page wrapper: phone-width card on desktop, full-width on mobile ── */
 .page-wrapper {
   position: relative;
   min-height: 100vh;
-  /* phone-width ceiling — background shows on sides when viewport is wider */
   max-width: 540px;
-  margin: 12px auto 0; /* 12px top gap: scrolls away naturally (not interior padding) */
-  /* lift the card off the background on desktop */
+  margin: 0 auto;
   box-shadow:
-    0 0 100px rgba(0, 0, 0, 0.45),
-    0 0 30px rgba(0, 0, 0, 0.3);
+    0 0 60px rgba(0, 0, 0, 0.18),
+    0 0 20px rgba(0, 0, 0, 0.1);
 }
 
-/* left gap only — top gap is handled by wrapper margin-top */
 .page-inner {
   display: flex;
   min-height: 100vh;
-  padding-left: 12px;
   background: transparent;
 }
 
@@ -471,8 +464,8 @@ textarea:focus-visible {
 /* border-radius shorthand on .nav-tab-active overrides the first/last classes fine */
 
 .nav-tab-below {
-  background: #e6dfd7;
-  box-shadow: inset 0 8px 14px -5px rgba(0, 0, 0, 0.16);
+  background: #b0afaa;
+  box-shadow: inset 0 8px 14px -5px rgba(0, 0, 0, 0.12);
 }
 
 .nav-tab-label {
@@ -547,7 +540,7 @@ textarea:focus-visible {
   font-family: "Shippori Mincho", serif;
   font-size: 1.6rem;
   font-weight: 400;
-  color: rgba(245, 242, 237, 0.8);
+  color: rgba(30, 30, 30, 0.7);
   letter-spacing: 0.1em;
   line-height: 1.5;
 }
@@ -556,7 +549,7 @@ textarea:focus-visible {
   font-family: "Space Mono", monospace;
   font-size: 0.46rem;
   letter-spacing: 0.28em;
-  color: rgba(245, 242, 237, 0.38);
+  color: rgba(30, 30, 30, 0.35);
   margin-top: 6px;
   display: block;
 }
@@ -564,7 +557,7 @@ textarea:focus-visible {
 .deco-tagline {
   font-family: "Noto Serif JP", serif;
   font-size: 0.6rem;
-  color: rgba(245, 242, 237, 0.38);
+  color: rgba(30, 30, 30, 0.35);
   letter-spacing: 0.1em;
   line-height: 2;
 }
@@ -573,7 +566,7 @@ textarea:focus-visible {
   font-family: "Space Mono", monospace;
   font-size: 0.46rem;
   letter-spacing: 0.12em;
-  color: rgba(245, 242, 237, 0.22);
+  color: rgba(30, 30, 30, 0.2);
 }
 
 /* Right sidebar: horizontal readable text at bottom */
@@ -581,7 +574,7 @@ textarea:focus-visible {
   font-family: "Space Mono", monospace;
   font-size: 0.525rem;
   letter-spacing: 0.1em;
-  color: rgba(245, 242, 237, 0.42);
+  color: rgba(30, 30, 30, 0.32);
   line-height: 2.2;
   text-align: left;
 }
