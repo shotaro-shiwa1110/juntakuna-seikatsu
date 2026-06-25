@@ -3,19 +3,10 @@ import ScrollReveal from '@/components/ui/ScrollReveal'
 import BtnArrow from '@/components/ui/BtnArrow'
 import SFMark from '@/components/ui/SFMark'
 import HighlightText from '@/components/ui/HighlightText'
-import GradientBlob from '@/components/ui/GradientBlob'
 
 export default function HeroSection() {
   return (
     <section className="relative min-h-screen flex flex-col justify-center">
-      <GradientBlob
-        blobs={[
-          { color: '#e8643a', size: 380, top: -120, right: -80, opacity: 0.32, blur: 90 },
-          { color: '#c0a000', size: 280, bottom: -60, left: -60, opacity: 0.28, blur: 80 },
-          { color: '#4a6fa5', size: 220, top: '40%', left: '30%', opacity: 0.2, blur: 70 },
-        ]}
-      />
-
       <div className="relative z-10 p-8">
         <ScrollReveal>
           <div className="flex items-center gap-4 mb-10">

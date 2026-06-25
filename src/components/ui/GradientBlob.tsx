@@ -16,7 +16,7 @@ interface Props {
 
 export default function GradientBlob({ blobs, className = '' }: Props) {
   return (
-    <div className={`absolute inset-0 pointer-events-none overflow-hidden ${className}`} aria-hidden="true">
+    <div className={`absolute inset-0 pointer-events-none ${className}`} aria-hidden="true">
       {blobs.map((b, i) => (
         <div
           key={i}
