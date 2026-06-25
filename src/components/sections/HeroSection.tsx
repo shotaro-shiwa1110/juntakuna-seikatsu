@@ -39,8 +39,8 @@ export default function HeroSection() {
                 の豊かさを
               </span>
             </span>
-            <span style={{ display: 'block', marginTop: '0.15em', lineHeight: 1.15 }}>
-              <span style={{ fontSize: '1.5rem', color: 'var(--color-ink-60)', verticalAlign: 'baseline' }}>
+            <span style={{ display: 'block', marginTop: '0.8em', lineHeight: 1.15 }}>
+              <span style={{ fontSize: '1.5rem', color: 'var(--color-ink-60)', verticalAlign: 'baseline', marginRight: '0.2em' }}>
                 今の
               </span>
               <span style={{
@@ -51,6 +51,7 @@ export default function HeroSection() {
                 padding: '0.05em 0.25em',
                 display: 'inline-block',
                 lineHeight: 1.25,
+                background: '#ffffff3c',
               }}>
                 暮らしからつくる
               </span>

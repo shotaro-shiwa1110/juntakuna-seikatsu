@@ -1,12 +1,18 @@
 import ScrollReveal from '@/components/ui/ScrollReveal'
 import HighlightText from '@/components/ui/HighlightText'
 
-const domains = [
-  { name: '食',       color: 'rgba(220, 90, 50, 0.38)',  cx: 50, cy: 22 },
-  { name: '住',       color: 'rgba(60, 100, 180, 0.38)', cx: 82, cy: 50 },
-  { name: '文化',     color: 'rgba(180, 145, 20, 0.36)', cx: 68, cy: 82 },
-  { name: 'つながり', color: 'rgba(110, 70, 170, 0.36)', cx: 32, cy: 82 },
-  { name: '経済',     color: 'rgba(30, 140, 120, 0.36)', cx: 18, cy: 50 },
+// 3 overlapping circles — outline only, gradient blobs behind
+const CIRCLES = [
+  { label: '生きる',  cx: 38, cy: 30 },
+  { label: '作る',    cx: 62, cy: 30 },
+  { label: '繋がる',  cx: 50, cy: 58 },
+]
+
+// Label anchor lines
+const LABEL_ANCHORS = [
+  { fromCx: 38, fromCy: 30, lx: 10,  ly: 10,  textX: 8,  textY: 7,  anchor: 'start' },
+  { fromCx: 62, fromCy: 30, lx: 90,  ly: 10,  textX: 92, textY: 7,  anchor: 'end'   },
+  { fromCx: 50, fromCy: 58, lx: 50,  ly: 92,  textX: 50, textY: 95, anchor: 'middle'},
 ]
 
 const manifesto = [
@@ -19,86 +25,85 @@ const manifesto = [
 
 export default function ManifestoSection() {
   return (
-    <section className="relative border-b border-border bg-surface overflow-hidden">
+    <section className="relative border-b border-border overflow-hidden">
       <div className="relative z-10 px-6 py-14">
         <ScrollReveal>
           <div className="font-mono text-[8px] tracking-[0.25em] text-accent mb-1">CONCEPT</div>
           <h2 className="font-mincho text-[1.45rem] mb-8">活動の構造</h2>
         </ScrollReveal>
 
-        {/* Two-column on desktop: diagram left, manifesto right */}
         <div style={{ display: 'flex', gap: '40px', alignItems: 'flex-start', flexWrap: 'wrap' }}>
 
-          {/* Venn diagram */}
+          {/* Venn diagram — outline circles + gradient blobs behind */}
           <ScrollReveal delay={60}>
-            <div style={{ flex: '1 1 220px', maxWidth: 320 }}>
+            <div style={{ flex: '1 1 220px', maxWidth: 320, position: 'relative' }}>
               <svg
                 viewBox="0 0 100 100"
                 width="100%"
                 aria-label="活動領域の重なりを示す概念図"
-                style={{ overflow: 'visible', display: 'block' }}
+                style={{ display: 'block', overflow: 'visible' }}
               >
                 <defs>
-                  {domains.map((d, i) => (
-                    <radialGradient key={i} id={`grad-${i}`} cx="50%" cy="50%" r="50%">
-                      <stop offset="0%" stopColor={d.color.replace(/[\d.]+\)$/, '0.55)')} />
-                      <stop offset="100%" stopColor={d.color.replace(/[\d.]+\)$/, '0.15)')} />
-                    </radialGradient>
-                  ))}
+                  {/* Gradient blobs as radial fills for background effect */}
+                  <radialGradient id="blob-a" cx="40%" cy="35%" r="55%">
+                    <stop offset="0%" stopColor="rgba(200,100,50,0.55)" />
+                    <stop offset="100%" stopColor="rgba(200,100,50,0)" />
+                  </radialGradient>
+                  <radialGradient id="blob-b" cx="60%" cy="35%" r="55%">
+                    <stop offset="0%" stopColor="rgba(74,58,122,0.45)" />
+                    <stop offset="100%" stopColor="rgba(74,58,122,0)" />
+                  </radialGradient>
+                  <radialGradient id="blob-c" cx="50%" cy="65%" r="55%">
+                    <stop offset="0%" stopColor="rgba(192,160,0,0.45)" />
+                    <stop offset="100%" stopColor="rgba(192,160,0,0)" />
+                  </radialGradient>
                 </defs>
 
-                {/* Domain circles — overlapping, semi-transparent */}
-                {domains.map((d, i) => (
+                {/* Gradient background blobs (behind circles) */}
+                <ellipse cx="38" cy="30" rx="30" ry="30" fill="url(#blob-a)" />
+                <ellipse cx="62" cy="30" rx="30" ry="30" fill="url(#blob-b)" />
+                <ellipse cx="50" cy="58" rx="30" ry="30" fill="url(#blob-c)" />
+
+                {/* Circle outlines — dashed */}
+                {CIRCLES.map((c, i) => (
                   <circle
                     key={i}
-                    cx={d.cx}
-                    cy={d.cy}
-                    r={28}
-                    fill={`url(#grad-${i})`}
-                    style={{ mixBlendMode: 'multiply' }}
+                    cx={c.cx} cy={c.cy} r={28}
+                    fill="none"
+                    stroke="var(--color-ink)"
+                    strokeWidth={0.5}
+                    strokeDasharray="2 2.5"
+                    strokeOpacity={0.45}
                   />
                 ))}
 
-                {/* Domain labels */}
-                {domains.map((d, i) => {
-                  // Position label toward outside
-                  const angle = (i / domains.length) * 2 * Math.PI - Math.PI / 2
-                  const lx = 50 + 44 * Math.cos(angle)
-                  const ly = 50 + 44 * Math.sin(angle)
-                  return (
+                {/* Anchor lines + labels */}
+                {LABEL_ANCHORS.map((a, i) => (
+                  <g key={i}>
+                    <line
+                      x1={CIRCLES[i].cx} y1={CIRCLES[i].cy}
+                      x2={a.lx} y2={a.ly}
+                      stroke="var(--color-ink)"
+                      strokeWidth={0.4}
+                      strokeOpacity={0.4}
+                    />
                     <text
-                      key={i}
-                      x={lx} y={ly}
-                      textAnchor="middle"
+                      x={a.textX} y={a.textY}
+                      textAnchor={a.anchor as 'start' | 'end' | 'middle'}
                       dominantBaseline="middle"
-                      fontSize={5}
+                      fontSize={4}
                       fontFamily="'Shippori Mincho', serif"
                       fill="var(--color-ink)"
-                      opacity={0.8}
+                      opacity={0.7}
+                      fontStyle="italic"
                     >
-                      {d.name}
+                      {CIRCLES[i].label}
                     </text>
-                  )
-                })}
-
-                {/* Center label */}
-                <circle cx={50} cy={50} r={12}
-                  fill="rgba(218, 240, 0, 0.5)"
-                  stroke="var(--color-ink)"
-                  strokeWidth={0.5}
-                  strokeOpacity={0.3}
-                />
-                <text x={50} y={48} textAnchor="middle" dominantBaseline="middle"
-                  fontSize={3.8} fontFamily="'Shippori Mincho', serif" fill="var(--color-ink)">
-                  実践する
-                </text>
-                <text x={50} y={53.5} textAnchor="middle" dominantBaseline="middle"
-                  fontSize={3.8} fontFamily="'Shippori Mincho', serif" fill="var(--color-ink)">
-                  暮らし
-                </text>
+                  </g>
+                ))}
               </svg>
               <div className="font-mono text-[7px] tracking-[0.1em] text-ink-30 mt-3 text-center">
-                5つの領域が重なり合う実践の場
+                3つの領域が重なる実践の場
               </div>
             </div>
           </ScrollReveal>

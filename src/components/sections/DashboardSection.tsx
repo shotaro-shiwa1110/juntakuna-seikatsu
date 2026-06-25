@@ -1,7 +1,6 @@
 import type { DashboardStats, LogEntry } from '@/types'
 import ScrollReveal from '@/components/ui/ScrollReveal'
 import ActivityRadar from '@/components/ui/ActivityRadar'
-import GradientBlob from '@/components/ui/GradientBlob'
 
 // 5 axes matching radar + stats
 const AXES = [
@@ -30,63 +29,43 @@ export default function DashboardSection({ stats, logs }: Props) {
   const radarAxes = buildAxes(logs)
 
   return (
-    <section className="relative pb-16 pt-4">
-      <GradientBlob
-        blobs={[
-          { color: '#4a6fa5', size: 300, top: -80, right: -60, opacity: 0.15, blur: 80 },
-          { color: '#c0a000', size: 200, bottom: 0, left: -40, opacity: 0.12, blur: 70 },
-        ]}
-      />
+    <section className="relative pb-16 pt-4 px-6">
+      {/* Header */}
+      <ScrollReveal>
+        <div className="mb-8">
+          <div className="font-mono text-[8px] tracking-[0.25em] text-accent mb-2">DASHBOARD</div>
+          <h2 className="font-mincho text-[1.45rem]">実践ダッシュボード</h2>
+          <div className="font-mono text-[9px] tracking-[0.1em] text-ink-30 mt-1">2026.05.24 現在</div>
+        </div>
+      </ScrollReveal>
 
-      <div className="relative z-10 px-6">
-        <ScrollReveal>
-          <div className="mb-6">
-            <div className="font-mono text-[8px] tracking-[0.25em] text-accent mb-2">DASHBOARD</div>
-            <h2 className="font-mincho text-[1.45rem]">実践ダッシュボード</h2>
-            <div className="font-mono text-[9px] tracking-[0.1em] text-ink-30 mt-1">2026.05.24 現在</div>
-          </div>
-        </ScrollReveal>
+      {/* Layout: stats left 25% / radar right 75% */}
+      <div style={{ display: 'flex', gap: '32px', alignItems: 'flex-start', flexWrap: 'wrap' }}>
 
-        {/* Floating card */}
-        <div style={{
-          background: 'rgba(194, 193, 188, 0.55)',
-          backdropFilter: 'blur(12px)',
-          border: '1px solid rgba(168, 167, 162, 0.6)',
-          borderRadius: '8px',
-          boxShadow: '0 8px 32px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.08)',
-          padding: '28px 24px',
-        }}>
-          {/* PC: side-by-side / Mobile: stacked */}
-          <div style={{ display: 'flex', gap: '32px', alignItems: 'flex-start', flexWrap: 'wrap' }}>
-
-            {/* Radar chart — larger on desktop */}
-            <ScrollReveal>
-              <div style={{ flex: '1 1 200px', minWidth: 180, maxWidth: 300 }}>
-                <div className="font-mono text-[8px] tracking-[0.2em] text-ink-30 mb-4">ACTIVITY RATIO</div>
-                <ActivityRadar axes={radarAxes} />
-                <div className="mt-2 font-mono text-[7px] tracking-[0.1em] text-ink-30 leading-[1.8]">
-                  実践録のカテゴリ分布から自動算出
+        {/* FIELD DATA — left 25% */}
+        <div style={{ flex: '1 1 120px', minWidth: 100 }}>
+          <div className="font-mono text-[8px] tracking-[0.2em] text-ink-30 mb-4">FIELD DATA</div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+            {AXES.map(({ label, sub, statKey }, i) => (
+              <ScrollReveal key={label} delay={i * 60}>
+                <div>
+                  <div className="font-mono text-[7px] tracking-[0.15em] text-ink-30 mb-0.5 uppercase">{label}</div>
+                  <div className="font-mincho leading-none" style={{ fontSize: '2rem' }}>{stats[statKey]}</div>
+                  <div className="font-serif text-ink-60 mt-1" style={{ fontSize: '0.78rem' }}>{sub}</div>
                 </div>
-              </div>
-            </ScrollReveal>
-
-            {/* Stats grid — 5 axes matching radar */}
-            <div style={{ flex: '2 1 240px' }}>
-              <div className="font-mono text-[8px] tracking-[0.2em] text-ink-30 mb-4">FIELD DATA</div>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(110px, 1fr))', gap: '20px 16px' }}>
-                {AXES.map(({ label, sub, statKey }, i) => (
-                  <ScrollReveal key={label} delay={i * 60}>
-                    <div>
-                      <div className="font-mono text-[8px] tracking-[0.15em] text-ink-30 mb-1 uppercase">{label}</div>
-                      <div className="font-mincho leading-none" style={{ fontSize: '2.4rem' }}>{stats[statKey]}</div>
-                      <div className="font-serif text-ink-60 mt-1.5" style={{ fontSize: '0.85rem' }}>{sub}</div>
-                    </div>
-                  </ScrollReveal>
-                ))}
-              </div>
-            </div>
+              </ScrollReveal>
+            ))}
           </div>
         </div>
+
+        {/* ACTIVITY RATIO radar — right 75% */}
+        <ScrollReveal style={{ flex: '3 1 240px', minWidth: 200 }}>
+          <div className="font-mono text-[8px] tracking-[0.2em] text-ink-30 mb-4">ACTIVITY RATIO</div>
+          <ActivityRadar axes={radarAxes} />
+          <div className="mt-2 font-mono text-[7px] tracking-[0.1em] text-ink-30 leading-[1.8]">
+            実践録のカテゴリ分布から自動算出
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   )
