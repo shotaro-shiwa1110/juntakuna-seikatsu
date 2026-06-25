@@ -9,10 +9,10 @@ interface Props {
   axes: Axis[]
 }
 
-const SIZE = 240
+const SIZE = 260
 const CX = SIZE / 2
 const CY = SIZE / 2
-const R = 80
+const R = 90
 
 function polarToXY(angleDeg: number, r: number) {
   const rad = ((angleDeg - 90) * Math.PI) / 180
@@ -21,18 +21,14 @@ function polarToXY(angleDeg: number, r: number) {
 
 export default function ActivityRadar({ axes }: Props) {
   const n = axes.length
-  const rings = [0.25, 0.5, 0.75]
+  const rings = [0.33, 0.66, 1.0]
 
-  // Polygon points for each ring
   const ringPath = (ratio: number) =>
-    axes
-      .map((_, i) => {
-        const { x, y } = polarToXY((360 / n) * i, R * ratio)
-        return `${x},${y}`
-      })
-      .join(' ')
+    axes.map((_, i) => {
+      const { x, y } = polarToXY((360 / n) * i, R * ratio)
+      return `${x},${y}`
+    }).join(' ')
 
-  // Data polygon
   const dataPoints = axes.map((axis, i) => {
     const { x, y } = polarToXY((360 / n) * i, R * (axis.value / 100))
     return `${x},${y}`
@@ -42,26 +38,33 @@ export default function ActivityRadar({ axes }: Props) {
     <svg
       viewBox={`0 0 ${SIZE} ${SIZE}`}
       width="100%"
-      style={{ maxWidth: SIZE, display: 'block' }}
+      style={{ display: 'block', maxWidth: '100%' }}
       aria-label="活動領域レーダーチャート"
     >
       <defs>
-        <filter id="glow-radar">
-          <feGaussianBlur stdDeviation="3" result="blur" />
-          <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
-        </filter>
+        <style>{`
+          @keyframes radar-expand {
+            from { transform: scale(0); opacity: 0; }
+            to   { transform: scale(1); opacity: 1; }
+          }
+          .radar-data {
+            transform-origin: ${CX}px ${CY}px;
+            animation: radar-expand 1s cubic-bezier(0.34, 1.2, 0.64, 1) forwards;
+            animation-delay: 0.3s;
+            opacity: 0;
+          }
+        `}</style>
       </defs>
 
-      {/* Grid rings — subtle, inner rings only */}
-      {rings.slice(0, 3).map((ratio, ri) => (
+      {/* Grid rings */}
+      {rings.map((ratio, ri) => (
         <polygon
           key={ri}
           points={ringPath(ratio)}
           fill="none"
           stroke="var(--color-border)"
-          strokeWidth={0.4}
-          strokeDasharray="2 3"
-          opacity={0.35}
+          strokeWidth={ratio === 1.0 ? 0.6 : 0.4}
+          opacity={0.4}
         />
       ))}
 
@@ -69,50 +72,38 @@ export default function ActivityRadar({ axes }: Props) {
       {axes.map((_, i) => {
         const outer = polarToXY((360 / n) * i, R)
         return (
-          <line
-            key={i}
-            x1={CX} y1={CY}
-            x2={outer.x} y2={outer.y}
-            stroke="var(--color-border)"
-            strokeWidth={0.5}
-            strokeDasharray="2 3"
-          />
+          <line key={i} x1={CX} y1={CY} x2={outer.x} y2={outer.y}
+            stroke="var(--color-border)" strokeWidth={0.5} opacity={0.5} />
         )
       })}
 
-      {/* Data fill */}
-      <polygon
-        points={dataPoints.join(' ')}
-        fill="var(--color-accent)"
-        fillOpacity={0.15}
-        stroke="var(--color-accent)"
-        strokeWidth={1.5}
-        filter="url(#glow-radar)"
-      />
+      {/* Data polygon — animates from center */}
+      <g className="radar-data">
+        <polygon
+          points={dataPoints.join(' ')}
+          fill="var(--color-accent)"
+          fillOpacity={0.18}
+          stroke="var(--color-accent)"
+          strokeWidth={1.5}
+        />
+      </g>
 
       {/* Axis labels */}
       {axes.map((axis, i) => {
-        const labelR = R + 18
+        const labelR = R + 20
         const { x, y } = polarToXY((360 / n) * i, labelR)
         return (
-          <text
-            key={i}
-            x={x}
-            y={y}
-            textAnchor="middle"
-            dominantBaseline="middle"
-            fontSize={9}
-            fontFamily="'Space Mono', monospace"
-            fill="var(--color-ink-60)"
-            letterSpacing="0.05em"
-          >
+          <text key={i} x={x} y={y}
+            textAnchor="middle" dominantBaseline="middle"
+            fontSize={10} fontFamily="'Shippori Mincho', serif"
+            fill="var(--color-ink)" opacity={0.8}>
             {axis.label}
           </text>
         )
       })}
 
       {/* Center dot */}
-      <circle cx={CX} cy={CY} r={2} fill="var(--color-border)" />
+      <circle cx={CX} cy={CY} r={2.5} fill="var(--color-border)" opacity={0.6} />
     </svg>
   )
 }

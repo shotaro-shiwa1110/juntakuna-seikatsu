@@ -5,8 +5,8 @@ import { usePathname } from 'next/navigation'
 
 const tabs = [
   { href: '/', label: 'トップ', exact: true },
-  { href: '/log', label: '実践録' },
   { href: '/projects', label: 'プロジェクト' },
+  { href: '/log', label: '実践録' },
   { href: '/library', label: '資料室' },
   { href: '/people', label: '人と場所' },
   { href: '/profile', label: 'プロフィール' },

@@ -3,11 +3,11 @@ import ScrollReveal from '@/components/ui/ScrollReveal'
 import ActivityRadar from '@/components/ui/ActivityRadar'
 
 const AXES = [
-  { radarKey: '食',           label: 'KG',       sub: '収穫した量',   statKey: 'harvestKg' as const },
-  { radarKey: '住',           label: 'HOUSES',   sub: '空き家見学',   statKey: 'houses'    as const },
-  { radarKey: 'コミュニティ', label: 'PEOPLE',   sub: '出会った人',   statKey: 'people'    as const },
-  { radarKey: '文化',         label: 'ARTICLES', sub: '書いた記事',   statKey: 'articles'  as const },
-  { radarKey: '経済',         label: 'PROJECTS', sub: '実験したこと', statKey: 'projects'  as const },
+  { radarKey: '食',           label: '食',           desc: '農・食・料理の実践' },
+  { radarKey: '住',           label: '住',           desc: '住まい・空間づくり'  },
+  { radarKey: 'コミュニティ', label: 'つながり',     desc: '人・地域とのつながり' },
+  { radarKey: '文化',         label: '文化',         desc: '伝統・芸術・習慣'    },
+  { radarKey: '経済',         label: '経済',         desc: '労働・お金・交換'    },
 ]
 
 function buildAxes(logs: LogEntry[]) {
@@ -16,7 +16,6 @@ function buildAxes(logs: LogEntry[]) {
     count: logs.filter(l => l.category === radarKey).length,
   }))
   const maxCount = Math.max(...counts.map(c => c.count), 1)
-  // Normalize: max maps to 85, minimum floor at 35 so radar is always visible
   return counts.map(({ label, count }) => ({
     label,
     value: Math.round(35 + (count / maxCount) * 50),
@@ -28,51 +27,40 @@ interface Props {
   logs: LogEntry[]
 }
 
-export default function DashboardSection({ stats, logs }: Props) {
+export default function DashboardSection({ stats: _stats, logs }: Props) {
   const radarAxes = buildAxes(logs)
 
   return (
     <section style={{ padding: '0 1.5rem 2.5rem' }}>
       <div className="card-float" style={{ padding: '1.75rem 1.75rem 2rem' }}>
 
-        {/* タイトル */}
         <ScrollReveal>
           <div style={{ marginBottom: '1.5rem', paddingBottom: '1.25rem', borderBottom: '1px solid var(--color-border)' }}>
             <div className="section-label" style={{ marginBottom: '0.375rem' }}>DASHBOARD</div>
             <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.75rem', flexWrap: 'wrap' }}>
               <h2 className="section-heading">実践ダッシュボード</h2>
-              <span className="meta-text">2026.05.24 現在</span>
+              <span className="meta-text">実践録のタグから集計</span>
             </div>
           </div>
         </ScrollReveal>
 
-        {/* FIELD DATA 左 / レーダー 右 — 下揃え */}
-        <div style={{ display: 'flex', gap: '1.75rem', alignItems: 'flex-end', flexWrap: 'wrap' }}>
+        <ScrollReveal delay={80}>
+          <div className="section-label" style={{ marginBottom: '1rem' }}>ACTIVITY RATIO</div>
+          <ActivityRadar axes={radarAxes} />
+        </ScrollReveal>
 
-          {/* FIELD DATA */}
-          <div style={{ flex: '1 1 10rem', minWidth: '9rem' }}>
-            <div className="section-label" style={{ marginBottom: '0.875rem' }}>FIELD DATA</div>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem 1rem' }}>
-              {AXES.map(({ label, sub, statKey }, i) => (
-                <ScrollReveal key={label} delay={i * 50}>
-                  <div style={{ minWidth: '3.5rem' }}>
-                    <div className="stat-number">{stats[statKey]}</div>
-                    <div className="stat-label">{label}</div>
-                    <div className="stat-sub">{sub}</div>
-                  </div>
-                </ScrollReveal>
-              ))}
-            </div>
+        {/* 軸の説明 */}
+        <ScrollReveal delay={160}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem 1.5rem', marginTop: '1.25rem', paddingTop: '1.25rem', borderTop: '1px solid var(--color-border)' }}>
+            {AXES.map(({ label, desc }) => (
+              <div key={label} style={{ minWidth: '8rem', flex: '1 1 8rem' }}>
+                <div style={{ fontFamily: 'var(--font-mincho)', fontSize: '0.9rem', color: 'var(--color-ink)', marginBottom: '0.1rem' }}>{label}</div>
+                <div className="meta-text">{desc}</div>
+              </div>
+            ))}
           </div>
+        </ScrollReveal>
 
-          {/* ACTIVITY RATIO レーダー */}
-          <ScrollReveal style={{ flex: '3 1 17.5rem' }}>
-            <div className="section-label" style={{ marginBottom: '0.5rem' }}>ACTIVITY RATIO</div>
-            <ActivityRadar axes={radarAxes} />
-            <div className="meta-text" style={{ marginTop: '0.25rem' }}>実践録のカテゴリ分布から自動算出</div>
-          </ScrollReveal>
-
-        </div>
       </div>
     </section>
   )
