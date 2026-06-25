@@ -11,12 +11,16 @@ const AXES = [
 ]
 
 function buildAxes(logs: LogEntry[]) {
-  const total = logs.length || 1
-  return AXES.map(({ radarKey, label }) => {
-    const count = logs.filter(l => l.category === radarKey).length
-    const value = Math.max(Math.round((count / total) * 100), 8)
-    return { label, value }
-  })
+  const counts = AXES.map(({ radarKey, label }) => ({
+    label,
+    count: logs.filter(l => l.category === radarKey).length,
+  }))
+  const maxCount = Math.max(...counts.map(c => c.count), 1)
+  // Normalize: max maps to 85, minimum floor at 35 so radar is always visible
+  return counts.map(({ label, count }) => ({
+    label,
+    value: Math.round(35 + (count / maxCount) * 50),
+  }))
 }
 
 interface Props {
@@ -28,56 +32,46 @@ export default function DashboardSection({ stats, logs }: Props) {
   const radarAxes = buildAxes(logs)
 
   return (
-    <section className="relative pb-20 px-6">
-      <div style={{
-        background: 'rgba(194, 193, 188, 0.45)',
-        backdropFilter: 'blur(16px)',
-        WebkitBackdropFilter: 'blur(16px)',
-        border: '1px solid rgba(168, 167, 162, 0.5)',
-        borderRadius: '10px',
-        boxShadow: '0 12px 40px rgba(0,0,0,0.13), 0 2px 8px rgba(0,0,0,0.07)',
-        padding: '28px 28px 32px',
-      }}>
-        {/* Title row */}
+    <section style={{ padding: '0 1.5rem 2.5rem' }}>
+      <div className="card-float" style={{ padding: '1.75rem 1.75rem 2rem' }}>
+
+        {/* タイトル */}
         <ScrollReveal>
-          <div className="mb-7 pb-5 border-b border-border">
-            <div className="font-mono text-[8px] tracking-[0.25em] text-accent mb-1.5">DASHBOARD</div>
-            <div style={{ display: 'flex', alignItems: 'baseline', gap: '12px', flexWrap: 'wrap' }}>
-              <h2 className="font-mincho text-[1.4rem]">実践ダッシュボード</h2>
-              <span className="font-mono text-[9px] tracking-[0.1em] text-ink-30">2026.05.24 現在</span>
+          <div style={{ marginBottom: '1.5rem', paddingBottom: '1.25rem', borderBottom: '1px solid var(--color-border)' }}>
+            <div className="section-label" style={{ marginBottom: '0.375rem' }}>DASHBOARD</div>
+            <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.75rem', flexWrap: 'wrap' }}>
+              <h2 className="section-heading">実践ダッシュボード</h2>
+              <span className="meta-text">2026.05.24 現在</span>
             </div>
           </div>
         </ScrollReveal>
 
-        {/* Content: FIELD DATA left narrow / Radar right large — bottom-aligned */}
-        <div style={{ display: 'flex', gap: '28px', alignItems: 'flex-end', flexWrap: 'wrap' }}>
+        {/* FIELD DATA 左 / レーダー 右 — 下揃え */}
+        <div style={{ display: 'flex', gap: '1.75rem', alignItems: 'flex-end', flexWrap: 'wrap' }}>
 
-          {/* FIELD DATA — compact, wrapping horizontal */}
-          <div style={{ flex: '1 1 180px', minWidth: 160 }}>
-            <div className="font-mono text-[7px] tracking-[0.2em] text-ink-30 mb-3">FIELD DATA</div>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px 16px' }}>
+          {/* FIELD DATA */}
+          <div style={{ flex: '1 1 10rem', minWidth: '9rem' }}>
+            <div className="section-label" style={{ marginBottom: '0.875rem' }}>FIELD DATA</div>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem 1rem' }}>
               {AXES.map(({ label, sub, statKey }, i) => (
                 <ScrollReveal key={label} delay={i * 50}>
-                  <div style={{ minWidth: 54 }}>
-                    <div className="font-mincho" style={{ fontSize: '1.55rem', lineHeight: 1 }}>
-                      {stats[statKey]}
-                    </div>
-                    <div className="font-mono text-[6px] tracking-[0.1em] text-ink-30 uppercase mt-0.5">{label}</div>
-                    <div className="font-serif text-ink-60" style={{ fontSize: '0.68rem' }}>{sub}</div>
+                  <div style={{ minWidth: '3.5rem' }}>
+                    <div className="stat-number">{stats[statKey]}</div>
+                    <div className="stat-label">{label}</div>
+                    <div className="stat-sub">{sub}</div>
                   </div>
                 </ScrollReveal>
               ))}
             </div>
           </div>
 
-          {/* ACTIVITY RATIO radar — large */}
-          <ScrollReveal style={{ flex: '3 1 280px' }}>
-            <div className="font-mono text-[7px] tracking-[0.2em] text-ink-30 mb-2">ACTIVITY RATIO</div>
+          {/* ACTIVITY RATIO レーダー */}
+          <ScrollReveal style={{ flex: '3 1 17.5rem' }}>
+            <div className="section-label" style={{ marginBottom: '0.5rem' }}>ACTIVITY RATIO</div>
             <ActivityRadar axes={radarAxes} />
-            <div className="mt-1 font-mono text-[6px] tracking-[0.08em] text-ink-30">
-              実践録のカテゴリ分布から自動算出
-            </div>
+            <div className="meta-text" style={{ marginTop: '0.25rem' }}>実践録のカテゴリ分布から自動算出</div>
           </ScrollReveal>
+
         </div>
       </div>
     </section>

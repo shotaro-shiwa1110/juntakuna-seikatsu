@@ -45,8 +45,8 @@ export default function ManifestoSection() {
     <section className="relative border-b border-border overflow-hidden">
       <div className="relative z-10 px-6 py-14">
         <ScrollReveal>
-          <div className="font-mono text-[8px] tracking-[0.25em] text-accent mb-1">CONCEPT</div>
-          <h2 className="font-mincho text-[1.45rem] mb-8">コンセプト</h2>
+          <div className="section-label" style={{ marginBottom: '0.25rem' }}>CONCEPT</div>
+          <h2 className="section-heading" style={{ marginBottom: '2rem' }}>コンセプト</h2>
         </ScrollReveal>
 
         {/* 40% diagram / 60% text */}
@@ -132,19 +132,19 @@ export default function ManifestoSection() {
                 )
               })}
             </svg>
-            <div className="font-mono text-[7px] tracking-[0.1em] text-ink-30 mt-2 text-center">
+            <div className="meta-text" style={{ marginTop: '0.5rem', textAlign: 'center' }}>
               5つの領域が重なる実践の場
             </div>
           </ScrollReveal>
 
           {/* Manifesto list — 60% */}
           <div style={{ flex: '3 1 240px' }}>
-            <div className="divide-y divide-border border-t border-border">
+            <div style={{ borderTop: '1px solid var(--color-border)' }}>
               {manifesto.map(({ num, before, highlight, after }, i) => (
                 <ScrollReveal key={num} delay={i * 60 + 100}>
-                  <div className="flex items-start gap-4 py-4">
-                    <div className="font-mono text-[8px] tracking-[0.12em] text-accent mt-1 shrink-0">{num}</div>
-                    <div className="font-mincho leading-[1.75]" style={{ fontSize: '1.05rem' }}>
+                  <div className="manifesto-item">
+                    <div className="manifesto-num">{num}</div>
+                    <div className="manifesto-text">
                       {before}<HighlightText delay={i * 60 + 250}>{highlight}</HighlightText>{after}
                     </div>
                   </div>

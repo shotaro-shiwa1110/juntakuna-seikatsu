@@ -736,3 +736,163 @@ html {
 .border-accent {
   border-color: var(--color-accent) !important;
 }
+
+/* ════════════════════════════════════════════
+   SEMANTIC DESIGN CLASSES
+   目的別のクラス名で CSS を直接書く。
+   Tailwind ユーティリティの代わりにこれを使う。
+   ════════════════════════════════════════════ */
+
+/* ── Typography ── */
+
+/* セクションラベル: DASHBOARD, CONCEPT など */
+.section-label {
+  font-family: "Space Mono", monospace;
+  font-size: 8px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-accent-text);
+}
+
+/* セクション見出し: 実践ダッシュボード など (1.45rem) */
+.section-heading {
+  font-family: "Shippori Mincho", serif;
+  font-size: 1.45rem;
+  font-weight: 400;
+  line-height: 1.3;
+  color: var(--color-ink);
+  margin: 0;
+}
+
+/* 大見出し: 進行中のプロジェクト など (1.6rem) */
+.section-heading-lg {
+  font-family: "Shippori Mincho", serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.3;
+  color: var(--color-ink);
+  margin: 0;
+}
+
+/* 本文テキスト */
+.body-text {
+  font-family: "Noto Serif JP", serif;
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: var(--color-ink-60);
+}
+
+/* 補助テキスト (日付・メタ情報など) */
+.meta-text {
+  font-family: "Space Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: var(--color-ink-30);
+}
+
+/* ── Section layout ── */
+
+/* 標準セクション */
+.section {
+  padding: 4rem 1.5rem;
+}
+
+/* 区切り線付きセクション */
+.section-bordered {
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* ── Card ── */
+
+/* 浮遊カード (backdrop-blur + drop shadow) */
+.card-float {
+  background: rgba(194, 193, 188, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(168, 167, 162, 0.5);
+  border-radius: 10px;
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.13),
+    0 2px 8px rgba(0, 0, 0, 0.07);
+}
+
+/* ── Grid / Layout ── */
+
+/* 2列グリッド (モバイル: 1列, デスクトップ: 2列) */
+.grid-2col {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.grid-2col > * {
+  flex: 1 1 100%;   /* mobile: full width */
+  min-width: 240px;
+}
+@media (min-width: 680px) {
+  .grid-2col > * {
+    flex: 1 1 calc(50% - 6px);
+  }
+}
+
+/* 横並び (flex row, wrap) */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+/* 縦並び (flex column) */
+.stack {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Divider ── */
+.divider {
+  border: none;
+  border-top: 1px solid var(--color-border);
+}
+
+/* ── Stats block (ダッシュボードの数値) ── */
+.stat-number {
+  font-family: "Shippori Mincho", serif;
+  font-size: 1.55rem;
+  line-height: 1;
+  color: var(--color-ink);
+}
+.stat-label {
+  font-family: "Space Mono", monospace;
+  font-size: 6px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-ink-30);
+  margin-top: 2px;
+}
+.stat-sub {
+  font-family: "Noto Serif JP", serif;
+  font-size: 0.68rem;
+  color: var(--color-ink-60);
+}
+
+/* ── Manifesto item ── */
+.manifesto-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+.manifesto-num {
+  font-family: "Space Mono", monospace;
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  color: var(--color-accent-text);
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+.manifesto-text {
+  font-family: "Shippori Mincho", serif;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--color-ink);
+}

@@ -10,26 +10,25 @@ interface Props {
 
 export default function LatestLogSection({ entries }: Props) {
   return (
-    <section className="px-6 py-16">
+    <section className="section">
       <ScrollReveal>
-        <div className="font-mono text-[8px] tracking-[0.25em] text-accent mb-3">LATEST LOG</div>
-        <h2 className="font-mincho text-[1.6rem] mb-3">最新の実践記録</h2>
-        <p className="font-serif text-ink-60 leading-[1.9] mb-10" style={{ fontSize: '1.05rem' }}>
+        <div className="section-label" style={{ marginBottom: '0.25rem' }}>LATEST LOG</div>
+        <h2 className="section-heading-lg" style={{ marginBottom: '0.75rem' }}>最新の実践記録</h2>
+        <p className="body-text" style={{ marginBottom: '2.5rem' }}>
           日々の実践と思考の記録。暮らしを通して見えてきたことを綴っています。
         </p>
       </ScrollReveal>
 
-      {/* 2-col on desktop, 1-col on mobile */}
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
+      <div className="grid-2col">
         {entries.map((entry, i) => (
-          <ScrollReveal key={entry.slug} delay={i * 60} style={{ flex: '1 1 calc(50% - 6px)', minWidth: 260 }}>
+          <ScrollReveal key={entry.slug} delay={i * 60}>
             <LogCard entry={entry} />
           </ScrollReveal>
         ))}
       </div>
 
       <ScrollReveal delay={250}>
-        <div className="mt-10">
+        <div style={{ marginTop: '2.5rem' }}>
           <Link href="/log" className="btn-primary">
             すべての記事を読む <BtnArrow />
           </Link>

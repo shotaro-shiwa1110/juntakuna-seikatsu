@@ -51,7 +51,7 @@ export default function HeroSection() {
         </ScrollReveal>
 
         <ScrollReveal delay={200}>
-          <p className="font-serif text-[1.1rem] leading-[1.95] text-ink-60 max-w-md mb-10">
+          <p className="body-text" style={{ maxWidth: '28rem', marginBottom: '2.5rem' }}>
             <HighlightText>農・食・住まい・文化・地域</HighlightText>との関わりを通じて、
             これからの豊かな暮らし方を考え、実践・発信するメディアサイト。
             <HighlightText delay={300}>小さな暮らしのアクションが、日本の未来をつくる</HighlightText>。

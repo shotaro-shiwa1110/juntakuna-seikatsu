@@ -10,28 +10,25 @@ interface Props {
 
 export default function ProjectsSection({ projects }: Props) {
   return (
-    <section className="border-b border-border px-6 py-16">
+    <section className="section section-bordered">
       <ScrollReveal>
-        <div className="mb-2">
-          <div className="font-mono text-[8px] tracking-[0.25em] text-accent mb-2">PROJECTS</div>
-          <h2 className="font-mincho text-[1.6rem]">進行中のプロジェクト</h2>
-        </div>
-        <p className="font-serif text-ink-60 leading-[1.8] mt-3 mb-10" style={{ fontSize: '1.05rem' }}>
+        <div className="section-label" style={{ marginBottom: '0.25rem' }}>PROJECTS</div>
+        <h2 className="section-heading-lg" style={{ marginBottom: '0.75rem' }}>進行中のプロジェクト</h2>
+        <p className="body-text" style={{ marginBottom: '2.5rem' }}>
           暮らしの5つの領域で、実践と実験を続けています。
         </p>
       </ScrollReveal>
 
-      {/* 2-col on desktop, 1-col on mobile */}
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
+      <div className="grid-2col">
         {projects.map((project, i) => (
-          <ScrollReveal key={project.slug} delay={i * 60} style={{ flex: '1 1 calc(50% - 6px)', minWidth: 260 }}>
+          <ScrollReveal key={project.slug} delay={i * 60}>
             <ProjectCard project={project} />
           </ScrollReveal>
         ))}
       </div>
 
       <ScrollReveal delay={200}>
-        <div className="mt-10">
+        <div style={{ marginTop: '2.5rem' }}>
           <Link href="/projects" className="btn-secondary">
             すべてのプロジェクトを見る <BtnArrow />
           </Link>
