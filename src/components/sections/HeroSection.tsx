@@ -7,7 +7,7 @@ import GradientBlob from '@/components/ui/GradientBlob'
 
 export default function HeroSection() {
   return (
-    <section className="relative border-b border-border min-h-[580px]">
+    <section className="relative border-b border-border min-h-screen flex flex-col justify-center">
       <GradientBlob
         blobs={[
           { color: '#e8643a', size: 380, top: -120, right: -80, opacity: 0.32, blur: 90 },

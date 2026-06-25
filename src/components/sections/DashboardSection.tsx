@@ -1,8 +1,7 @@
-import BtnArrow from '@/components/ui/BtnArrow'
-import Link from 'next/link'
 import type { DashboardStats, LogEntry } from '@/types'
 import ScrollReveal from '@/components/ui/ScrollReveal'
 import ActivityRadar from '@/components/ui/ActivityRadar'
+import GradientBlob from '@/components/ui/GradientBlob'
 
 const statDefs = [
   { key: 'places' as const, label: 'PLACES', sub: '訪れた場所' },
@@ -40,8 +39,14 @@ export default function DashboardSection({ stats, logs }: Props) {
   const radarAxes = buildRadarAxes(logs)
 
   return (
-    <section className="border-b border-border bg-surface">
-      <div className="px-6 py-14">
+    <section className="relative border-b border-border bg-surface overflow-hidden">
+      <GradientBlob
+        blobs={[
+          { color: '#4a6fa5', size: 300, top: -80, right: -60, opacity: 0.18, blur: 80 },
+          { color: '#c0a000', size: 200, bottom: -40, left: 0, opacity: 0.15, blur: 70 },
+        ]}
+      />
+      <div className="relative z-10 px-6 py-14">
         <ScrollReveal>
           <div className="mb-10">
             <div className="font-mono text-[8px] tracking-[0.25em] text-accent mb-2">DASHBOARD</div>
@@ -76,13 +81,6 @@ export default function DashboardSection({ stats, logs }: Props) {
               ))}
             </div>
 
-            <ScrollReveal delay={330}>
-              <div className="mt-10 pt-8 border-t border-border">
-                <Link href="/archive" className="btn-secondary">
-                  すべてのデータを見る <BtnArrow />
-                </Link>
-              </div>
-            </ScrollReveal>
           </div>
         </div>
       </div>
