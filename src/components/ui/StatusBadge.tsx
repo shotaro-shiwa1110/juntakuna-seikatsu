@@ -1,11 +1,12 @@
 interface Props {
-  status: 'ACTIVE' | 'PAUSED' | 'COMPLETED'
+  status: 'ACTIVE' | 'PLANNED' | 'PAUSED' | 'COMPLETED'
 }
 
 const config = {
-  ACTIVE: { label: 'ACTIVE', color: 'text-accent', dot: 'bg-accent' },
-  PAUSED: { label: 'PAUSED', color: 'text-ink-30', dot: 'bg-ink-30' },
-  COMPLETED: { label: 'COMPLETED', color: 'text-ink-60', dot: 'bg-ink-60' },
+  ACTIVE:    { label: 'ACTIVE',     color: 'text-accent',  dot: 'bg-accent'  },
+  PLANNED:   { label: 'PLANNED',    color: 'text-ink-30',  dot: 'bg-ink-30'  },
+  PAUSED:    { label: 'PAUSED',     color: 'text-ink-30',  dot: 'bg-ink-30'  },
+  COMPLETED: { label: 'COMPLETED',  color: 'text-ink-60',  dot: 'bg-ink-60'  },
 }
 
 export default function StatusBadge({ status }: Props) {

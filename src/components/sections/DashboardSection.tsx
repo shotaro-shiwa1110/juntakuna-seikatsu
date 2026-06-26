@@ -44,22 +44,31 @@ export default function DashboardSection({ stats: _stats, logs }: Props) {
           </div>
         </ScrollReveal>
 
-        <ScrollReveal delay={80}>
-          <div className="section-label" style={{ marginBottom: '1rem' }}>ACTIVITY RATIO</div>
-          <ActivityRadar axes={radarAxes} />
-        </ScrollReveal>
+        {/* チャート + 軸説明を横並びに（PC時）*/}
+        <div style={{ display: 'flex', gap: '2rem', alignItems: 'flex-start', flexWrap: 'wrap' }}>
 
-        {/* 軸の説明 */}
-        <ScrollReveal delay={160}>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem 1.5rem', marginTop: '1.25rem', paddingTop: '1.25rem', borderTop: '1px solid var(--color-border)' }}>
-            {AXES.map(({ label, desc }) => (
-              <div key={label} style={{ minWidth: '8rem', flex: '1 1 8rem' }}>
-                <div style={{ fontFamily: 'var(--font-mincho)', fontSize: '0.9rem', color: 'var(--color-ink)', marginBottom: '0.1rem' }}>{label}</div>
-                <div className="meta-text">{desc}</div>
-              </div>
-            ))}
-          </div>
-        </ScrollReveal>
+          <ScrollReveal delay={80} style={{ flex: '0 0 auto', width: 'min(100%, 280px)' }}>
+            <div className="section-label" style={{ marginBottom: '1rem' }}>ACTIVITY RATIO</div>
+            <ActivityRadar axes={radarAxes} />
+          </ScrollReveal>
+
+          {/* 軸の説明 */}
+          <ScrollReveal delay={160} style={{ flex: '1 1 200px', alignSelf: 'center' }}>
+            <div className="section-label" style={{ marginBottom: '1rem' }}>各軸について</div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+              {AXES.map(({ label, desc }) => (
+                <div key={label} style={{ display: 'flex', alignItems: 'baseline', gap: '0.75rem' }}>
+                  <div style={{ fontFamily: 'var(--font-mincho)', fontSize: '1rem', color: 'var(--color-ink)', flexShrink: 0, minWidth: '3rem' }}>{label}</div>
+                  <div className="meta-text" style={{ fontSize: '10px', lineHeight: 1.6 }}>{desc}</div>
+                </div>
+              ))}
+            </div>
+            <div className="meta-text" style={{ marginTop: '1.25rem', paddingTop: '1rem', borderTop: '1px solid var(--color-border)' }}>
+              実践録に記録したエントリのカテゴリ比率から自動算出
+            </div>
+          </ScrollReveal>
+
+        </div>
 
       </div>
     </section>
