@@ -37,7 +37,7 @@ export default function DashboardSection({ stats: _stats, logs }: Props) {
         <ScrollReveal>
           <div className="dashboard-header">
             <div className="section-label">DASHBOARD</div>
-            <h2 className="section-heading">私は今どんな割合で動いているのか？</h2>
+            <h2 className="section-heading">私は今どんな割合で生活しているのか</h2>
           </div>
         </ScrollReveal>
 

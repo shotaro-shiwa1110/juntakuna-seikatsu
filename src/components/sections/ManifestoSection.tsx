@@ -34,7 +34,7 @@ function labelPos(angleDeg: number) {
 const manifesto = [
   { num: '01', before: '', highlight: '農・食・住まい', after: 'を、自分の手に取り戻す。' },
   { num: '02', before: '消費ではなく、', highlight: '実践の記録', after: 'を残す。' },
-  { num: '03', before: '地域と人を、物語ではなく', highlight: '現場で知る', after: '。' },
+  { num: '03', before: '地域と人と文化を、', highlight: 'WEBではなく現地で知る', after: '。' },
   { num: '04', before: '失敗も含めて、', highlight: '実験として捉える', after: '。' },
   { num: '05', before: '', highlight: '小さな選択の積み重ね', after: 'が、未来をつくる。' },
 ]
@@ -53,7 +53,7 @@ export default function ManifestoSection() {
 
         <div className="manifesto-layout">
 
-          <ScrollReveal delay={60} className="manifesto-diagram">
+          {/* <ScrollReveal delay={60} className="manifesto-diagram">
             <svg
               viewBox="0 0 100 100"
               width="100%"
@@ -115,7 +115,7 @@ export default function ManifestoSection() {
               })}
             </svg>
             <div className="meta-text manifesto-caption">5つの領域が重なる実践の場</div>
-          </ScrollReveal>
+          </ScrollReveal> */}
 
           <div className="manifesto-list">
             <div className="manifesto-list-inner">
