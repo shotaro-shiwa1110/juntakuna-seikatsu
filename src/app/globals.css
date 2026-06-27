@@ -445,6 +445,8 @@ html {
       0 8px 40px rgba(0, 0, 0, 0.2),
       0 2px 10px rgba(0, 0, 0, 0.12);
     border-radius: 6px;
+    max-width: 1500px;
+    margin: 0 auto;
   }
 }
 
@@ -594,8 +596,6 @@ html {
     align-items: flex-end;
     justify-content: space-between;
     padding: 0 0 0 28px;
-    /* container height: inactive tabs sit at bottom, active tab is taller */
-    height: 60px;
     background: #aeada8;
     border-bottom: 1px solid var(--color-border);
     position: sticky;
@@ -617,6 +617,7 @@ html {
   /* align with tab bottom */
   padding-bottom: 14px;
   flex-shrink: 0;
+  margin-top: 30px;
 }
 
 .top-nav-tabs {
@@ -630,7 +631,7 @@ html {
 .top-nav-tab {
   display: flex;
   align-items: center;
-  padding: 0 10px;
+  padding: 0 20px;
   height: 42px;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
@@ -738,11 +739,19 @@ html {
 }
 
 /* ── Responsive visibility helpers ── */
-.hidden-mobile { display: none; }
-.hidden-desktop { display: block; }
+.hidden-mobile {
+  display: none;
+}
+.hidden-desktop {
+  display: block;
+}
 @media (min-width: 680px) {
-  .hidden-mobile  { display: block; }
-  .hidden-desktop { display: none;  }
+  .hidden-mobile {
+    display: block;
+  }
+  .hidden-desktop {
+    display: none;
+  }
 }
 
 /* ── Accent as readable text on light backgrounds ── */
@@ -822,7 +831,7 @@ html {
 
 /* 浮遊カード (backdrop-blur + drop shadow) */
 .card-float {
-  background: rgba(194, 193, 188, 0.45);
+  background: #e7eeec73;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(168, 167, 162, 0.5);
@@ -841,7 +850,7 @@ html {
   gap: 12px;
 }
 .grid-2col > * {
-  flex: 1 1 100%;   /* mobile: full width */
+  flex: 1 1 100%; /* mobile: full width */
   min-width: 240px;
 }
 @media (min-width: 680px) {

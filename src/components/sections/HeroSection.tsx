@@ -6,7 +6,7 @@ import HighlightText from '@/components/ui/HighlightText'
 export default function HeroSection() {
   return (
     <section style={{ position: 'relative', minHeight: '100svh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-      <div style={{ position: 'relative', zIndex: 10, padding: '5rem 2rem 4rem' }}>
+      <div style={{ position: 'relative', zIndex: 10, padding: '5rem 3rem 4rem' }}>
 
         <ScrollReveal delay={0}>
           <h1 style={{ fontFamily: 'var(--font-mincho)', lineHeight: 1.2, marginBottom: '2rem' }}>

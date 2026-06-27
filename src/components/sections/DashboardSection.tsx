@@ -31,15 +31,14 @@ export default function DashboardSection({ stats: _stats, logs }: Props) {
   const radarAxes = buildAxes(logs)
 
   return (
-    <section style={{ padding: '0 1.5rem 2.5rem' }}>
-      <div className="card-float" style={{ padding: '1.75rem 1.75rem 2rem' }}>
+    <section style={{ padding: '0 2.5rem 2.5rem' }}>
+      <div className="card-float" style={{ padding: '2.75rem 2.75rem 2rem' }}>
 
         <ScrollReveal>
           <div style={{ marginBottom: '1.5rem', paddingBottom: '1.25rem', borderBottom: '1px solid var(--color-border)' }}>
             <div className="section-label" style={{ marginBottom: '0.375rem' }}>DASHBOARD</div>
             <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.75rem', flexWrap: 'wrap' }}>
-              <h2 className="section-heading">実践ダッシュボード</h2>
-              <span className="meta-text">実践録のタグから集計</span>
+              <h2 className="section-heading">私は今どんな割合で動いているのか？</h2>
             </div>
           </div>
         </ScrollReveal>
@@ -62,9 +61,6 @@ export default function DashboardSection({ stats: _stats, logs }: Props) {
                   <div className="meta-text" style={{ fontSize: '10px', lineHeight: 1.6 }}>{desc}</div>
                 </div>
               ))}
-            </div>
-            <div className="meta-text" style={{ marginTop: '1.25rem', paddingTop: '1rem', borderTop: '1px solid var(--color-border)' }}>
-              実践録に記録したエントリのカテゴリ比率から自動算出
             </div>
           </ScrollReveal>
 
