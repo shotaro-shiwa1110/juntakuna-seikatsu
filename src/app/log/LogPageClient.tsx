@@ -53,9 +53,9 @@ export default function LogPageClient({ logs }: Props) {
 
       {/* Log grid — 2-col */}
       {filtered.length > 0 ? (
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
+        <div className="log-grid">
           {filtered.map((entry) => (
-            <div key={entry.slug} style={{ flex: '1 1 calc(50% - 6px)', minWidth: 240 }}>
+            <div key={entry.slug} className="log-grid-item">
               <LogCard entry={entry} />
             </div>
           ))}

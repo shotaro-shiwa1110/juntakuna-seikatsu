@@ -921,3 +921,249 @@ html {
   line-height: 1.75;
   color: var(--color-ink);
 }
+
+/* ════════════════════════════════════════════
+   COMPONENT CLASSES
+   各コンポーネント専用のレイアウト・スタイル。
+   style={{}} の代わりにこれを使う。
+   ════════════════════════════════════════════ */
+
+/* ── sp_br: スマホのみ改行、PC では非表示 ── */
+.sp_br { display: inline; }
+@media (min-width: 680px) { .sp_br { display: none; } }
+
+/* ── Section intro block（ラベル→見出し→リード文 の標準パターン）── */
+.section-intro .section-label       { margin-bottom: 0.25rem; }
+.section-intro .section-heading-lg  { margin-bottom: 0.75rem; }
+.section-intro .body-text           { margin-bottom: 2.5rem; }
+
+/* ── CTA エリア ── */
+.section-cta { margin-top: 2.5rem; }
+
+/* ── Hero section ── */
+.hero-section {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.hero-inner {
+  position: relative;
+  z-index: 10;
+  padding: 5rem 1.75rem 4rem;
+}
+@media (min-width: 680px) {
+  .hero-inner { padding: 5rem 3rem 4rem; }
+}
+.hero-h1 {
+  font-family: var(--font-mincho);
+  line-height: 1.2;
+  margin-bottom: 2rem;
+}
+.hero-h1-line1  { display: block; line-height: 1.05; }
+.hero-h1-big    { font-size: 3.6rem; font-weight: 400; }
+.hero-h1-small  { font-size: 1.5rem; color: var(--color-ink-60); vertical-align: middle; }
+.hero-h1-line2  { display: block; margin-top: 0.6em; line-height: 1.2; }
+.hero-h1-prefix { font-size: 1.5rem; color: var(--color-ink-60); margin-right: 0.2em; }
+.hero-h1-box {
+  font-size: calc(1.8rem + 4px);
+  font-weight: 400;
+  border: 1px solid var(--color-ink);
+  padding: 0.05em 0.25em;
+  display: inline-block;
+  line-height: 1.25;
+  background: rgba(255, 255, 255, 0.18);
+}
+.hero-lead { max-width: 28rem; margin-bottom: 2.5rem; }
+.hero-btns { display: flex; flex-wrap: wrap; gap: 1rem; }
+
+/* ── Dashboard section ── */
+.dashboard-section {
+  padding: 0 1.5rem 1.5rem;
+}
+@media (min-width: 680px) {
+  .dashboard-section { padding: 0 2.5rem 2.5rem; }
+}
+.dashboard-card { padding: 1.75rem 1.5rem 1.5rem; }
+@media (min-width: 680px) {
+  .dashboard-card { padding: 2.75rem 2.75rem 2rem; }
+}
+.dashboard-header {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--color-border);
+}
+.dashboard-header .section-label { margin-bottom: 0.375rem; }
+.dashboard-body {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.dashboard-radar-col {
+  flex: 0 0 auto;
+  width: min(100%, 280px);
+}
+.dashboard-radar-col .section-label { margin-bottom: 1rem; }
+.dashboard-axis-col {
+  flex: 1 1 200px;
+  align-self: center;
+}
+.dashboard-axis-col .section-label { margin-bottom: 1rem; }
+.dashboard-axis-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.dashboard-axis-item {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+}
+.dashboard-axis-label {
+  font-family: var(--font-mincho);
+  font-size: 1rem;
+  color: var(--color-ink);
+  flex-shrink: 0;
+  min-width: 3rem;
+}
+.dashboard-axis-desc { font-size: 10px; line-height: 1.6; }
+.dashboard-auto-note {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border);
+}
+
+/* ── Manifesto section ── */
+.manifesto-section {
+  position: relative;
+  border-bottom: 1px solid var(--color-border);
+  overflow: hidden;
+}
+.manifesto-section-inner {
+  position: relative;
+  z-index: 10;
+  padding: 3.5rem 1.5rem;
+}
+.manifesto-section-intro .section-label  { margin-bottom: 0.25rem; }
+.manifesto-section-intro .section-heading { margin-bottom: 2rem; }
+.manifesto-layout {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.manifesto-diagram {
+  flex: 2 1 200px;
+  min-width: 180px;
+  max-width: 100%;
+}
+@media (min-width: 680px) {
+  .manifesto-diagram { max-width: 42%; }
+}
+.manifesto-caption { margin-top: 0.5rem; text-align: center; }
+.manifesto-list     { flex: 3 1 240px; }
+.manifesto-list-inner { border-top: 1px solid var(--color-border); }
+
+/* ── Project card ── */
+.project-card {
+  display: block;
+  position: relative;
+  background: var(--color-base);
+  padding: 1.5rem;
+  transition: background 0.2s;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+.project-card:hover { background: var(--color-surface); }
+.project-card-planned-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-family: var(--font-mono);
+  font-size: 7px;
+  letter-spacing: 0.15em;
+  color: var(--color-ink-30);
+  border: 1px solid var(--color-border);
+  padding: 3px 7px;
+  border-radius: 2px;
+}
+.project-card-num   { margin-bottom: 1rem; }
+.project-card-title {
+  font-family: var(--font-mincho);
+  font-size: 1.07rem;
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+  color: var(--color-ink);
+}
+.project-card-body {
+  font-family: var(--font-serif);
+  font-size: 0.93rem;
+  color: var(--color-ink-60);
+  line-height: 1.85;
+  margin-bottom: 1rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.project-card-tags { display: flex; flex-wrap: wrap; gap: 4px; }
+
+/* ── Log grid（LogPageClient）── */
+.log-grid      { display: flex; flex-wrap: wrap; gap: 12px; }
+.log-grid-item { flex: 1 1 calc(50% - 6px); min-width: 240px; }
+
+/* ── Footer ── */
+.footer {
+  background-color: var(--color-ink);
+  color: var(--color-surface);
+  margin-top: 6rem;
+}
+.footer-inner { padding: 3.5rem 1.5rem 2.5rem; }
+.footer-brand { margin-bottom: 3rem; }
+.footer-brand-name {
+  font-family: var(--font-mincho);
+  font-size: 1.2rem;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.75rem;
+}
+.footer-brand-desc {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  line-height: 1.9;
+  color: rgba(250, 248, 245, 0.55);
+  max-width: 22rem;
+}
+.footer-nav { display: flex; flex-direction: column; gap: 4px; }
+.footer-group-label {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.2em;
+  color: rgba(250, 248, 245, 0.3);
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+.footer-links { display: flex; flex-direction: column; }
+.footer-link {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(213, 207, 200, 0.12);
+  color: rgba(250, 248, 245, 0.7);
+  text-decoration: none;
+}
+.footer-bottom {
+  border-top: 1px solid rgba(213, 207, 200, 0.2);
+  padding-top: 1.5rem;
+  margin-top: 3rem;
+}
+.footer-copy {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: rgba(250, 248, 245, 0.25);
+  letter-spacing: 0.1em;
+}

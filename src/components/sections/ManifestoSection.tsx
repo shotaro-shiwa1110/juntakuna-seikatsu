@@ -1,19 +1,18 @@
 import ScrollReveal from '@/components/ui/ScrollReveal'
 import HighlightText from '@/components/ui/HighlightText'
 
-// 5 domains — pentagon arrangement matching the site's 5 axes
 const DOMAINS = [
-  { label: '食',           angle: -90 },
-  { label: '住',           angle: -18 },
-  { label: '経済',         angle:  54 },
-  { label: 'つながり',     angle: 126 },
-  { label: '文化',         angle: 198 },
+  { label: '食',       angle: -90 },
+  { label: '住',       angle: -18 },
+  { label: '経済',     angle:  54 },
+  { label: 'つながり', angle: 126 },
+  { label: '文化',     angle: 198 },
 ]
 
 const CX = 50
 const CY = 50
-const R_CIRCLE = 28   // radius of each domain circle
-const R_ORBIT = 22    // distance from center to each circle center
+const R_CIRCLE = 28
+const R_ORBIT = 22
 
 function domainCenter(angleDeg: number) {
   const rad = (angleDeg * Math.PI) / 180
@@ -42,18 +41,19 @@ const manifesto = [
 
 export default function ManifestoSection() {
   return (
-    <section className="relative border-b border-border overflow-hidden">
-      <div className="relative z-10 px-6 py-14">
+    <section className="manifesto-section">
+      <div className="manifesto-section-inner">
+
         <ScrollReveal>
-          <div className="section-label" style={{ marginBottom: '0.25rem' }}>CONCEPT</div>
-          <h2 className="section-heading" style={{ marginBottom: '2rem' }}>コンセプト</h2>
+          <div className="manifesto-section-intro">
+            <div className="section-label">CONCEPT</div>
+            <h2 className="section-heading">コンセプト</h2>
+          </div>
         </ScrollReveal>
 
-        {/* 40% diagram / 60% text */}
-        <div style={{ display: 'flex', gap: '40px', alignItems: 'flex-start', flexWrap: 'wrap' }}>
+        <div className="manifesto-layout">
 
-          {/* Venn diagram — 5 domains, dashed outlines, gradient blobs behind */}
-          <ScrollReveal delay={60} style={{ flex: '2 1 200px', maxWidth: '42%', minWidth: 180 }}>
+          <ScrollReveal delay={60} className="manifesto-diagram">
             <svg
               viewBox="0 0 100 100"
               width="100%"
@@ -71,60 +71,42 @@ export default function ManifestoSection() {
                 </radialGradient>
               </defs>
 
-              {/* Soft gradient blobs in the background */}
               <ellipse cx="40" cy="38" rx="38" ry="36" fill="url(#venn-blob-a)" />
               <ellipse cx="58" cy="58" rx="36" ry="34" fill="url(#venn-blob-b)" />
 
-              {/* 5 domain circles — dashed outline only */}
               {DOMAINS.map((d, i) => {
                 const { cx, cy } = domainCenter(d.angle)
                 return (
-                  <circle
-                    key={i}
-                    cx={cx} cy={cy} r={R_CIRCLE}
-                    fill="none"
-                    stroke="var(--color-ink)"
-                    strokeWidth={0.5}
-                    strokeDasharray="1.8 2.2"
-                    strokeOpacity={0.4}
+                  <circle key={i} cx={cx} cy={cy} r={R_CIRCLE}
+                    fill="none" stroke="var(--color-ink)" strokeWidth={0.5}
+                    strokeDasharray="1.8 2.2" strokeOpacity={0.4}
                   />
                 )
               })}
 
-              {/* Center circle — where all domains meet */}
               <circle cx={CX} cy={CY} r={7}
                 fill="rgba(218,240,0,0.45)"
-                stroke="var(--color-ink)"
-                strokeWidth={0.4}
-                strokeOpacity={0.35}
+                stroke="var(--color-ink)" strokeWidth={0.4} strokeOpacity={0.35}
               />
               <text x={CX} y={CY} textAnchor="middle" dominantBaseline="middle"
                 fontSize={3.2} fontFamily="'Shippori Mincho', serif" fill="var(--color-ink)">
                 実践
               </text>
 
-              {/* Domain labels with leader lines */}
               {DOMAINS.map((d, i) => {
                 const { cx, cy } = domainCenter(d.angle)
                 const lp = labelPos(d.angle)
                 const anchor = lp.x < CX - 5 ? 'end' : lp.x > CX + 5 ? 'start' : 'middle'
                 return (
                   <g key={i}>
-                    <line
-                      x1={cx} y1={cy}
-                      x2={lp.x} y2={lp.y}
-                      stroke="var(--color-ink)"
-                      strokeWidth={0.35}
-                      strokeOpacity={0.35}
+                    <line x1={cx} y1={cy} x2={lp.x} y2={lp.y}
+                      stroke="var(--color-ink)" strokeWidth={0.35} strokeOpacity={0.35}
                     />
-                    <text
-                      x={lp.x} y={lp.y}
-                      textAnchor={anchor as 'start'|'end'|'middle'}
+                    <text x={lp.x} y={lp.y}
+                      textAnchor={anchor as 'start' | 'end' | 'middle'}
                       dominantBaseline="middle"
-                      fontSize={4.2}
-                      fontFamily="'Shippori Mincho', serif"
-                      fill="var(--color-ink)"
-                      opacity={0.75}
+                      fontSize={4.2} fontFamily="'Shippori Mincho', serif"
+                      fill="var(--color-ink)" opacity={0.75}
                     >
                       {d.label}
                     </text>
@@ -132,14 +114,11 @@ export default function ManifestoSection() {
                 )
               })}
             </svg>
-            <div className="meta-text" style={{ marginTop: '0.5rem', textAlign: 'center' }}>
-              5つの領域が重なる実践の場
-            </div>
+            <div className="meta-text manifesto-caption">5つの領域が重なる実践の場</div>
           </ScrollReveal>
 
-          {/* Manifesto list — 60% */}
-          <div style={{ flex: '3 1 240px' }}>
-            <div style={{ borderTop: '1px solid var(--color-border)' }}>
+          <div className="manifesto-list">
+            <div className="manifesto-list-inner">
               {manifesto.map(({ num, before, highlight, after }, i) => (
                 <ScrollReveal key={num} delay={i * 60 + 100}>
                   <div className="manifesto-item">
@@ -152,6 +131,7 @@ export default function ManifestoSection() {
               ))}
             </div>
           </div>
+
         </div>
       </div>
     </section>

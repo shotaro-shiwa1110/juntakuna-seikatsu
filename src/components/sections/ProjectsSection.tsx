@@ -12,11 +12,11 @@ export default function ProjectsSection({ projects }: Props) {
   return (
     <section className="section section-bordered">
       <ScrollReveal>
-        <div className="section-label" style={{ marginBottom: '0.25rem' }}>PROJECTS</div>
-        <h2 className="section-heading-lg" style={{ marginBottom: '0.75rem' }}>進行中のプロジェクト</h2>
-        <p className="body-text" style={{ marginBottom: '2.5rem' }}>
-          暮らしの5つの領域で、実践と実験を続けています。
-        </p>
+        <div className="section-intro">
+          <div className="section-label">PROJECTS</div>
+          <h2 className="section-heading-lg">進行中のプロジェクト</h2>
+          <p className="body-text">暮らしの5つの領域で、実践と実験を続けています。</p>
+        </div>
       </ScrollReveal>
 
       <div className="grid-2col">
@@ -28,7 +28,7 @@ export default function ProjectsSection({ projects }: Props) {
       </div>
 
       <ScrollReveal delay={200}>
-        <div style={{ marginTop: '2.5rem' }}>
+        <div className="section-cta">
           <Link href="/projects" className="btn-secondary">
             すべてのプロジェクトを見る <BtnArrow />
           </Link>
