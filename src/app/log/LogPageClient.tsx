@@ -21,10 +21,10 @@ export default function LogPageClient({ logs }: Props) {
     <>
       {/* Category filter */}
       <div className="flex flex-wrap items-center gap-2 mb-10 pb-6 border-b border-border">
-        <span className="font-mono text-[8px] tracking-[0.2em] text-ink-30 mr-1">FILTER:</span>
+        <span className="font-mono text-[12px] tracking-[0.2em] text-ink-30 mr-1">FILTER:</span>
         <button
           onClick={() => setActive(null)}
-          className={`font-mono text-[11px] tracking-[0.08em] px-3 py-1.5 border transition-colors min-h-[36px] ${
+          className={`font-mono text-[12px] tracking-[0.08em] px-3 py-1.5 border transition-colors min-h-[36px] ${
             active === null
               ? 'border-accent text-ink bg-accent/10'
               : 'border-border text-ink-30 hover:border-accent hover:text-ink'
@@ -39,7 +39,7 @@ export default function LogPageClient({ logs }: Props) {
             <button
               key={cat}
               onClick={() => setActive(active === cat ? null : cat)}
-              className={`font-mono text-[11px] tracking-[0.08em] px-3 py-1.5 border transition-colors min-h-[36px] ${
+              className={`font-mono text-[12px] tracking-[0.08em] px-3 py-1.5 border transition-colors min-h-[36px] ${
                 active === cat
                   ? 'border-accent text-ink bg-accent/10'
                   : 'border-border text-ink-30 hover:border-accent hover:text-ink'
@@ -61,7 +61,7 @@ export default function LogPageClient({ logs }: Props) {
           ))}
         </div>
       ) : (
-        <div className="text-center py-20 text-ink-30 font-mono text-[11px] tracking-[0.1em]">
+        <div className="text-center py-20 text-ink-30 font-mono text-[12px] tracking-[0.1em]">
           NO RECORDS FOUND
         </div>
       )}

@@ -34,10 +34,10 @@ export default async function LibraryNotePage({ params }: Props) {
         <div className="max-w-2xl">
           <ScrollReveal>
             <div className="flex items-center gap-4 mb-6">
-              <span className="font-mono text-[9px] tracking-[0.08em] px-2 py-0.5 border border-ink-30 text-ink-30">
+              <span className="font-mono text-[12px] tracking-[0.08em] px-2 py-0.5 border border-ink-30 text-ink-30">
                 {note.type}
               </span>
-              <span className="font-mono text-[9px] tracking-[0.12em] text-ink-30">{note.date}</span>
+              <span className="font-mono text-[12px] tracking-[0.12em] text-ink-30">{note.date}</span>
             </div>
           </ScrollReveal>
           <ScrollReveal delay={60}>
@@ -47,7 +47,7 @@ export default async function LibraryNotePage({ params }: Props) {
             <p className="font-serif text-[1.07rem] text-ink-60 leading-[1.9] mb-6">{note.excerpt}</p>
             <div className="flex flex-wrap gap-2">
               {note.tags.map((t) => (
-                <span key={t} className="font-mono text-[9px] text-ink-30 tracking-[0.06em]">{t}</span>
+                <span key={t} className="font-mono text-[12px] text-ink-30 tracking-[0.06em]">{t}</span>
               ))}
             </div>
           </ScrollReveal>
@@ -69,7 +69,7 @@ export default async function LibraryNotePage({ params }: Props) {
       </div>
 
       <div className="border-t border-border px-6 py-8">
-        <Link href="/library" className="font-mono text-[10px] tracking-[0.15em] text-ink-30 hover:text-ink transition-colors">
+        <Link href="/library" className="font-mono text-[12px] tracking-[0.15em] text-ink-30 hover:text-ink transition-colors">
           ← 資料室に戻る
         </Link>
       </div>

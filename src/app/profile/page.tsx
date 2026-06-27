@@ -16,7 +16,7 @@ export default function ProfilePage() {
     <div>
       <PageHeader
         label="PROFILE"
-        title="このサイトについて"
+        title={<>このサイトに<br className="sp_br" />ついて</>}
         annotation="PROFILE_001"
       />
 
@@ -24,7 +24,7 @@ export default function ProfilePage() {
       <div className="grid grid-cols-1 border-b border-border">
         <div className="p-10 border-b border-border">
           <ScrollReveal>
-            <div className="font-mono text-[8px] tracking-[0.25em] text-accent mb-6 flex items-center gap-2">
+            <div className="font-mono text-[12px] tracking-[0.25em] text-accent mb-6 flex items-center gap-2">
               <span className="w-4 h-px bg-accent inline-block" />
               VISION
             </div>
@@ -43,7 +43,7 @@ export default function ProfilePage() {
 
         <div className="p-10">
           <ScrollReveal>
-            <div className="font-mono text-[8px] tracking-[0.25em] text-accent mb-6 flex items-center gap-2">
+            <div className="font-mono text-[12px] tracking-[0.25em] text-accent mb-6 flex items-center gap-2">
               <span className="w-4 h-px bg-accent inline-block" />
               ABOUT
             </div>
@@ -70,7 +70,7 @@ export default function ProfilePage() {
       {/* Philosophy */}
       <div className="px-6 py-16 border-b border-border">
         <ScrollReveal>
-          <div className="font-mono text-[8px] tracking-[0.25em] text-accent mb-6 flex items-center gap-2">
+          <div className="font-mono text-[12px] tracking-[0.25em] text-accent mb-6 flex items-center gap-2">
             <span className="w-4 h-px bg-accent inline-block" />
             PHILOSOPHY
           </div>

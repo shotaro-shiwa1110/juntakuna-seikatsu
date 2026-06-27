@@ -30,7 +30,7 @@ export default async function PlaceDetailPage({ params }: Props) {
     <div>
       <header className="border-b border-border px-6 py-14">
         <ScrollReveal>
-          <div className="font-mono text-[8px] tracking-[0.3em] text-accent mb-5 flex items-center gap-3">
+          <div className="font-mono text-[12px] tracking-[0.3em] text-accent mb-5 flex items-center gap-3">
             <span className="w-6 h-px bg-accent inline-block" />
             PLACE / {place.coordinates}
           </div>
@@ -39,7 +39,7 @@ export default async function PlaceDetailPage({ params }: Props) {
           <h1 className="font-mincho text-[2.4rem] leading-[1.3] mb-3">{place.name}</h1>
         </ScrollReveal>
         <ScrollReveal delay={120}>
-          <div className="font-mono text-[10px] tracking-[0.08em] text-ink-30 mb-6">{place.prefecture}</div>
+          <div className="font-mono text-[12px] tracking-[0.08em] text-ink-30 mb-6">{place.prefecture}</div>
           <p className="font-serif text-[1.13rem] text-ink-60 leading-[1.9] max-w-xl">{place.description}</p>
         </ScrollReveal>
       </header>
@@ -49,7 +49,7 @@ export default async function PlaceDetailPage({ params }: Props) {
       {relatedLogs.length > 0 && (
         <div className="px-6 py-12">
           <ScrollReveal>
-            <div className="font-mono text-[8px] tracking-[0.25em] text-accent mb-8 flex items-center gap-2">
+            <div className="font-mono text-[12px] tracking-[0.25em] text-accent mb-8 flex items-center gap-2">
               <span className="w-4 h-px bg-accent inline-block" />
               RELATED LOG
             </div>
@@ -65,7 +65,7 @@ export default async function PlaceDetailPage({ params }: Props) {
       )}
 
       <div className="border-t border-border px-6 py-8">
-        <Link href="/place" className="font-mono text-[10px] tracking-[0.15em] text-ink-30 hover:text-ink transition-colors">
+        <Link href="/place" className="font-mono text-[12px] tracking-[0.15em] text-ink-30 hover:text-ink transition-colors">
           ← PLACE に戻る
         </Link>
       </div>

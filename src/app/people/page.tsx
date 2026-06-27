@@ -25,11 +25,11 @@ export default function PeoplePage() {
               <div>RECORDS: 0 / ∞</div>
             </div>
             <p className="font-mincho text-[1.2rem] leading-[1.8] text-ink mb-6">
-              このセクションのコンテンツが入ります。
+              実践の中で出会った素敵な人々や場所を、記録していきます。
             </p>
             <div className="space-y-4 font-serif text-[1.07rem] text-ink-60 leading-[1.9]">
-              <p>テキストが入ります。テキストが入ります。テキストが入ります。</p>
-              <p>テキストが入ります。テキストが入ります。テキストが入ります。</p>
+              <p>農家、職人、つくり手、地域で暮らしを耕す人々——そういった方々との出会いを、ここに残していく予定です。</p>
+              <p>訪れた場所の空気感や、そこで感じたことも、一緒に記していきます。</p>
             </div>
           </div>
         </ScrollReveal>

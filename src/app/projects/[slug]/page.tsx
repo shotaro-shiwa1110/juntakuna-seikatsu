@@ -35,7 +35,7 @@ export default async function ProjectDetailPage({ params }: Props) {
     <div>
       {/* Header */}
       <header className="border-b border-border px-6 py-14">
-        <div className="font-mono text-[8px] tracking-[0.3em] text-accent mb-6 flex items-center gap-3">
+        <div className="font-mono text-[12px] tracking-[0.3em] text-accent mb-6 flex items-center gap-3">
           <span className="w-6 h-px bg-accent inline-block" />
           PROJECT_{project.number}
         </div>
@@ -45,7 +45,7 @@ export default async function ProjectDetailPage({ params }: Props) {
               <StatusBadge status={project.status} />
             </div>
             <h1 className="font-mincho text-[2.65rem] leading-[1.3] mb-4">{project.title}</h1>
-            <p className="font-mono text-[10px] tracking-[0.1em] text-ink-30 mb-8">{project.subtitle}</p>
+            <p className="font-mono text-[12px] tracking-[0.1em] text-ink-30 mb-8">{project.subtitle}</p>
             <p className="font-serif text-[1.13rem] text-ink-60 leading-[1.9] mb-8">{project.description}</p>
             <div className="flex flex-wrap gap-2">
               {project.tags.map((tag) => <Tag key={tag} label={tag} />)}
@@ -66,7 +66,7 @@ export default async function ProjectDetailPage({ params }: Props) {
 
       {/* Themes */}
       <div className="border-b border-border px-6 py-8">
-        <div className="font-mono text-[8px] tracking-[0.25em] text-accent mb-5 flex items-center gap-2">
+        <div className="font-mono text-[12px] tracking-[0.25em] text-accent mb-5 flex items-center gap-2">
           <span className="w-4 h-px bg-accent inline-block" />
           THEMES
         </div>
@@ -81,7 +81,7 @@ export default async function ProjectDetailPage({ params }: Props) {
       {relatedLogs.length > 0 && (
         <div className="px-6 py-12">
           <ScrollReveal>
-            <div className="font-mono text-[8px] tracking-[0.25em] text-accent mb-2 flex items-center gap-2">
+            <div className="font-mono text-[12px] tracking-[0.25em] text-accent mb-2 flex items-center gap-2">
               <span className="w-4 h-px bg-accent inline-block" />
               RELATED LOG
             </div>
@@ -99,10 +99,10 @@ export default async function ProjectDetailPage({ params }: Props) {
 
       {/* Back */}
       <div className="border-t border-border px-6 py-8 flex justify-between items-center">
-        <Link href="/projects" className="font-mono text-[10px] tracking-[0.15em] text-ink-30 hover:text-ink transition-colors">
+        <Link href="/projects" className="font-mono text-[12px] tracking-[0.15em] text-ink-30 hover:text-ink transition-colors">
           ← PROJECTS に戻る
         </Link>
-        <div className="font-mono text-[9px] text-ink-30 tracking-[0.1em]">
+        <div className="font-mono text-[12px] text-ink-30 tracking-[0.1em]">
           PROJECT_{project.number} / {projects.length}
         </div>
       </div>

@@ -47,7 +47,7 @@ export default function ManifestoSection() {
         <ScrollReveal>
           <div className="manifesto-section-intro">
             <div className="section-label">CONCEPT</div>
-            <h2 className="section-heading">コンセプト</h2>
+            <h2 className="section-heading-lg">コンセプト</h2>
           </div>
         </ScrollReveal>
 

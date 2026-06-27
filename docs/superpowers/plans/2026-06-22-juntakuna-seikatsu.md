@@ -1666,7 +1666,7 @@ export default function ProjectsPage() {
           PROJECTS
         </div>
         <h1 className="font-mincho text-[32px] mb-3">進行中のプロジェクト</h1>
-        <p className="font-serif text-body text-ink-60 max-w-lg">
+        <p className="font-serif text-body text-ink-60">
           暮らしの5つの領域それぞれで、実践と実験を続けています。
           これらは「答え」ではなく、問いかけの記録です。
         </p>
@@ -1880,7 +1880,7 @@ export default function LogPage() {
           LATEST LOG
         </div>
         <h1 className="font-mincho text-[32px] mb-3">実践記録</h1>
-        <p className="font-serif text-body text-ink-60 max-w-lg">
+        <p className="font-serif text-body text-ink-60">
           日々の実践と思考の記録。暮らしを通して見えてきたことを綴っています。
         </p>
       </div>
@@ -2059,7 +2059,7 @@ export default function ThemePage() {
         THEME
       </div>
       <h1 className="font-mincho text-[32px] mb-3">テーマ</h1>
-      <p className="font-serif text-body text-ink-60 max-w-lg mb-12">
+      <p className="font-serif text-body text-ink-60 mb-12">
         巡拓な生活が探求する、暮らしの6つの領域。
       </p>
 
@@ -2325,7 +2325,7 @@ export default function PeoplePage() {
         PEOPLE
       </div>
       <h1 className="font-mincho text-[32px] mb-3">人物アーカイブ</h1>
-      <p className="font-serif text-body text-ink-60 max-w-lg mb-12">
+      <p className="font-serif text-body text-ink-60 mb-12">
         実践の中で出会った人々の記録。それぞれの暮らし方が、問いへの答えのひとつになっている。
       </p>
 
@@ -2397,9 +2397,7 @@ export default function PersonDetailPage({ params }: Props) {
         <div className="font-mono text-[9px] tracking-[0.12em] text-ink-30 mb-6">
           {person.role}
         </div>
-        <p className="font-serif text-body text-ink-60 max-w-lg">
-          {person.description}
-        </p>
+        <p className="font-serif text-body text-ink-60">{person.description}</p>
       </header>
 
       <div className="grid grid-cols-1 md:grid-cols-2 border-b border-border">
@@ -2475,7 +2473,7 @@ export default function PlacePage() {
         PLACE
       </div>
       <h1 className="font-mincho text-[32px] mb-3">場所アーカイブ</h1>
-      <p className="font-serif text-body text-ink-60 max-w-lg mb-12">
+      <p className="font-serif text-body text-ink-60 mb-12">
         実践の舞台となった場所の記録。それぞれの土地が持つ文脈を探る。
       </p>
 
@@ -2545,9 +2543,7 @@ export default function PlaceDetailPage({ params }: Props) {
         <div className="font-mono text-[9px] tracking-[0.12em] text-ink-30 mb-6">
           {place.prefecture}
         </div>
-        <p className="font-serif text-body text-ink-60 max-w-lg">
-          {place.description}
-        </p>
+        <p className="font-serif text-body text-ink-60">{place.description}</p>
       </header>
 
       <ImagePlaceholder
@@ -2621,7 +2617,7 @@ export default function ArchivePage() {
         ARCHIVE
       </div>
       <h1 className="font-mincho text-[32px] mb-3">アーカイブ</h1>
-      <p className="font-serif text-body text-ink-60 max-w-lg mb-12">
+      <p className="font-serif text-body text-ink-60 mb-12">
         写真・ドキュメント・スケッチ・地図。実践の痕跡を収める場所。
       </p>
 

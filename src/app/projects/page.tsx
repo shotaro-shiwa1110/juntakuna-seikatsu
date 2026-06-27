@@ -17,7 +17,7 @@ export default function ProjectsPage() {
     <div>
       <PageHeader
         label="PROJECTS"
-        title="進行中のプロジェクト"
+        title={<>進行中の<br className="sp_br" />プロジェクト</>}
         description="暮らしの5つの領域それぞれで、実践と実験を続けています。これらは「答え」ではなく、問いかけの記録です。"
         annotation={`PROJECT_00${projects.length}`}
       />
@@ -27,22 +27,22 @@ export default function ProjectsPage() {
           <ScrollReveal key={project.slug} delay={i * 60}>
             <Link
               href={`/projects/${project.slug}`}
-              className="group grid grid-cols-1 border-b border-border hover:bg-surface transition-colors"
+              className={`project-row group grid grid-cols-1 border-b border-border hover:bg-surface transition-colors${project.status === 'PLANNED' ? ' is-planned' : ''}`}
             >
               {/* Number column */}
               <div className="flex items-start pt-10 px-6 pb-4">
-                <span className="font-mono text-[11px] tracking-[0.2em] text-accent">{project.number}</span>
+                <span className="font-mono text-[12px] tracking-[0.2em] text-accent">{project.number}</span>
               </div>
 
               {/* Content column */}
               <div className="px-6 pb-10">
                 <div className="mb-3">
-                  <StatusBadge status={project.status as 'ACTIVE' | 'PAUSED' | 'COMPLETED'} />
+                  <StatusBadge status={project.status as 'ACTIVE' | 'PLANNED' | 'PAUSED' | 'COMPLETED'} />
                 </div>
                 <h2 className="font-mincho text-[1.45rem] leading-[1.45] mb-2 group-hover:text-ink-60 transition-colors">
                   {project.title}
                 </h2>
-                <p className="font-mono text-[10px] tracking-[0.08em] text-ink-30 mb-5">{project.subtitle}</p>
+                <p className="font-mono text-[12px] tracking-[0.08em] text-ink-30 mb-5">{project.subtitle}</p>
                 <p className="font-serif text-[1.07rem] text-ink-60 leading-[1.9] max-w-xl">{project.description}</p>
                 <div className="flex flex-wrap gap-1.5 mt-6">
                   {project.tags.map((tag) => <Tag key={tag} label={tag} />)}

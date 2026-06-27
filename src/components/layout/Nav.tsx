@@ -29,7 +29,7 @@ export default function Nav() {
         <div className="flex items-center justify-between px-6 md:px-10 h-14">
           <Link href="/" className="flex flex-col justify-center min-h-[44px]">
             <div className="font-mincho text-[1.13rem] tracking-wider text-ink">巡拓な生活</div>
-            <div className="font-mono text-[7px] tracking-[0.2em] text-ink-30 mt-0.5">JUNTAKUNA SEIKATSU</div>
+            <div className="font-mono text-[12px] tracking-[0.2em] text-ink-30 mt-0.5">JUNTAKUNA SEIKATSU</div>
           </Link>
 
           {/* Desktop nav */}
@@ -89,7 +89,7 @@ export default function Nav() {
           open ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
-        <div className="font-mono text-[7px] tracking-[0.25em] text-ink-30 px-6 pt-7 pb-3">
+        <div className="font-mono text-[12px] tracking-[0.25em] text-ink-30 px-6 pt-7 pb-3">
           NAVIGATION
         </div>
         <nav className="flex flex-col">

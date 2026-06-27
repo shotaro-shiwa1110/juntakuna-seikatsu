@@ -37,8 +37,8 @@ export default function LibraryPage() {
             >
               {/* Meta */}
               <div className="flex gap-4 shrink-0">
-                <div className="font-mono text-[9px] tracking-[0.1em] text-ink-30">{note.date}</div>
-                <span className={`font-mono text-[9px] tracking-[0.08em] px-2 py-0.5 border self-start ${typeColor[note.type] ?? 'text-ink-30 border-border'}`}>
+                <div className="font-mono text-[12px] tracking-[0.1em] text-ink-30">{note.date}</div>
+                <span className={`font-mono text-[12px] tracking-[0.08em] px-2 py-0.5 border self-start ${typeColor[note.type] ?? 'text-ink-30 border-border'}`}>
                   {note.type}
                 </span>
               </div>
@@ -52,7 +52,7 @@ export default function LibraryPage() {
                 </p>
                 <div className="flex flex-wrap gap-1.5">
                   {note.tags.map((t) => (
-                    <span key={t} className="font-mono text-[9px] text-ink-30 tracking-[0.06em]">{t}</span>
+                    <span key={t} className="font-mono text-[12px] text-ink-30 tracking-[0.06em]">{t}</span>
                   ))}
                 </div>
               </div>

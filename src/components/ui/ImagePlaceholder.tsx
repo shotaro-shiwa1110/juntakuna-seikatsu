@@ -39,7 +39,7 @@ export default function ImagePlaceholder({ label, className = '' }: Props) {
           <line x1="0" y1="10" x2="20" y2="10" stroke="#D5CFC8" strokeWidth="0.5" />
           <circle cx="10" cy="10" r="1.5" fill="#B8F000" />
         </svg>
-        <span className="font-mono text-[7px] tracking-[0.12em] text-ink-30 text-center px-6 leading-[1.8]">{label}</span>
+        <span className="font-mono text-[12px] tracking-[0.12em] text-ink-30 text-center px-6 leading-[1.8]">{label}</span>
       </div>
     </div>
   )

@@ -15,8 +15,8 @@ export default function LogCard({ entry }: Props) {
       <ImagePlaceholder label={entry.imagePlaceholder} />
       <div className="p-5">
         <div className="flex items-center gap-3 mb-3">
-          <span className="font-mono text-[8px] tracking-[0.08em] text-ink-30">{entry.date}</span>
-          <span className="font-mono text-[8px] tracking-[0.06em] text-ink-30">{minutes}分</span>
+          <span className="font-mono text-[12px] tracking-[0.08em] text-ink-30">{entry.date}</span>
+          <span className="font-mono text-[12px] tracking-[0.06em] text-ink-30">{minutes}分</span>
         </div>
         <div className="mb-3"><CategoryBadge category={entry.category} /></div>
         <h3 className="font-mincho text-[1.07rem] leading-[1.65] text-ink group-hover:text-ink-60 transition-colors line-clamp-3">

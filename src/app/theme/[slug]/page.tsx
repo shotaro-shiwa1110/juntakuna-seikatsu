@@ -35,7 +35,7 @@ export default async function ThemeDetailPage({ params }: Props) {
     <div>
       <header className="border-b border-border px-6 py-14">
         <ScrollReveal>
-          <div className="font-mono text-[8px] tracking-[0.3em] text-accent mb-5 flex items-center gap-3">
+          <div className="font-mono text-[12px] tracking-[0.3em] text-accent mb-5 flex items-center gap-3">
             <span className="w-6 h-px bg-accent inline-block" />
             {theme.nameEn}
           </div>
@@ -50,7 +50,7 @@ export default async function ThemeDetailPage({ params }: Props) {
 
       {relatedProjects.length > 0 && (
         <div className="border-b border-border px-6 py-10">
-          <div className="font-mono text-[8px] tracking-[0.25em] text-accent mb-6 flex items-center gap-2">
+          <div className="font-mono text-[12px] tracking-[0.25em] text-accent mb-6 flex items-center gap-2">
             <span className="w-4 h-px bg-accent inline-block" />
             RELATED PROJECTS
           </div>
@@ -61,7 +61,7 @@ export default async function ThemeDetailPage({ params }: Props) {
                   href={`/projects/${p.slug}`}
                   className="group flex items-baseline gap-5 py-5 border-b border-border last:border-0 hover:bg-surface transition-colors -mx-6 md:-mx-14 px-6"
                 >
-                  <span className="font-mono text-[10px] tracking-[0.15em] text-accent flex-shrink-0">{p.number}</span>
+                  <span className="font-mono text-[12px] tracking-[0.15em] text-accent flex-shrink-0">{p.number}</span>
                   <span className="font-mincho text-[1.2rem] leading-[1.5] group-hover:text-ink-60 transition-colors">{p.title}</span>
                   <span className="font-serif text-[0.93rem] text-ink-30 ml-auto">→</span>
                 </Link>
@@ -74,7 +74,7 @@ export default async function ThemeDetailPage({ params }: Props) {
       {relatedLogs.length > 0 && (
         <div className="px-6 py-12">
           <ScrollReveal>
-            <div className="font-mono text-[8px] tracking-[0.25em] text-accent mb-8 flex items-center gap-2">
+            <div className="font-mono text-[12px] tracking-[0.25em] text-accent mb-8 flex items-center gap-2">
               <span className="w-4 h-px bg-accent inline-block" />
               RELATED LOG
             </div>
@@ -90,7 +90,7 @@ export default async function ThemeDetailPage({ params }: Props) {
       )}
 
       <div className="border-t border-border px-6 py-8">
-        <Link href="/theme" className="font-mono text-[10px] tracking-[0.15em] text-ink-30 hover:text-ink transition-colors">
+        <Link href="/theme" className="font-mono text-[12px] tracking-[0.15em] text-ink-30 hover:text-ink transition-colors">
           ← THEME に戻る
         </Link>
       </div>

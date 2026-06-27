@@ -34,7 +34,7 @@ export default async function ArchiveDetailPage({ params }: Props) {
     <div>
       <header className="border-b border-border px-6 py-14">
         <ScrollReveal>
-          <div className="font-mono text-[8px] tracking-[0.3em] text-accent mb-5 flex items-center gap-3">
+          <div className="font-mono text-[12px] tracking-[0.3em] text-accent mb-5 flex items-center gap-3">
             <span className="w-6 h-px bg-accent inline-block" />
             ARCHIVE / {typeLabel[item.type]}
           </div>
@@ -43,7 +43,7 @@ export default async function ArchiveDetailPage({ params }: Props) {
           <h1 className="font-mincho text-[2.1rem] leading-[1.35] mb-4">{item.title}</h1>
         </ScrollReveal>
         <ScrollReveal delay={120}>
-          <div className="font-mono text-[10px] tracking-[0.1em] text-ink-30">{item.date}</div>
+          <div className="font-mono text-[12px] tracking-[0.1em] text-ink-30">{item.date}</div>
         </ScrollReveal>
       </header>
 
@@ -56,7 +56,7 @@ export default async function ArchiveDetailPage({ params }: Props) {
       </div>
 
       <div className="border-t border-border px-6 py-8">
-        <Link href="/archive" className="font-mono text-[10px] tracking-[0.15em] text-ink-30 hover:text-ink transition-colors">
+        <Link href="/archive" className="font-mono text-[12px] tracking-[0.15em] text-ink-30 hover:text-ink transition-colors">
           ← ARCHIVE に戻る
         </Link>
       </div>

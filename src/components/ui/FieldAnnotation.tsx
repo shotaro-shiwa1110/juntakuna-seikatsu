@@ -7,7 +7,7 @@ interface Props {
 
 export default function FieldAnnotation({ id, coords = '39.5010°N', status = 'ACTIVE', className = '' }: Props) {
   return (
-    <div className={`font-mono text-[7px] tracking-[0.12em] leading-[1.9] ${className}`}>
+    <div className={`font-mono text-[12px] tracking-[0.12em] leading-[1.9] ${className}`}>
       <div className="code-tag">
         <span className="text-accent">{id}</span>
         <br />

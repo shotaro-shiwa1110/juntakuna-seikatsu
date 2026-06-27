@@ -36,8 +36,8 @@ export default function ArchivePage() {
             >
               <ImagePlaceholder label={item.placeholder} className="h-[180px]" />
               <div className="p-6">
-                <div className="font-mono text-[9px] tracking-[0.15em] text-accent mb-2">{typeLabel[item.type]}</div>
-                <div className="font-mono text-[9px] text-ink-30 mb-3">{item.date}</div>
+                <div className="font-mono text-[12px] tracking-[0.15em] text-accent mb-2">{typeLabel[item.type]}</div>
+                <div className="font-mono text-[12px] text-ink-30 mb-3">{item.date}</div>
                 <h3 className="font-mincho text-[1.07rem] leading-[1.6] group-hover:text-ink-60 transition-colors">{item.title}</h3>
               </div>
             </Link>

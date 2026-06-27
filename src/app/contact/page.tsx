@@ -34,7 +34,7 @@ export default function ContactPage() {
                 <div key={id}>
                   <label
                     htmlFor={id}
-                    className="font-mono text-[10px] tracking-[0.15em] text-ink-30 block mb-3"
+                    className="font-mono text-[12px] tracking-[0.15em] text-ink-30 block mb-3"
                   >
                     {label.toUpperCase()} {required && <span className="text-accent">*</span>}
                   </label>
@@ -52,7 +52,7 @@ export default function ContactPage() {
               <div>
                 <label
                   htmlFor="inquiry-type"
-                  className="font-mono text-[10px] tracking-[0.15em] text-ink-30 block mb-3"
+                  className="font-mono text-[12px] tracking-[0.15em] text-ink-30 block mb-3"
                 >
                   お問い合わせ種別 <span className="text-accent">*</span>
                 </label>
@@ -73,7 +73,7 @@ export default function ContactPage() {
               <div>
                 <label
                   htmlFor="message"
-                  className="font-mono text-[10px] tracking-[0.15em] text-ink-30 block mb-3"
+                  className="font-mono text-[12px] tracking-[0.15em] text-ink-30 block mb-3"
                 >
                   MESSAGE <span className="text-accent">*</span>
                 </label>

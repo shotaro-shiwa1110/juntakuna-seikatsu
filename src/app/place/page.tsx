@@ -26,11 +26,11 @@ export default function PlacePage() {
               href={`/place/${place.slug}`}
               className="group block p-10 border-b border-r border-border hover:bg-surface transition-colors h-full"
             >
-              <div className="font-mono text-[9px] tracking-[0.15em] text-accent mb-3">{place.coordinates}</div>
+              <div className="font-mono text-[12px] tracking-[0.15em] text-accent mb-3">{place.coordinates}</div>
               <h2 className="font-mincho text-[1.2rem] leading-[1.45] mb-2 group-hover:text-ink-60 transition-colors">
                 {place.name}
               </h2>
-              <div className="font-mono text-[9px] tracking-[0.08em] text-ink-30 mb-5">{place.prefecture}</div>
+              <div className="font-mono text-[12px] tracking-[0.08em] text-ink-30 mb-5">{place.prefecture}</div>
               <p className="font-serif text-[1rem] text-ink-60 leading-[1.9]">{place.description}</p>
             </Link>
           </ScrollReveal>

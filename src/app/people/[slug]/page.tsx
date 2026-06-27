@@ -30,7 +30,7 @@ export default async function PersonDetailPage({ params }: Props) {
     <div>
       <header className="border-b border-border px-6 py-14">
         <ScrollReveal>
-          <div className="font-mono text-[8px] tracking-[0.3em] text-accent mb-5 flex items-center gap-3">
+          <div className="font-mono text-[12px] tracking-[0.3em] text-accent mb-5 flex items-center gap-3">
             <span className="w-6 h-px bg-accent inline-block" />
             PEOPLE / {person.location}
           </div>
@@ -39,7 +39,7 @@ export default async function PersonDetailPage({ params }: Props) {
           <h1 className="font-mincho text-[2.9rem] leading-[1.25] mb-4">{person.name}</h1>
         </ScrollReveal>
         <ScrollReveal delay={120}>
-          <div className="font-mono text-[10px] tracking-[0.1em] text-ink-30 mb-6">{person.role}</div>
+          <div className="font-mono text-[12px] tracking-[0.1em] text-ink-30 mb-6">{person.role}</div>
           <p className="font-serif text-[1.13rem] text-ink-60 leading-[1.9] max-w-xl">{person.description}</p>
         </ScrollReveal>
       </header>
@@ -48,7 +48,7 @@ export default async function PersonDetailPage({ params }: Props) {
         <ImagePlaceholder label="[FIELD PHOTO — ポートレート]" className="h-[300px]" />
         <div className="p-10 flex items-center">
           <div>
-            <div className="font-mono text-[8px] tracking-[0.25em] text-accent mb-6 flex items-center gap-2">
+            <div className="font-mono text-[12px] tracking-[0.25em] text-accent mb-6 flex items-center gap-2">
               <span className="w-4 h-px bg-accent inline-block" />
               FIELD DATA
             </div>
@@ -68,7 +68,7 @@ export default async function PersonDetailPage({ params }: Props) {
       {relatedLogs.length > 0 && (
         <div className="px-6 py-12">
           <ScrollReveal>
-            <div className="font-mono text-[8px] tracking-[0.25em] text-accent mb-8 flex items-center gap-2">
+            <div className="font-mono text-[12px] tracking-[0.25em] text-accent mb-8 flex items-center gap-2">
               <span className="w-4 h-px bg-accent inline-block" />
               RELATED LOG
             </div>
@@ -84,7 +84,7 @@ export default async function PersonDetailPage({ params }: Props) {
       )}
 
       <div className="border-t border-border px-6 py-8">
-        <Link href="/people" className="font-mono text-[10px] tracking-[0.15em] text-ink-30 hover:text-ink transition-colors">
+        <Link href="/people" className="font-mono text-[12px] tracking-[0.15em] text-ink-30 hover:text-ink transition-colors">
           ← PEOPLE に戻る
         </Link>
       </div>

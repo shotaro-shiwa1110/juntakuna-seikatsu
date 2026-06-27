@@ -1,11 +1,12 @@
+import type { ReactNode } from 'react'
 import ScrollReveal from './ScrollReveal'
 
 interface Props {
-  label: string           // e.g. "PROJECTS"
-  title: string           // Main H1
-  description?: string    // Optional lead text
-  annotation?: string     // Optional right-side coordinate / ID
-  children?: React.ReactNode
+  label: string
+  title: ReactNode
+  description?: string
+  annotation?: string
+  children?: ReactNode
 }
 
 export default function PageHeader({ label, title, description, annotation, children }: Props) {
@@ -14,7 +15,7 @@ export default function PageHeader({ label, title, description, annotation, chil
       <div className="flex items-start justify-between gap-8">
         <div className="flex-1 max-w-2xl">
           <ScrollReveal>
-            <div className="font-mono text-[8px] tracking-[0.3em] text-accent mb-5 flex items-center gap-3">
+            <div className="font-mono text-[12px] tracking-[0.3em] text-accent mb-5 flex items-center gap-3">
               <span className="w-6 h-px bg-accent inline-block" />
               {label}
             </div>
@@ -26,7 +27,7 @@ export default function PageHeader({ label, title, description, annotation, chil
           </ScrollReveal>
           {description && (
             <ScrollReveal delay={120}>
-              <p className="font-serif text-[1.13rem] text-ink-60 leading-[1.9] mt-6 max-w-lg">
+              <p className="font-serif text-[1.13rem] text-ink-60 leading-[1.9] mt-6">
                 {description}
               </p>
             </ScrollReveal>

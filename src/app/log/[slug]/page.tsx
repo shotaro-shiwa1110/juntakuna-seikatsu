@@ -46,8 +46,8 @@ export default async function LogDetailPage({ params }: Props) {
         <div className="max-w-2xl">
           <div className="flex items-center gap-4 mb-6">
             <CategoryBadge category={entry.category} />
-            <span className="font-mono text-[9px] tracking-[0.15em] text-ink-30">{entry.date}</span>
-            <span className="font-mono text-[9px] tracking-[0.12em] text-ink-30">読了 {minutes}分</span>
+            <span className="font-mono text-[12px] tracking-[0.15em] text-ink-30">{entry.date}</span>
+            <span className="font-mono text-[12px] tracking-[0.12em] text-ink-30">読了 {minutes}分</span>
           </div>
           <h1 className="font-mincho text-[2.1rem] leading-[1.4] mb-6">
             {entry.title}
@@ -90,7 +90,7 @@ export default async function LogDetailPage({ params }: Props) {
       {/* Related Project */}
       {relatedProject && (
         <div className="border-t border-border px-6 py-10 bg-surface">
-          <div className="font-mono text-[8px] tracking-[0.25em] text-accent mb-3 flex items-center gap-2">
+          <div className="font-mono text-[12px] tracking-[0.25em] text-accent mb-3 flex items-center gap-2">
             <span className="w-4 h-px bg-accent inline-block" />
             RELATED PROJECT
           </div>
@@ -98,7 +98,7 @@ export default async function LogDetailPage({ params }: Props) {
             href={`/projects/${relatedProject.slug}`}
             className="group flex items-baseline gap-4 hover:opacity-80 transition-opacity"
           >
-            <span className="font-mono text-[9px] tracking-[0.15em] text-ink-30">{relatedProject.number}</span>
+            <span className="font-mono text-[12px] tracking-[0.15em] text-ink-30">{relatedProject.number}</span>
             <span className="font-mincho text-[1.2rem] leading-[1.5] group-hover:text-ink-60 transition-colors">
               {relatedProject.title} <BtnArrow />
             </span>
@@ -111,7 +111,7 @@ export default async function LogDetailPage({ params }: Props) {
         <div className="grid grid-cols-1 gap-6">
           {prev && (
             <Link href={`/log/${prev.slug}`} className="group flex flex-col gap-1 hover:opacity-80 transition-opacity">
-              <span className="font-mono text-[8px] tracking-[0.15em] text-ink-30">← PREV</span>
+              <span className="font-mono text-[12px] tracking-[0.15em] text-ink-30">← PREV</span>
               <span className="font-mincho text-[1.07rem] leading-[1.6] text-ink group-hover:text-ink-60 transition-colors line-clamp-2">
                 {prev.title}
               </span>
@@ -119,7 +119,7 @@ export default async function LogDetailPage({ params }: Props) {
           )}
           {next && (
             <Link href={`/log/${next.slug}`} className="group flex flex-col gap-1 text-right ml-auto hover:opacity-80 transition-opacity">
-              <span className="font-mono text-[8px] tracking-[0.15em] text-ink-30">NEXT →</span>
+              <span className="font-mono text-[12px] tracking-[0.15em] text-ink-30">NEXT →</span>
               <span className="font-mincho text-[1.07rem] leading-[1.6] text-ink group-hover:text-ink-60 transition-colors line-clamp-2">
                 {next.title}
               </span>
@@ -130,7 +130,7 @@ export default async function LogDetailPage({ params }: Props) {
 
       {/* More logs */}
       <div className="border-t border-border px-6 py-10">
-        <div className="font-mono text-[8px] tracking-[0.25em] text-accent mb-6 flex items-center gap-2">
+        <div className="font-mono text-[12px] tracking-[0.25em] text-accent mb-6 flex items-center gap-2">
           <span className="w-4 h-px bg-accent inline-block" />
           MORE LOGS
         </div>

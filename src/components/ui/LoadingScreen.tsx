@@ -39,14 +39,14 @@ export default function LoadingScreen() {
           <div className="font-mincho text-[1.6rem] tracking-[0.25em] text-ink">
             巡拓な生活
           </div>
-          <div className="font-mono text-[8px] tracking-[0.4em] text-ink-30">
+          <div className="font-mono text-[12px] tracking-[0.4em] text-ink-30">
             JUNTAKUNA SEIKATSU
           </div>
         </div>
         {/* Scan line effect */}
         <div className="flex items-center gap-2 mt-2">
           <span className="w-8 h-px bg-border" />
-          <span className="font-mono text-[7px] tracking-[0.2em] text-ink-30">LOADING</span>
+          <span className="font-mono text-[12px] tracking-[0.2em] text-ink-30">LOADING</span>
           <span className="w-8 h-px bg-border" />
         </div>
       </div>
