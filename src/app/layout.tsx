@@ -1,10 +1,12 @@
 import type { Metadata } from 'next'
+import { Suspense } from 'react'
 import './globals.css'
 import LeftNav from '@/components/layout/LeftNav'
 import TopNav from '@/components/layout/TopNav'
 import Footer from '@/components/layout/Footer'
 import LoadingScreen from '@/components/ui/LoadingScreen'
 import ScrollReset from '@/components/ui/ScrollReset'
+import TrackVisit from '@/components/ui/TrackVisit'
 
 export const metadata: Metadata = {
   title: {
@@ -30,6 +32,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <LoadingScreen />
         <ScrollReset />
+        <Suspense fallback={null}><TrackVisit /></Suspense>
 
         <div id="page-scroll" className="page-wrapper">
           <a
