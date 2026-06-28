@@ -8,33 +8,20 @@ export default function TrackVisit() {
   const params = useSearchParams()
 
   useEffect(() => {
-    const source   = params.get('utm_source')   ?? ''
-    const medium   = params.get('utm_medium')   ?? ''
-    const campaign = params.get('utm_campaign') ?? ''
+    const ref = params.get('ref') ?? ''
+    if (!ref || !GAS_URL) return
 
-    // utm_source がないアクセスは記録しない（直接アクセス等を除外）
-    if (!source) return
-    if (!GAS_URL) return
-
-    // セッション内で同じパラメータを2回送らない
-    const key = `tracked:${source}:${medium}:${campaign}`
+    // セッション内で同じ流入元を2回送らない
+    const key = `tracked:${ref}`
     if (sessionStorage.getItem(key)) return
     sessionStorage.setItem(key, '1')
 
-    const payload = {
-      source,
-      medium,
-      campaign,
-      path:      window.location.pathname,
-      referrer:  document.referrer || '',
-      userAgent: navigator.userAgent,
-    }
-
-    // サイトの表示を一切ブロックしない fire-and-forget
+    // GASはCORSヘッダーを返さないので no-cors で送信
     fetch(GAS_URL, {
       method: 'POST',
-      body: JSON.stringify(payload),
-    }).catch(() => { /* silent fail */ })
+      mode: 'no-cors',
+      body: JSON.stringify({ ref, path: window.location.pathname }),
+    }).catch(() => {})
   }, [params])
 
   return null
